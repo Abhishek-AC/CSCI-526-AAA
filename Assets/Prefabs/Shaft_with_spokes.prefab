@@ -198,7 +198,6 @@ GameObject:
   - component: {fileID: 6727763321495245262}
   - component: {fileID: 6727763321495245233}
   - component: {fileID: 6727763321495245232}
-  - component: {fileID: 6727763321495245235}
   m_Layer: 0
   m_Name: Shaft_with_spokes
   m_TagString: Untagged
@@ -283,24 +282,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6727763321495245235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6727763321495245234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164ae60440e5b0f448da2bc10c9fcd69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settings:
-    isMotor: 0
-    isShaft: 1
-    isWorm: 0
-    invWormOut: 0
-    updateOnce: 0
-    updateLive: 0
-    motorSpeed: 0
-    outputTo: []
