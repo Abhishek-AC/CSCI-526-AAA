@@ -36,25 +36,23 @@ public class ClickToRotate : MonoBehaviour
                 }
             }
         }
-        //if the current status is rotating, rotate the cube group in specified rotating speed
+        //if the current status is rotating, rotate the cube group with specified rotating speed
         if (isRotating)
         {
             Vector3 angleSpeed = new Vector3(0, 0, m_angleSpeed);
-            currentAngleDegree += m_angleSpeed*Time.deltaTime;
-            //only rotate when the angle that has been rotated is less than the maximum rotating degree per click
-            if(currentAngleDegree < maxAnglesPerClick)
+            float frameAngleSpeed =  m_angleSpeed*Time.deltaTime;
+            float remainingDegree = maxAnglesPerClick - currentAngleDegree;
+            //check that if the remaing angle( maxAngle - currentAngle) is less than frameAngleSpeed,just rotate the remaining angle
+            if ( remainingDegree < frameAngleSpeed)
             {
-                m_rotationCubeGroup.transform.Rotate(angleSpeed * Time.deltaTime, Space.World);
-                float remaingDegree = maxAnglesPerClick - currentAngleDegree;
-                if (remaingDegree <= m_angleSpeed * Time.deltaTime)
-                {
-                    m_rotationCubeGroup.transform.Rotate(new Vector3(0,0,remaingDegree), Space.World);
-                }
-            }
-            else { 
+                m_rotationCubeGroup.transform.Rotate(new Vector3(0,0,remainingDegree), Space.World);
                 isRotatable = true;
                 isRotating = false;
                 currentAngleDegree = 0f;
+            }
+            else {
+                m_rotationCubeGroup.transform.Rotate(angleSpeed*Time.deltaTime, Space.World);
+                currentAngleDegree += frameAngleSpeed;
             }
         }
     }
