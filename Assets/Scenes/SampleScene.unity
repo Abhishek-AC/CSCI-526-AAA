@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 291159620}
   m_Layer: 8
   m_Name: Cube
-  m_TagString: Floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1460,7 +1460,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1902245195}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: 57, z: 23}
 --- !u!1 &721867386
 GameObject:
@@ -1911,7 +1911,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 8
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 256
@@ -2196,7 +2196,7 @@ Transform:
   m_Children:
   - {fileID: 817697387}
   m_Father: {fileID: 1902245195}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 35.26, y: 45, z: 0}
 --- !u!124 &963194229
 Behaviour:
@@ -3165,8 +3165,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 963194228}
   - {fileID: 705507995}
+  - {fileID: 963194228}
   - {fileID: 291159623}
   - {fileID: 721867390}
   - {fileID: 2034453567}
