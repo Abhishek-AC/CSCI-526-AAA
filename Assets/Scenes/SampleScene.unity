@@ -436,7 +436,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
-  possiblePath: []
+  possiblePath:
+  - target: {fileID: 1474738039}
+    active: 1
+  - target: {fileID: 764985603}
+    active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1 &291159619
@@ -747,13 +751,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353198607}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 376657756}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &353198612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,7 +771,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
-  possiblePath: []
+  possiblePath:
+  - target: {fileID: 795731125}
+    active: 1
+  - target: {fileID: 2045436625}
+    active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1 &374257748
@@ -784,7 +792,7 @@ GameObject:
   - component: {fileID: 374257749}
   - component: {fileID: 374257753}
   m_Layer: 0
-  m_Name: 'Cube (y4) '
+  m_Name: Cube (y4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -857,13 +865,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374257748}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 376657756}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &374257753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,7 +885,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
-  possiblePath: []
+  possiblePath:
+  - target: {fileID: 601953908}
+    active: 0
+  - target: {fileID: 795731125}
+    active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1 &376657755
@@ -889,6 +901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 376657756}
+  - component: {fileID: 376657757}
   m_Layer: 0
   m_Name: Rotate
   m_TagString: Untagged
@@ -912,11 +925,23 @@ Transform:
   - {fileID: 353198611}
   - {fileID: 2045436625}
   - {fileID: 1616080931}
-  - {fileID: 1862786925}
   - {fileID: 557823144}
+  - {fileID: 1862786925}
   m_Father: {fileID: 1902245195}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &376657757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376657755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2df6ab23299b144caaba279b33c0565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &473911343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,13 +1237,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557823140}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 376657756}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &557823145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,7 +1257,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
-  possiblePath: []
+  possiblePath:
+  - target: {fileID: 1862786925}
+    active: 1
+  - target: {fileID: 1474738039}
+    active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1 &561708049
@@ -1573,6 +1602,8 @@ MonoBehaviour:
   possiblePath:
   - target: {fileID: 561708053}
     active: 1
+  - target: {fileID: 374257752}
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1 &692963396
@@ -2092,7 +2123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
-  possiblePath: []
+  possiblePath:
+  - target: {fileID: 260586961}
+    active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1 &795731121
@@ -2182,13 +2215,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795731121}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 376657756}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &795731126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2202,7 +2235,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
-  possiblePath: []
+  possiblePath:
+  - target: {fileID: 374257752}
+    active: 1
+  - target: {fileID: 353198611}
+    active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1 &817697386
@@ -3275,7 +3312,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
-  possiblePath: []
+  possiblePath:
+  - target: {fileID: 557823144}
+    active: 1
+  - target: {fileID: 260586961}
+    active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1 &1505045532
@@ -3479,13 +3520,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616080927}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 376657756}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1616080932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3499,7 +3540,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
-  possiblePath: []
+  possiblePath:
+  - target: {fileID: 2045436625}
+    active: 1
+  - target: {fileID: 1862786925}
+    active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1 &1705853044
@@ -3683,13 +3728,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862786921}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 376657756}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1862786926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3703,7 +3748,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
-  possiblePath: []
+  possiblePath:
+  - target: {fileID: 557823144}
+    active: 1
+  - target: {fileID: 1616080931}
+    active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1 &1902245194
@@ -3961,13 +4010,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045436621}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 376657756}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &2045436626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3981,7 +4030,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
-  possiblePath: []
+  possiblePath:
+  - target: {fileID: 353198611}
+    active: 1
+  - target: {fileID: 1616080931}
+    active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1001 &7572620495030129142
