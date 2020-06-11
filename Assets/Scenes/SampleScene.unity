@@ -227,10 +227,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: -8, y: 8.5, z: -3.5}
   possiblePath:
   - target: {fileID: 1505045536}
     active: 1
-  - target: {fileID: 291159623}
+  - target: {fileID: 721867390}
     active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -434,6 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -543,11 +545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possiblePath:
-  - target: {fileID: 721867390}
-    active: 1
-  - target: {fileID: 7883606}
-    active: 1
+  edgeValue: {x: 0, y: 0, z: 0}
+  possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
 --- !u!1 &326910346
@@ -660,6 +659,7 @@ MonoBehaviour:
   currentCube: {fileID: 0}
   clickedCube: {fileID: 0}
   finalPath: []
+  walkingSpeed: 0.2
 --- !u!1 &353198607
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -875,6 +876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -1021,6 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1010431838}
     active: 1
@@ -1228,6 +1231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -1337,6 +1341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 473911347}
     active: 1
@@ -1450,6 +1455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 721867390}
     active: 1
@@ -1563,6 +1569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: -4, y: 8.5, z: -1}
   possiblePath:
   - target: {fileID: 561708053}
     active: 1
@@ -1860,8 +1867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0.5, z: 4.5}
   possiblePath:
-  - target: {fileID: 291159623}
+  - target: {fileID: 7883606}
     active: 1
   - target: {fileID: 585291729}
     active: 1
@@ -1973,6 +1981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -2082,6 +2091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -2191,6 +2201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -2477,6 +2488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1400878563}
     active: 1
@@ -2683,6 +2695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1505045536}
     active: 1
@@ -2835,6 +2848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -2944,6 +2958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -3053,6 +3068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 845923759}
     active: 1
@@ -3258,6 +3274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -3367,6 +3384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 7883606}
     active: 1
@@ -3480,6 +3498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -3683,6 +3702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -3850,6 +3870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
@@ -3959,6 +3980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
