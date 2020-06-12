@@ -663,7 +663,7 @@ MonoBehaviour:
   currentCube: {fileID: 0}
   clickedCube: {fileID: 0}
   finalPath: []
-  walkingSpeed: 0.2
+  walkingSpeed: 5
 --- !u!1 &353198607
 GameObject:
   m_ObjectHideFlags: 0

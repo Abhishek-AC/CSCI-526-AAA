@@ -11,17 +11,20 @@ public class PlayerController : MonoBehaviour
     public Transform clickedCube;
     public List<Transform> finalPath;
     public float walkingSpeed;
+    private float timePerUnitMove;
     // Start is called before the first frame update
     void Start()
     {
         RayCastDown();
+        timePerUnitMove = 1f / walkingSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //find player current block
         RayCastDown();
-        //camera raycast
+        //camera raycast to find the clicked block ref:https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
         if (Input.GetMouseButtonDown(0))
         {
             Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    //Use djikstra algorithm to find the path from the current cube to clicked cube
     private void FindPath()
     {
         List<Transform> nextCubes = new List<Transform>();
@@ -64,6 +68,7 @@ public class PlayerController : MonoBehaviour
         pastCubes.Add(currentCube);
         ExploreCube(nextCubes, pastCubes);
     }
+    //supporting method to findPath function
     private void ExploreCube(List<Transform> nextCubes, List<Transform> visitedCubes)
     {
         Transform current = nextCubes.First();
@@ -86,6 +91,7 @@ public class PlayerController : MonoBehaviour
             ExploreCube(nextCubes, visitedCubes);
         }
     }
+    //method to generate path from current cube to clicked cube, storing it to finalPath
     private void BuildPath()
     {
         FindPath();
@@ -100,6 +106,7 @@ public class PlayerController : MonoBehaviour
         }
         FollowPath();
     }
+    //remove all path in finalPath
     private void Clear()
     {
         foreach(Transform t in finalPath)
@@ -108,9 +115,11 @@ public class PlayerController : MonoBehaviour
         }
         finalPath.Clear();
     }
+    //method to generate player movement, use api called dotween ref: http://dotween.demigiant.com/documentation.php#creatingTweener
     private void FollowPath()
     {
         bool skipNext = false;
+        //offset to move player up a little bit in y direction
         Vector3 offset = new Vector3(0, 0.5f, 0);
         Sequence s = DOTween.Sequence();
         for(int i = finalPath.Count-1; i >= 0; i--)
@@ -120,15 +129,19 @@ public class PlayerController : MonoBehaviour
                 skipNext = false;
                 continue;
             }
-            s.Append(transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint()+offset, walkingSpeed).SetEase(Ease.Linear));
-            //this check if there is a gap between two cube, if so, a transition need to be made 
+            s.Append(transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint()+offset, timePerUnitMove).SetEase(Ease.Linear));
+            //this check if there is a gap between two cubes in scene view(not game view) , if so, player need to 
+            // first move to the the edge of current cube
+            // second transform its position to the edge position of the cube you are moving to
+            //lastly move to the walkpoint of the you are moving to
+            // the whole process take 1 unit time
             if (finalPath[i].GetComponent<Walkable>().edgeValue != Vector3.zero && i > 0 && finalPath[i-1].GetComponent<Walkable>().edgeValue != Vector3.zero)
             {
                 Vector3 newPos = finalPath[i - 1].GetComponent<Walkable>().edgeValue + offset;
-                Tween tween = transform.DOMove(finalPath[i].GetComponent<Walkable>().edgeValue + offset, walkingSpeed/2)
+                Tween tween = transform.DOMove(finalPath[i].GetComponent<Walkable>().edgeValue + offset, timePerUnitMove/2)
                     .SetEase(Ease.Linear).OnComplete(() =>transform.position = newPos);
                 s.Append(tween);
-                s.Append(transform.DOMove(finalPath[i-1].GetComponent<Walkable>().GetWalkPoint() + offset, walkingSpeed/2).SetEase(Ease.Linear));
+                s.Append(transform.DOMove(finalPath[i-1].GetComponent<Walkable>().GetWalkPoint() + offset, timePerUnitMove/2).SetEase(Ease.Linear));
                 skipNext = true;
             }
         }
