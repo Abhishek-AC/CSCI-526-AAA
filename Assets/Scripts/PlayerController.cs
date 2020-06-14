@@ -48,7 +48,9 @@ public class PlayerController : MonoBehaviour
         {
             if (playerHit.transform.GetComponent<Walkable>() != null)
             {
+
                 currentCube = playerHit.transform;
+                
             }
         }
     }
@@ -122,6 +124,7 @@ public class PlayerController : MonoBehaviour
         //offset to move player up a little bit in y direction
         Vector3 offset = new Vector3(0, 0.5f, 0);
         Sequence s = DOTween.Sequence();
+        
         for(int i = finalPath.Count-1; i >= 0; i--)
         {
             if (skipNext)
@@ -129,6 +132,13 @@ public class PlayerController : MonoBehaviour
                 skipNext = false;
                 continue;
             }
+            Vector3 temp = finalPath[i].GetComponent<Walkable>().GetWalkPoint();
+            if(!finalPath[i].GetComponent<Walkable>().canWalkOnThisBlock) {
+                Debug.Log("|| " + finalPath[i].name);
+                Debug.Log("SHOULD BREAK");
+                break;
+            }
+                
             s.Append(transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint()+offset, timePerUnitMove).SetEase(Ease.Linear));
             //this check if there is a gap between two cubes in scene view(not game view) , if so, player need to 
             // first move to the the edge of current cube
