@@ -679,7 +679,7 @@ GameObject:
   - component: {fileID: 353198612}
   m_Layer: 0
   m_Name: Cube (y6)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 374257753}
   m_Layer: 0
   m_Name: Cube (y4)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 557823145}
   m_Layer: 0
   m_Name: Cube (y7z3)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2143,7 +2143,7 @@ GameObject:
   - component: {fileID: 795731126}
   m_Layer: 0
   m_Name: Cube (y5)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3448,7 +3448,7 @@ GameObject:
   - component: {fileID: 1616080932}
   m_Layer: 0
   m_Name: Cube (y7z1)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3656,7 +3656,7 @@ GameObject:
   - component: {fileID: 1862786926}
   m_Layer: 0
   m_Name: Cube (y7z2)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3938,7 +3938,7 @@ GameObject:
   - component: {fileID: 2045436626}
   m_Layer: 0
   m_Name: Cube (y7)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
