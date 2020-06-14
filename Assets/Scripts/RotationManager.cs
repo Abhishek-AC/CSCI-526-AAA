@@ -11,9 +11,9 @@ public class RotationManager : MonoBehaviour
         Transform cubeToConnect1 = transform.Find("Cube (y4)");
         Transform cubeToConnect2 = GameObject.Find("Cube (x-5y8z1)").transform;
         //return if Transform not found
-        if(cubeToConnect1 == null || cubeToConnect2 == null)
+        if (cubeToConnect1 == null || cubeToConnect2 == null)
         {
-            
+            Debug.Log("Cube not reachable");
             return;
         }
         //check if the rotation angle is 270 degree, which connects two blocks

@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /* 
 Mono Behaviour: https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
 Base class from which every Unity Script derives
@@ -32,13 +31,11 @@ public class ClickToRotate : MonoBehaviour
         maxAnglesPerClick = 90f;
         currentAngleDegree = 0f;
     }
-
     /*
     MonoBehaviour.Update() : https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html
     Update is called once per frame
     */
     void Update()
-
     {
         /*
         Input.GetMouseButtonDown() : https://docs.unity3d.com/ScriptReference/Input.GetMouseButtonDown.html
@@ -73,19 +70,13 @@ public class ClickToRotate : MonoBehaviour
         //if the current status is rotating, rotate the cube group with specified rotating speed
         if (isRotating)
         {
-            
             /*
             Vector3 : https://docs.unity3d.com/ScriptReference/Vector3.html
             Vector3 Constructor: https://docs.unity3d.com/ScriptReference/Vector3.html
             */
             Vector3 angleSpeed = new Vector3(0, 0, m_angleSpeed);
-            
-
             float frameAngleSpeed = m_angleSpeed * Time.deltaTime;
-            
-
             float remainingDegree = maxAnglesPerClick - currentAngleDegree;
-            
 
             /*
             check that if the remaing angle( maxAngle - currentAngle) is less than frameAngleSpeed
@@ -110,7 +101,6 @@ public class ClickToRotate : MonoBehaviour
         }
 
     }
-
     private bool IsPlayerOnRotate()
     {
         var result = false;
