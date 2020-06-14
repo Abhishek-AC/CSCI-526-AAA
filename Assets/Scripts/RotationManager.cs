@@ -13,7 +13,7 @@ public class RotationManager : MonoBehaviour
         //return if Transform not found
         if(cubeToConnect1 == null || cubeToConnect2 == null)
         {
-            Debug.Log("cube reference is incorrect");
+            
             return;
         }
         //check if the rotation angle is 270 degree, which connects two blocks
