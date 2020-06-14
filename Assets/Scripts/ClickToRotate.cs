@@ -38,18 +38,23 @@ public class ClickToRotate : MonoBehaviour
     Update is called once per frame
     */
     void Update()
+
     {
         /*
         Input.GetMouseButtonDown() : https://docs.unity3d.com/ScriptReference/Input.GetMouseButtonDown.html
         check if the rotation gear is clicked
         */
-        if (Input.GetMouseButtonDown(0) && isRotatable)
+        if (Input.GetMouseButtonDown(0) && isRotatable && !IsPlayerOnRotate())
         {
             /*
             RaycastHit : https://docs.unity3d.com/ScriptReference/RaycastHit.html
             Property Used - Physics.raycast : https://docs.unity3d.com/ScriptReference/Physics.Raycast.html 
             */
             RaycastHit hit;
+            // GameObject rotateObject = GameObject.Find("Rotate");
+            // foreach(Transform t in rotateObject.transform){
+            //     t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
+            // }
             /*
             Ray :https://docs.unity3d.com/ScriptReference/Ray.html
             Camera.main.ScreenPointToRay() : https://docs.unity3d.com/ScriptReference/Camera.ScreenPointToRay.html
@@ -68,19 +73,19 @@ public class ClickToRotate : MonoBehaviour
         //if the current status is rotating, rotate the cube group with specified rotating speed
         if (isRotating)
         {
-            Debug.Log("m_angleSpeed: " + m_angleSpeed);
+            
             /*
             Vector3 : https://docs.unity3d.com/ScriptReference/Vector3.html
             Vector3 Constructor: https://docs.unity3d.com/ScriptReference/Vector3.html
             */
             Vector3 angleSpeed = new Vector3(0, 0, m_angleSpeed);
-            Debug.Log("angleSpeed: " + angleSpeed);
+            
 
             float frameAngleSpeed = m_angleSpeed * Time.deltaTime;
-            Debug.Log("frameAngleSpeed: " + frameAngleSpeed);
+            
 
             float remainingDegree = maxAnglesPerClick - currentAngleDegree;
-            Debug.Log("remainingDegree: " + remainingDegree);
+            
 
             /*
             check that if the remaing angle( maxAngle - currentAngle) is less than frameAngleSpeed
@@ -103,5 +108,21 @@ public class ClickToRotate : MonoBehaviour
                 currentAngleDegree += frameAngleSpeed;
             }
         }
+
+    }
+
+    private bool IsPlayerOnRotate()
+    {
+        var result = false;
+        var rotate = GameObject.Find("Rotate");
+        var player = GameObject.Find("Player");
+        var playerRay = new Ray(player.transform.position, -player.transform.up);
+
+        RaycastHit playerHit;
+        if (Physics.Raycast(playerRay, out playerHit))
+            if (playerHit.transform.IsChildOf(rotate.transform))
+                result = true;
+
+        return result;
     }
 }
