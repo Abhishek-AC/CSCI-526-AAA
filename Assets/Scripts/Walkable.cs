@@ -13,7 +13,10 @@ public class Walkable : MonoBehaviour
     public bool canWalkOnThisBlock = true;
     //get walkPoint of current cube
     public Vector3 GetWalkPoint()
-    {
+    {   
+        if(this.canWalkOnThisBlock==false) {
+            return new Vector3(0, -0.5f, 0);
+        }   
         GameObject rotateObject = GameObject.Find("Rotate");
         foreach (Transform t in rotateObject.transform)
         {

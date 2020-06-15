@@ -9,7 +9,7 @@ public class RotationManager : MonoBehaviour
     {
         //the following code connects cubes after rotation has been made
         Transform cubeToConnect1 = transform.Find("Cube (y4)");
-        Transform cubeToConnect2 = GameObject.Find("Cube (x-5y8z1)").transform;
+        Transform cubeToConnect2 = GameObject.Find("Cube (x-5y8z1)").transform; 
         //return if Transform not found
         if (cubeToConnect1 == null || cubeToConnect2 == null)
         {
@@ -21,11 +21,13 @@ public class RotationManager : MonoBehaviour
         {
             cubeToConnect1.GetComponent<Walkable>().possiblePath[0].active = true;
             cubeToConnect2.GetComponent<Walkable>().possiblePath[1].active = true;
+            cubeToConnect2.GetComponent<Walkable>().canWalkOnThisBlock = true;
         }
         else
         {
             cubeToConnect1.GetComponent<Walkable>().possiblePath[0].active = false;
             cubeToConnect2.GetComponent<Walkable>().possiblePath[1].active = false;
+            cubeToConnect2.GetComponent<Walkable>().canWalkOnThisBlock = false;
         }
     }
 }
