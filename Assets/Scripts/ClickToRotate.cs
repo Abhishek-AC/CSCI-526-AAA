@@ -98,6 +98,9 @@ public class ClickToRotate : MonoBehaviour
                 m_rotationCubeGroup.transform.Rotate(angleSpeed * Time.deltaTime, Space.World);
                 currentAngleDegree += frameAngleSpeed;
             }
+            //kill any player movement
+            GameObject player = GameObject.Find("Player");
+            player.transform.GetComponent<PlayerController>().KillMovement();
         }
 
     }

@@ -3,6 +3,7 @@ using Packages.Rider.Editor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public List<Transform> finalPath;
     public float walkingSpeed;
     private float timePerUnitMove;
+    private Sequence s;
     // Start is called before the first frame update
     void Start()
     {
@@ -116,13 +118,27 @@ public class PlayerController : MonoBehaviour
         }
         finalPath.Clear();
     }
+    public void KillMovement()
+    {
+        //kill player movement
+        s.Kill();
+    }
+    public bool onMove()
+    {
+        //check if the player is currently moving
+        if(s.IsActive() && !s.IsComplete())
+        {
+            return true;
+        }
+        return false;
+    }
     //method to generate player movement, use api called dotween ref: http://dotween.demigiant.com/documentation.php#creatingTweener
     private void FollowPath()
     {
         bool skipNext = false;
         //offset to move player up a little bit in y direction
         Vector3 offset = new Vector3(0, 0.5f, 0);
-        Sequence s = DOTween.Sequence();
+        s = DOTween.Sequence();
 
         for (int i = finalPath.Count - 1; i >= 0; i--)
         {
