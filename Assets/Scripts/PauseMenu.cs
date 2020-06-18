@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject Pause_Menu, PauseButton, Level1;
@@ -25,6 +25,10 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Replay() {
+        Debug.Log("Replay");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 
 }
