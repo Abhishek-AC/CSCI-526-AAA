@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public float walkingSpeed;
     private float timePerUnitMove;
     private Sequence s;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -172,4 +175,23 @@ public class PlayerController : MonoBehaviour
         }
         s.AppendCallback(() => Clear());
     }
+
+   
+   //Eventhandler for collecting collectibles.
+   public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("OnTriggerEnter");
+        if(other.gameObject.CompareTag("crystal"))
+        {
+            Debug.Log("Collision");
+            other.gameObject.SetActive(false);
+        }
+        if(other.gameObject.CompareTag("star"))
+        {
+            Debug.Log("Collision");
+            other.gameObject.SetActive(false);
+        }
+    }
+
+   
 }
