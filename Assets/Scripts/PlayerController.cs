@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private float timePerUnitMove;
     private Sequence s;
 
-   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,7 +114,7 @@ public class PlayerController : MonoBehaviour
     private void Clear()
     {
         Walkable[] components = GameObject.FindObjectsOfType<Walkable>();
-        foreach(Walkable w in components)
+        foreach (Walkable w in components)
         {
             w.previousBlock = null;
         }
@@ -129,7 +128,7 @@ public class PlayerController : MonoBehaviour
     public bool onMove()
     {
         //check if the player is currently moving
-        if(s.IsActive() && !s.IsComplete())
+        if (s.IsActive() && !s.IsComplete())
         {
             return true;
         }
@@ -176,22 +175,22 @@ public class PlayerController : MonoBehaviour
         s.AppendCallback(() => Clear());
     }
 
-   
-   //Eventhandler for collecting collectibles.
-   public void OnTriggerEnter(Collider other)
+
+    //Eventhandler for collecting collectibles.
+    public void OnTriggerEnter(Collider other)
     {
         Debug.Log("OnTriggerEnter");
-        if(other.gameObject.CompareTag("crystal"))
+        if (other.gameObject.CompareTag("crystal"))
         {
             Debug.Log("Collision");
             other.gameObject.SetActive(false);
         }
-        if(other.gameObject.CompareTag("star"))
+        if (other.gameObject.CompareTag("star"))
         {
             Debug.Log("Collision");
             other.gameObject.SetActive(false);
         }
     }
 
-   
+
 }

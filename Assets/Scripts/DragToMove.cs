@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DragToMove : MonoBehaviour
 {
@@ -50,13 +49,14 @@ public class DragToMove : MonoBehaviour
                 return;
         }
         //get the updated mouse position
-        Vector3 newPos =  getMousePosWorld() + mOffset;
+        Vector3 newPos = getMousePosWorld() + mOffset;
         //check if the moving block would exceed the limit range
         if (newPos.x < moveRangeMin)
         {
             newPos.x = moveRangeMin;
         }
-        else if(newPos.x > moveRangeMax) {
+        else if (newPos.x > moveRangeMax)
+        {
             newPos.x = moveRangeMax;
         }
         //move the handle and the moving cube group

@@ -9,6 +9,8 @@ TagManager:
   - moveCube
   - crystal
   - star
+  - obstacle
+  - collectable
   layers:
   - Default
   - TransparentFX

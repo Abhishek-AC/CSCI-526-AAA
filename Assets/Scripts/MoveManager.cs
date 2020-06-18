@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MoveManager : MonoBehaviour
 {
@@ -14,14 +12,14 @@ public class MoveManager : MonoBehaviour
     void Update()
     {
         //check whether the moving block gourp reaches either end, if so change the possible path of related blocks to make movement possible
-        if(transform.position.x == maxRange)
+        if (transform.position.x == maxRange)
         {
             MoveGroup1_1.transform.GetComponent<Walkable>().possiblePath[0].active = true;
             MoveGroup1_2.transform.GetComponent<Walkable>().possiblePath[0].active = true;
             MoveGroup2_1.transform.GetComponent<Walkable>().possiblePath[0].active = false;
             MoveGroup2_2.transform.GetComponent<Walkable>().possiblePath[0].active = false;
         }
-        else if(transform.position.x == minRange)
+        else if (transform.position.x == minRange)
         {
             MoveGroup1_1.transform.GetComponent<Walkable>().possiblePath[0].active = false;
             MoveGroup1_2.transform.GetComponent<Walkable>().possiblePath[0].active = false;
