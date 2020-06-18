@@ -1,9 +1,6 @@
 ﻿using DG.Tweening;
-using Packages.Rider.Editor;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -105,16 +102,19 @@ public class PlayerController : MonoBehaviour
             if (cube.GetComponent<Walkable>().previousBlock != null)
                 cube = cube.GetComponent<Walkable>().previousBlock;
             else
+            {
                 return;
+            }
         }
         FollowPath();
     }
     //remove all path in finalPath
     private void Clear()
     {
-        foreach (Transform t in finalPath)
+        Walkable[] components = GameObject.FindObjectsOfType<Walkable>();
+        foreach(Walkable w in components)
         {
-            t.GetComponent<Walkable>().previousBlock = null;
+            w.previousBlock = null;
         }
         finalPath.Clear();
     }
