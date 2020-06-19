@@ -25,10 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         //find player current block
         RayCastDown();
-        if(currentCube.tag == "Finish") {
-            Debug.Log("Game Objective achieved");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
-        }
+        
         //camera raycast to find the clicked block ref:https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
         if (Input.GetMouseButtonDown(0))
         {
@@ -192,8 +189,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Collision");
             other.gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
         }
     }
-
-
 }
