@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RotationManager : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class RotationManager : MonoBehaviour
     {
         //the following code connects cubes after rotation has been made
         Transform cubeToConnect1 = transform.Find("Cube (y4)");
-        Transform cubeToConnect2 = GameObject.Find("Cube (x-5y8z1)").transform; 
+        Transform cubeToConnect2 = GameObject.Find("Cube (x-5y8z1)").transform;
         //return if Transform not found
         if (cubeToConnect1 == null || cubeToConnect2 == null)
         {
