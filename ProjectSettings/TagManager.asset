@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Floor
   - rotatableCube
+  - moveCube
+  - crystal
+  - star
+  - obstacle
+  - collectable
   layers:
   - Default
   - TransparentFX

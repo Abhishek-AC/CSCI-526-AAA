@@ -1,6 +1,4 @@
 ﻿using DG.Tweening;
-using Packages.Rider.Editor;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public List<Transform> finalPath;
     public float walkingSpeed;
     private float timePerUnitMove;
+    private Sequence s;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,18 +107,35 @@ public class PlayerController : MonoBehaviour
             if (cube.GetComponent<Walkable>().previousBlock != null)
                 cube = cube.GetComponent<Walkable>().previousBlock;
             else
+            {
                 return;
+            }
         }
         FollowPath();
     }
     //remove all path in finalPath
     private void Clear()
     {
-        foreach (Transform t in finalPath)
+        Walkable[] components = GameObject.FindObjectsOfType<Walkable>();
+        foreach (Walkable w in components)
         {
-            t.GetComponent<Walkable>().previousBlock = null;
+            w.previousBlock = null;
         }
         finalPath.Clear();
+    }
+    public void KillMovement()
+    {
+        //kill player movement
+        s.Kill();
+    }
+    public bool onMove()
+    {
+        //check if the player is currently moving
+        if (s.IsActive() && !s.IsComplete())
+        {
+            return true;
+        }
+        return false;
     }
     //method to generate player movement, use api called dotween ref: http://dotween.demigiant.com/documentation.php#creatingTweener
     private void FollowPath()
@@ -125,7 +143,7 @@ public class PlayerController : MonoBehaviour
         bool skipNext = false;
         //offset to move player up a little bit in y direction
         Vector3 offset = new Vector3(0, 0.5f, 0);
-        Sequence s = DOTween.Sequence();
+        s = DOTween.Sequence();
 
         for (int i = finalPath.Count - 1; i >= 0; i--)
         {
@@ -159,4 +177,23 @@ public class PlayerController : MonoBehaviour
         }
         s.AppendCallback(() => Clear());
     }
+
+
+    //Eventhandler for collecting collectibles.
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("OnTriggerEnter");
+        if (other.gameObject.CompareTag("crystal"))
+        {
+            Debug.Log("Collision");
+            other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("star"))
+        {
+            Debug.Log("Collision");
+            other.gameObject.SetActive(false);
+        }
+    }
+
+
 }
