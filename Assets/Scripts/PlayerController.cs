@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.orientation = ScreenOrientation.PortraitUpsideDown;
         RayCastDown();
         timePerUnitMove = 1f / walkingSpeed;
     }
