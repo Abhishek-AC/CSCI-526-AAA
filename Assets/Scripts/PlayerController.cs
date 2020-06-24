@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         //find player current block
         RayCastDown();
+        
         //camera raycast to find the clicked block ref:https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
         if (Input.GetMouseButtonDown(0))
         {
@@ -49,9 +51,7 @@ public class PlayerController : MonoBehaviour
         {
             if (playerHit.transform.GetComponent<Walkable>() != null)
             {
-
                 currentCube = playerHit.transform;
-
             }
         }
     }
@@ -190,8 +190,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Collision");
             other.gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
         }
     }
-
-
 }
