@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Transform currentCube;
     public Transform clickedCube;
     public List<Transform> finalPath;
+    public Animator anim;
     public float walkingSpeed;
     private float timePerUnitMove;
     private Sequence s;
@@ -120,11 +122,13 @@ public class PlayerController : MonoBehaviour
             w.previousBlock = null;
         }
         finalPath.Clear();
+        anim.SetBool("isWalking", false);
     }
     public void KillMovement()
     {
         //kill player movement
         s.Kill();
+        anim.SetBool("isWalking", false);
     }
     public bool onMove()
     {
@@ -138,6 +142,10 @@ public class PlayerController : MonoBehaviour
     //method to generate player movement, use api called dotween ref: http://dotween.demigiant.com/documentation.php#creatingTweener
     private void FollowPath()
     {
+        if (finalPath.Count >= 1)
+        {
+            anim.SetBool("isWalking", true);
+        }
         bool skipNext = false;
         //offset to move player up a little bit in y direction
         Vector3 offset = new Vector3(0, 0.05f, 0);
@@ -157,7 +165,20 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("SHOULD BREAK");
                 break;
             }
-            s.Append(transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset, timePerUnitMove).SetEase(Ease.Linear));
+            //check the correct direction where the player is supposed to face
+            Vector3 relativeDirection;
+            if (i < finalPath.Count - 1)
+            {
+                relativeDirection = ((finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset) - (finalPath[i + 1].GetComponent<Walkable>().GetWalkPoint() + offset)).normalized;
+            }
+            else
+            {
+                relativeDirection = ((finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset) - transform.position).normalized;
+            }
+            Vector3 newForward = relativeDirection.magnitude<0.1f? transform.forward: CalculatePlayerDirection(relativeDirection);
+           // Debug.Log("calculated direction is" + newForward);
+            Tween t = transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset, timePerUnitMove).SetEase(Ease.Linear).OnStart(() => transform.forward = newForward);
+            s.Append(t);
             //this check if there is a gap between two cubes in scene view(not game view) , if so, player need to 
             // first move to the the edge of current cube
             // second transform its position to the edge position of the cube you are moving to
@@ -192,5 +213,20 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
         }
+    }
+    public Vector3 CalculatePlayerDirection(Vector3 input)
+    {
+        Vector3[] directions = { new Vector3(1, 0, 0), new Vector3(-1, 0, 0), new Vector3(0, 0, 1), new Vector3(0, 0, -1) };
+        Vector3 closestVecor = directions[0];
+        float minDis = 1000f;
+        foreach(Vector3 v in directions)
+        {
+            if (Vector3.Distance(v, input) < minDis)
+            {
+                minDis = Vector3.Distance(v, input);
+                closestVecor = v;
+            }
+        }
+        return closestVecor;
     }
 }
