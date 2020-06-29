@@ -3209,9 +3209,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1.5906715
+  m_Height: 1.6274815
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8377361, z: 0}
+  m_Center: {x: 0, y: 0.9724064, z: 0}
 --- !u!95 &703623442
 Animator:
   serializedVersion: 3
@@ -5218,7 +5218,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: a11e7683705a29244bf83e18635da6f3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.55
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a11e7683705a29244bf83e18635da6f3,
         type: 3}
@@ -5273,7 +5273,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: a11e7683705a29244bf83e18635da6f3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a11e7683705a29244bf83e18635da6f3,
         type: 3}
@@ -5474,6 +5474,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643591022631403232, guid: a11e7683705a29244bf83e18635da6f3,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.07580368
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643591022631403232, guid: a11e7683705a29244bf83e18635da6f3,
+        type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.20201719
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643591022631403232, guid: a11e7683705a29244bf83e18635da6f3,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.107191056
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643591022631403232, guid: a11e7683705a29244bf83e18635da6f3,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.7645552
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643591022631403232, guid: a11e7683705a29244bf83e18635da6f3,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.34769014
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643591022631403232, guid: a11e7683705a29244bf83e18635da6f3,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.4647935
       objectReference: {fileID: 0}
     - target: {fileID: 5778721945215852504, guid: a11e7683705a29244bf83e18635da6f3,
         type: 3}
@@ -8979,7 +9009,7 @@ MonoBehaviour:
   moveGroup: {fileID: 188944938}
   moveRangeMax: -3
   moveRangeMin: -5
-  player: {fileID: 0}
+  player: {fileID: 703623439}
 --- !u!1001 &1669403639469187818
 PrefabInstance:
   m_ObjectHideFlags: 0
