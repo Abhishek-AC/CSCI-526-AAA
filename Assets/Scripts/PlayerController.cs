@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         //find player current block
         RayCastDown();
-        
+        Debug.Log(currentCube.name);
         //camera raycast to find the clicked block ref:https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
         if (Input.GetMouseButtonDown(0))
         {
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
     {
         bool skipNext = false;
         //offset to move player up a little bit in y direction
-        Vector3 offset = new Vector3(0, 0.5f, 0);
+        Vector3 offset = new Vector3(0, 0.0f, 0);
         s = DOTween.Sequence();
 
         for (int i = finalPath.Count - 1; i >= 0; i--)
