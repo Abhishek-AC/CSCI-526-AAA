@@ -127,7 +127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh54730
+  m_Name: pb_Mesh14262
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -467,12 +467,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 2023295024}
-    active: 1
+    active: 0
   - target: {fileID: 1262806670}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &170339517
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,12 +665,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 682985704}
-    active: 1
+    active: 0
   - target: {fileID: 1054288218}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1001 &228302448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -806,12 +806,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1158103080}
-    active: 1
+    active: 0
   - target: {fileID: 2136582188}
-    active: 1
+    active: 0
   previousBlock: {fileID: 2136582188}
-  walkPointOffset: 1
-  canWalkOnThisBlock: 1
+  walkPointOffset: 0.5
+  canWalkOnThisBlock: 0
 --- !u!64 &240145150
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3583,7 +3583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316387769}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.79, y: 1.9100001, z: -0.3200001}
+  m_LocalPosition: {x: -2.79, y: 1.9100001, z: -0.32}
   m_LocalScale: {x: 1.6559, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1902245195}
@@ -3604,12 +3604,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1158103080}
-    active: 1
+    active: 0
   - target: {fileID: 913670184}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &326910346
 GameObject:
   m_ObjectHideFlags: 0
@@ -4131,19 +4131,19 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1025409693}
-    active: 1
+    active: 0
   - target: {fileID: 1695420055}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!43 &550122008
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh54466
+  m_Name: pb_Mesh13998
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4470,7 +4470,7 @@ GameObject:
   - component: {fileID: 605521973}
   m_Layer: 8
   m_Name: Plane
-  m_TagString: l1g2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4848,12 +4848,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 217285100}
-    active: 1
+    active: 0
   - target: {fileID: 1695420055}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5592,13 +5592,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
-  - target: {fileID: 1992353203}
-    active: 1
+  - target: {fileID: 1215721941}
+    active: 0
   - target: {fileID: 913670184}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &913670180
 GameObject:
   m_ObjectHideFlags: 0
@@ -5708,12 +5708,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 887370649}
-    active: 1
+    active: 0
   - target: {fileID: 316387773}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1001 &942720403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5896,12 +5896,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1025409693}
-    active: 1
+    active: 0
   - target: {fileID: 1475551587}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &1025409689
 GameObject:
   m_ObjectHideFlags: 0
@@ -6011,12 +6011,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 997349409}
-    active: 1
-  - target: {fileID: 496966293}
-    active: 1
+    active: 0
+  - target: {fileID: 1717572780}
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &1054288214
 GameObject:
   m_ObjectHideFlags: 0
@@ -6126,12 +6126,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 217285100}
-    active: 1
+    active: 0
   - target: {fileID: 2111763879}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &1136467002
 GameObject:
   m_ObjectHideFlags: 0
@@ -6314,13 +6314,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
-  - target: {fileID: 1745151363}
-    active: 1
+  - target: {fileID: 240145148}
+    active: 0
   - target: {fileID: 316387773}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &1215721940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6350,7 +6350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215721940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.94, y: 3.04, z: 0.24}
+  m_LocalPosition: {x: -3.94, y: 3, z: 0.25}
   m_LocalScale: {x: 1.09, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1902245195}
@@ -6371,12 +6371,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 2023295024}
-    active: 1
+    active: 0
   - target: {fileID: 887370649}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
-  walkPointOffset: 1
-  canWalkOnThisBlock: 1
+  walkPointOffset: 0.5
+  canWalkOnThisBlock: 0
 --- !u!64 &1215721943
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9169,12 +9169,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 2111763879}
-    active: 1
+    active: 0
   - target: {fileID: 154534676}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &1269946318
 GameObject:
   m_ObjectHideFlags: 0
@@ -9287,6 +9287,8 @@ MonoBehaviour:
     active: 1
   - target: {fileID: 2136582188}
     active: 1
+  - target: {fileID: 240145148}
+    active: 1
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
@@ -9331,7 +9333,7 @@ SphereCollider:
   m_GameObject: {fileID: 1300151136}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -9342,7 +9344,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300151136}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9635,12 +9637,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 997349409}
-    active: 1
+    active: 0
   - target: {fileID: 1891739762}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &1484694325
 GameObject:
   m_ObjectHideFlags: 0
@@ -10364,12 +10366,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 682985704}
-    active: 1
-  - target: {fileID: 496966293}
-    active: 1
+    active: 0
+  - target: {fileID: 1717572780}
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &1717572779
 GameObject:
   m_ObjectHideFlags: 0
@@ -10420,12 +10422,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1025409693}
-    active: 1
+    active: 0
   - target: {fileID: 1695420055}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
-  walkPointOffset: 1
-  canWalkOnThisBlock: 1
+  walkPointOffset: 0.5
+  canWalkOnThisBlock: 0
 --- !u!64 &1717572782
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13218,12 +13220,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1158103080}
-    active: 1
+    active: 0
   - target: {fileID: 2136582188}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &1891739758
 GameObject:
   m_ObjectHideFlags: 0
@@ -13333,12 +13335,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1475551587}
-    active: 1
+    active: 0
   - target: {fileID: 2038022008}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &1902245194
 GameObject:
   m_ObjectHideFlags: 0
@@ -13757,12 +13759,12 @@ MonoBehaviour:
   edgeValue: {x: -4.01, y: 3, z: 1}
   possiblePath:
   - target: {fileID: 2023295024}
-    active: 1
+    active: 0
   - target: {fileID: 887370649}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &2023295020
 GameObject:
   m_ObjectHideFlags: 0
@@ -13872,12 +13874,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 154534676}
-    active: 1
-  - target: {fileID: 1992353203}
-    active: 1
+    active: 0
+  - target: {fileID: 1215721941}
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &2034025615
 GameObject:
   m_ObjectHideFlags: 0
@@ -14361,7 +14363,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh54862
+  m_Name: pb_Mesh14394
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14627,12 +14629,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1054288218}
-    active: 1
+    active: 0
   - target: {fileID: 1262806670}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
 --- !u!1 &2136582184
 GameObject:
   m_ObjectHideFlags: 0

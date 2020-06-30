@@ -3,15 +3,9 @@ using UnityEngine;
 
 public class RotateLevelOne : MonoBehaviour
 {
-    // the y rotation angle for the initial position
-    private static readonly float INITIAL_Y_ANGLE = 104f;
-    // the y rotation angle for the trasformed position
-    private static readonly float ROTATED_Y_ANGLE = 360f;
     // the speed of rotation defined as angle per second
     private static readonly float ANGULAR_VELOCITY = 45f;
 
-    // have we activated self-destroy logic yet
-    private bool trippedSelfDestroy;
     // are we in the process of rotating
     private bool rotating;
     // are we in initial position or not
@@ -31,7 +25,6 @@ public class RotateLevelOne : MonoBehaviour
     void Start()
     {
         level1 = GameObject.Find("Level1").transform;
-        trippedSelfDestroy = false;
         rotating = false;
         initial = true;
         CanRotate = true;
@@ -40,13 +33,25 @@ public class RotateLevelOne : MonoBehaviour
     // rotate on demand in a single update cycle
     void Update()
     {
+        // check if the collectable object has disappeared
+        // and if so, trigger a rotation
+        if (initial)
+        {
+            var collectable = GameObject.FindWithTag("crystal");
+            if (collectable == null) Rotate();
+        }
+
         // rotate the level 1 object
         if (rotating)
         {
+            // find the player
+            var player = GameObject.Find("Player");
             // angle to rotate in a single update cycle
             var updateAngle = ANGULAR_VELOCITY * Time.deltaTime;
-            rotatedAngle += updateAngle;
-            if (rotatedAngle > targetAngle) rotatedAngle = targetAngle;
+            // stop the player from moving
+            player.GetComponent<PlayerController>().KillMovement();
+            rotatedAngle -= updateAngle;
+            if (rotatedAngle < targetAngle) rotatedAngle = targetAngle;
             level1.rotation = Quaternion.Euler(0f, rotatedAngle, 0f);
         }
 
@@ -56,17 +61,6 @@ public class RotateLevelOne : MonoBehaviour
 
         // set the active state depending on whether in initial position or not
         ActivateBlocks(initial);
-
-        // self-destroy once we tripped rotation
-        if (trippedSelfDestroy && !rotating)
-            transform.gameObject.SetActive(false);
-    }
-
-    // event handler for triggering rotation
-    private void OnMouseDown()
-    {
-        if (CanRotate && !rotating)
-            Rotate();
     }
 
     // set up a rotation
@@ -75,43 +69,37 @@ public class RotateLevelOne : MonoBehaviour
         // initialized the rotated angle variable with current y rotation
         rotatedAngle = level1.eulerAngles.y;
 
-        // select target angle depending on whether in initial position or not
-        targetAngle = initial ? ROTATED_Y_ANGLE : INITIAL_Y_ANGLE;
+        // set the target angle to zero
+        targetAngle = 0f;
 
         // flip the position state
         initial = !initial;
 
         // start a rotation
         rotating = true;
-
-        // active self-destroy logic
-        trippedSelfDestroy = true;
     }
 
     // selectively activate the blocks depending on whether we are in the initial position or not
     private void ActivateBlocks(bool isInitial)
     {
-        if (isInitial)
+        if (!isInitial)
         {
             foreach (var i in GameObject.FindGameObjectsWithTag("l1g1"))
-                i.transform.GetComponent<Walkable>().canWalkOnThisBlock = true;
+                ActivateSingleBlock(i);
             foreach (var i in GameObject.FindGameObjectsWithTag("l1g2"))
-                i.transform.GetComponent<Walkable>().canWalkOnThisBlock = false;
+                ActivateSingleBlock(i);
             foreach (var i in GameObject.FindGameObjectsWithTag("l1g3"))
-                i.transform.GetComponent<Walkable>().canWalkOnThisBlock = false;
+                ActivateSingleBlock(i);
             foreach (var i in GameObject.FindGameObjectsWithTag("l1g4"))
-                i.transform.GetComponent<Walkable>().canWalkOnThisBlock = false;
+                ActivateSingleBlock(i);
         }
-        else
-        {
-            foreach (var i in GameObject.FindGameObjectsWithTag("l1g1"))
-                i.transform.GetComponent<Walkable>().canWalkOnThisBlock = true;
-            foreach (var i in GameObject.FindGameObjectsWithTag("l1g2"))
-                i.transform.GetComponent<Walkable>().canWalkOnThisBlock = true;
-            foreach (var i in GameObject.FindGameObjectsWithTag("l1g3"))
-                i.transform.GetComponent<Walkable>().canWalkOnThisBlock = true;
-            foreach (var i in GameObject.FindGameObjectsWithTag("l1g4"))
-                i.transform.GetComponent<Walkable>().canWalkOnThisBlock = true;
-        }
+    }
+
+    // common logic for activating a single block
+    private void ActivateSingleBlock(GameObject i)
+    {
+        i.transform.GetComponent<Walkable>().canWalkOnThisBlock = true;
+        foreach (var j in i.transform.GetComponent<Walkable>().possiblePath)
+            j.active = true;
     }
 }
