@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/WelcomeScreen.unity
     guid: 192d6b344727945c884d5167a96f01a2
   - enabled: 1
+    path: Assets/Scenes/LevelScreen.unity
+    guid: bd9652c8774b14cc08a4d0eb9f6b3f45
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: c25bce0b8c9334c52aff3b1ad5b22858
   - enabled: 1
