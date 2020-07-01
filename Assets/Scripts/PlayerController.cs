@@ -1,6 +1,8 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,8 +11,12 @@ public class PlayerController : MonoBehaviour
     public Transform currentCube;
     public Transform clickedCube;
     public List<Transform> finalPath;
+    public Animator anim;
     public float walkingSpeed;
+    public Camera cam;
     private float timePerUnitMove;
+    public float clickTimeInterval = 0.5f;
+    private float clickSecondsCount;
     private Sequence s;
 
 
@@ -20,16 +26,20 @@ public class PlayerController : MonoBehaviour
         Screen.orientation = ScreenOrientation.PortraitUpsideDown;
         RayCastDown();
         timePerUnitMove = 1f / walkingSpeed;
+        clickSecondsCount = clickTimeInterval;
     }
     // Update is called once per frame
     void Update()
     {
         //find player current block
         RayCastDown();
-        
+        clickSecondsCount += Time.deltaTime;
         //camera raycast to find the clicked block ref:https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
         if (Input.GetMouseButtonDown(0))
         {
+            if(clickSecondsCount < clickTimeInterval)
+                return;
+            clickSecondsCount = 0;
             Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit mouseHit;
             if (Physics.Raycast(mouseRay, out mouseHit))
@@ -37,6 +47,7 @@ public class PlayerController : MonoBehaviour
                 if (mouseHit.transform.GetComponent<Walkable>() != null)
                 {
                     Clear();
+                    anim.SetBool("isWalking", true);
                     clickedCube = mouseHit.transform;
                     BuildPath();
                 }
@@ -49,6 +60,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit playerHit;
         if (Physics.Raycast(playerRay, out playerHit))
         {
+
             if (playerHit.transform.GetComponent<Walkable>() != null)
             {
                 currentCube = playerHit.transform;
@@ -120,11 +132,13 @@ public class PlayerController : MonoBehaviour
             w.previousBlock = null;
         }
         finalPath.Clear();
+        anim.SetBool("isWalking", false);
     }
     public void KillMovement()
     {
         //kill player movement
         s.Kill();
+        anim.SetBool("isWalking", false);
     }
     public bool onMove()
     {
@@ -140,7 +154,7 @@ public class PlayerController : MonoBehaviour
     {
         bool skipNext = false;
         //offset to move player up a little bit in y direction
-        Vector3 offset = new Vector3(0, 0.5f, 0);
+        Vector3 offset = new Vector3(0, 0.05f, 0);
         s = DOTween.Sequence();
 
         for (int i = finalPath.Count - 1; i >= 0; i--)
@@ -157,7 +171,40 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("SHOULD BREAK");
                 break;
             }
-            s.Append(transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset, timePerUnitMove).SetEase(Ease.Linear));
+            //check the correct direction where the player is supposed to face
+            Vector3 relativeDirection;
+            if (i < finalPath.Count - 1)
+            {
+                //relativeDirection = ((finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset) - (finalPath[i + 1].GetComponent<Walkable>().GetWalkPoint() + offset)).normalized;
+                Vector3 cubeNext = cam.WorldToScreenPoint(finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset);
+                Vector3 cubeThis = cam.WorldToScreenPoint(finalPath[i + 1].GetComponent<Walkable>().GetWalkPoint() + offset);
+                Vector3 cubeN = new Vector3(cubeNext.x, 0, cubeNext.y);
+                Vector3 cubeT = new Vector3(cubeThis.x, 0, cubeThis.y);
+                relativeDirection = (cubeN - cubeT).normalized;
+            }
+            else
+            {
+                Vector3 cubeNext = cam.WorldToScreenPoint(finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset);
+                Vector3 cubeThis = cam.WorldToScreenPoint(transform.position);
+                Vector3 cubeN = new Vector3(cubeNext.x, 0, cubeNext.y);
+                Vector3 cubeT = new Vector3(cubeThis.x, 0, cubeThis.y);
+                relativeDirection = (cubeN - cubeT).normalized;
+                //relativeDirection = ((finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset) - transform.position).normalized;
+            }
+            Debug.Log("Relative direction is" + relativeDirection);
+            Vector3 newForward = relativeDirection.magnitude<0.1f? transform.forward: CalculatePlayerDirection(relativeDirection);
+            //Debug.Log("calculated direction is" + newForward);
+            //if the player is walking on a stair, his direction should not change
+            Tween t;
+            if ((finalPath[i].GetComponent<Walkable>().isStair) || (i < finalPath.Count-1 && finalPath[i+1].GetComponent<Walkable>().isStair))
+            {
+                t = transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset, timePerUnitMove).SetEase(Ease.Linear);
+            }
+            else
+            {
+                t = transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset, timePerUnitMove).SetEase(Ease.Linear).OnStart(() => transform.forward = newForward);
+            }
+            s.Append(t);
             //this check if there is a gap between two cubes in scene view(not game view) , if so, player need to 
             // first move to the the edge of current cube
             // second transform its position to the edge position of the cube you are moving to
@@ -191,6 +238,32 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Collision");
             other.gameObject.SetActive(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+        }
+    }
+    public Vector3 CalculatePlayerDirection(Vector3 input)
+    {
+        Vector3[] directions = { new Vector3(1, 0, 0), new Vector3(-1, 0, 0), new Vector3(0, 0, 1), new Vector3(0, 0, -1) };
+        //determine where the player is facing by determine the quadrants the direction is
+       
+        if(input.x < 0 && input.z > 0)
+        {
+            return directions[2];
+        }
+        else if(input.x < 0 && input.z < 0)
+        {
+            return directions[1];
+        }
+        else if( input.x > 0 && input.z < 0)
+        {
+            return directions[3];
+        }
+        else if(input.x >0 && input.z > 0)
+        {
+            return directions[0];
+        }
+        else
+        {
+            return input;
         }
     }
 }

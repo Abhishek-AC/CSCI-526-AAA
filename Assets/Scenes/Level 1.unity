@@ -127,7 +127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14262
+  m_Name: pb_Mesh29022
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -471,8 +471,12 @@ MonoBehaviour:
   - target: {fileID: 1262806670}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &170339517
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,8 +673,12 @@ MonoBehaviour:
   - target: {fileID: 1054288218}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1001 &228302448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -720,7 +728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 45d3525df09c634488adb50e7399aafd, type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 45d3525df09c634488adb50e7399aafd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -810,8 +818,12 @@ MonoBehaviour:
   - target: {fileID: 2136582188}
     active: 0
   previousBlock: {fileID: 2136582188}
+  isStair: 1
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: -0.5
+  offsetY: 0
+  offsetZ: -0.5
 --- !u!64 &240145150
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3608,119 +3620,12 @@ MonoBehaviour:
   - target: {fileID: 913670184}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
---- !u!1 &326910346
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 326910350}
-  - component: {fileID: 326910349}
-  - component: {fileID: 326910348}
-  - component: {fileID: 326910351}
-  - component: {fileID: 326910347}
-  m_Layer: 8
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!136 &326910347
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326910346}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &326910348
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326910346}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: ae9e8b57de2e44c42ab559496b418c6f, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &326910349
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326910346}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &326910350
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326910346}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.86, y: 1.04, z: 0.72}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children: []
-  m_Father: {fileID: 1902245195}
-  m_RootOrder: 31
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &326910351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326910346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8abe30a34efb5d84490af868aa5a96c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentCube: {fileID: 0}
-  clickedCube: {fileID: 0}
-  finalPath: []
-  walkingSpeed: 3
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &346415735
 GameObject:
   m_ObjectHideFlags: 0
@@ -4135,15 +4040,25 @@ MonoBehaviour:
   - target: {fileID: 1695420055}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
+--- !u!4 &535948370 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+    type: 3}
+  m_PrefabInstance: {fileID: 958426456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &550122008
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13998
+  m_Name: pb_Mesh28766
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4737,8 +4652,12 @@ MonoBehaviour:
   - target: {fileID: 2038022008}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &682985700
 GameObject:
   m_ObjectHideFlags: 0
@@ -4852,8 +4771,12 @@ MonoBehaviour:
   - target: {fileID: 1695420055}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5213,8 +5136,12 @@ MonoBehaviour:
   - target: {fileID: 1695420055}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &807189239
 GameObject:
   m_ObjectHideFlags: 0
@@ -5326,8 +5253,12 @@ MonoBehaviour:
   - target: {fileID: 887370649}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &863174811
 GameObject:
   m_ObjectHideFlags: 0
@@ -5597,8 +5528,12 @@ MonoBehaviour:
   - target: {fileID: 913670184}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &913670180
 GameObject:
   m_ObjectHideFlags: 0
@@ -5712,8 +5647,12 @@ MonoBehaviour:
   - target: {fileID: 316387773}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1001 &942720403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5759,7 +5698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 30420e90e0d68254dbe6be9a2fccd155, type: 3}
       propertyPath: m_RootOrder
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 30420e90e0d68254dbe6be9a2fccd155, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5787,6 +5726,100 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30420e90e0d68254dbe6be9a2fccd155, type: 3}
+--- !u!1001 &958426456
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1902245195}
+    m_Modifications:
+    - target: {fileID: 3909622661400688936, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: walkingSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909622661400688936, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909622661400688936, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 380107650}
+    - target: {fileID: 3909622661400688936, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: clickTimeInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999039629975553501, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806874820083669609, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -26.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.9049873
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.533
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.70034504
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7944146
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6073759
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e973324a4aa960241a4e7f9d30624e84, type: 3}
 --- !u!1 &997349405
 GameObject:
   m_ObjectHideFlags: 0
@@ -5900,8 +5933,12 @@ MonoBehaviour:
   - target: {fileID: 1475551587}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1025409689
 GameObject:
   m_ObjectHideFlags: 0
@@ -6015,8 +6052,12 @@ MonoBehaviour:
   - target: {fileID: 1717572780}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1054288214
 GameObject:
   m_ObjectHideFlags: 0
@@ -6130,8 +6171,12 @@ MonoBehaviour:
   - target: {fileID: 2111763879}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1136467002
 GameObject:
   m_ObjectHideFlags: 0
@@ -6319,8 +6364,12 @@ MonoBehaviour:
   - target: {fileID: 316387773}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1215721940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6375,8 +6424,12 @@ MonoBehaviour:
   - target: {fileID: 887370649}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 1
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: -0.5
+  offsetY: 0
+  offsetZ: 0.5
 --- !u!64 &1215721943
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9173,8 +9226,12 @@ MonoBehaviour:
   - target: {fileID: 154534676}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1269946318
 GameObject:
   m_ObjectHideFlags: 0
@@ -9290,8 +9347,12 @@ MonoBehaviour:
   - target: {fileID: 240145148}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1300151136
 GameObject:
   m_ObjectHideFlags: 0
@@ -9641,8 +9702,12 @@ MonoBehaviour:
   - target: {fileID: 1891739762}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1484694325
 GameObject:
   m_ObjectHideFlags: 0
@@ -10370,8 +10435,12 @@ MonoBehaviour:
   - target: {fileID: 1717572780}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1717572779
 GameObject:
   m_ObjectHideFlags: 0
@@ -10426,8 +10495,12 @@ MonoBehaviour:
   - target: {fileID: 1695420055}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 1
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0.5
+  offsetY: 0
+  offsetZ: -0.5
 --- !u!64 &1717572782
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13224,8 +13297,12 @@ MonoBehaviour:
   - target: {fileID: 2136582188}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1891739758
 GameObject:
   m_ObjectHideFlags: 0
@@ -13339,8 +13416,12 @@ MonoBehaviour:
   - target: {fileID: 2038022008}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1902245194
 GameObject:
   m_ObjectHideFlags: 0
@@ -13399,9 +13480,9 @@ Transform:
   - {fileID: 240145148}
   - {fileID: 807189243}
   - {fileID: 605521972}
-  - {fileID: 326910350}
   - {fileID: 436734607}
   - {fileID: 1971240767}
+  - {fileID: 535948370}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 105.2, z: 0}
@@ -13763,8 +13844,12 @@ MonoBehaviour:
   - target: {fileID: 887370649}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &2023295020
 GameObject:
   m_ObjectHideFlags: 0
@@ -13878,8 +13963,12 @@ MonoBehaviour:
   - target: {fileID: 1215721941}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &2034025615
 GameObject:
   m_ObjectHideFlags: 0
@@ -13991,8 +14080,12 @@ MonoBehaviour:
   - target: {fileID: 1269946322}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &2038022004
 GameObject:
   m_ObjectHideFlags: 0
@@ -14106,8 +14199,12 @@ MonoBehaviour:
   - target: {fileID: 1891739762}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &2039159190
 GameObject:
   m_ObjectHideFlags: 0
@@ -14363,7 +14460,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14394
+  m_Name: pb_Mesh29154
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14633,8 +14730,12 @@ MonoBehaviour:
   - target: {fileID: 1262806670}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &2136582184
 GameObject:
   m_ObjectHideFlags: 0
@@ -14750,5 +14851,9 @@ MonoBehaviour:
   - target: {fileID: 1745151363}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0

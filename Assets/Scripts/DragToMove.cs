@@ -45,8 +45,12 @@ public class DragToMove : MonoBehaviour
         //if the player is on and the player is moving, dont move moving block
         if (isPlayerOn)
         {
+            Debug.Log("PLAYER IS ON");
             if (player.transform.GetComponent<PlayerController>().onMove())
+            {
+                Debug.Log("PLAYER IS ON");
                 return;
+            }
         }
         //get the updated mouse position
         Vector3 newPos = getMousePosWorld() + mOffset;
