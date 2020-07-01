@@ -11,6 +11,10 @@ TagManager:
   - star
   - obstacle
   - collectable
+  - l1g1
+  - l1g2
+  - l1g3
+  - l1g4
   layers:
   - Default
   - TransparentFX
