@@ -234,8 +234,12 @@ MonoBehaviour:
   - target: {fileID: 721867390}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &54455044
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,8 +461,12 @@ MonoBehaviour:
   - target: {fileID: 1381100592}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &149709362
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -894,8 +902,12 @@ MonoBehaviour:
   - target: {fileID: 764985603}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &291159619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,8 +1017,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &341830813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,8 +1296,12 @@ MonoBehaviour:
   - target: {fileID: 2045436625}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1001 &360765461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1575,8 +1595,12 @@ MonoBehaviour:
   - target: {fileID: 795731125}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &376657755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,8 +1795,12 @@ MonoBehaviour:
   - target: {fileID: 1275241090}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &397893279
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1946,8 +1974,12 @@ MonoBehaviour:
   - target: {fileID: 561708053}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &510834463
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,8 +2187,12 @@ MonoBehaviour:
   - target: {fileID: 1474738039}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &561708049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,8 +2306,12 @@ MonoBehaviour:
   - target: {fileID: 601953908}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &574813021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,8 +2521,12 @@ MonoBehaviour:
   - target: {fileID: 0}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &579108064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2656,8 +2700,12 @@ MonoBehaviour:
   - target: {fileID: 845923759}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &593318048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,8 +2757,12 @@ MonoBehaviour:
   - target: {fileID: 260586961}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &593318051
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2884,8 +2936,12 @@ MonoBehaviour:
   - target: {fileID: 374257752}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &623615680
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,8 +3494,12 @@ MonoBehaviour:
   - target: {fileID: 747026170}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &721038859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3613,8 +3673,12 @@ MonoBehaviour:
   - target: {fileID: 585291729}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &722645240
 GameObject:
   m_ObjectHideFlags: 0
@@ -3724,8 +3788,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &747026169
 GameObject:
   m_ObjectHideFlags: 0
@@ -3779,8 +3847,12 @@ MonoBehaviour:
   - target: {fileID: 721038857}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &747026172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3954,8 +4026,12 @@ MonoBehaviour:
   - target: {fileID: 1723006022}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &787824615
 GameObject:
   m_ObjectHideFlags: 0
@@ -4225,8 +4301,12 @@ MonoBehaviour:
   - target: {fileID: 353198611}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &812159588
 GameObject:
   m_ObjectHideFlags: 0
@@ -4280,8 +4360,12 @@ MonoBehaviour:
   - target: {fileID: 1077001283}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &812159591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4549,8 +4633,12 @@ MonoBehaviour:
   - target: {fileID: 585291729}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &863174811
 GameObject:
   m_ObjectHideFlags: 0
@@ -4914,8 +5002,12 @@ MonoBehaviour:
   - target: {fileID: 473911347}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1077001282
 GameObject:
   m_ObjectHideFlags: 0
@@ -4969,8 +5061,12 @@ MonoBehaviour:
   - target: {fileID: 812159589}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &1077001285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5158,8 +5254,12 @@ MonoBehaviour:
   - target: {fileID: 721038857}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &1163165618
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5312,8 +5412,12 @@ MonoBehaviour:
   - target: {fileID: 1308244735}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &1275241092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5483,8 +5587,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1296501205
 GameObject:
   m_ObjectHideFlags: 0
@@ -5594,8 +5702,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1308244734
 GameObject:
   m_ObjectHideFlags: 0
@@ -5649,8 +5761,12 @@ MonoBehaviour:
   - target: {fileID: 149709360}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &1308244737
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5764,8 +5880,12 @@ MonoBehaviour:
   - target: {fileID: 149709360}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &1381100594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5939,8 +6059,12 @@ MonoBehaviour:
   - target: {fileID: 845923759}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1407689031
 GameObject:
   m_ObjectHideFlags: 0
@@ -5994,8 +6118,12 @@ MonoBehaviour:
   - target: {fileID: 1077001283}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &1407689034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6393,8 +6521,12 @@ MonoBehaviour:
   - target: {fileID: 260586961}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1484694325
 GameObject:
   m_ObjectHideFlags: 0
@@ -6664,8 +6796,12 @@ MonoBehaviour:
   - target: {fileID: 1010431838}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1549560775
 GameObject:
   m_ObjectHideFlags: 0
@@ -7107,8 +7243,12 @@ MonoBehaviour:
   - target: {fileID: 1862786925}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1661940817
 GameObject:
   m_ObjectHideFlags: 0
@@ -7292,8 +7432,12 @@ MonoBehaviour:
   - target: {fileID: 1988776984}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &1700738313
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7502,8 +7646,12 @@ MonoBehaviour:
   - target: {fileID: 1700738311}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &1723006024
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7627,8 +7775,12 @@ MonoBehaviour:
   - target: {fileID: 747026170}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &1824556717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7802,8 +7954,12 @@ MonoBehaviour:
   - target: {fileID: 1616080931}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &1902245194
 GameObject:
   m_ObjectHideFlags: 0
@@ -8223,8 +8379,12 @@ MonoBehaviour:
   - target: {fileID: 1700738311}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!65 &1988776986
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8500,8 +8660,12 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath: []
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &2039159190
 GameObject:
   m_ObjectHideFlags: 0
@@ -8771,8 +8935,12 @@ MonoBehaviour:
   - target: {fileID: 1616080931}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
 --- !u!1 &2102929558 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1669403638173665916, guid: d25c3f32d490eae43addc1e60fe64504,
@@ -8890,6 +9058,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3909622661400688936, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 380107650}
+    - target: {fileID: 3909622661400688936, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: clickTimeInterval
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4999039629975553501, guid: e973324a4aa960241a4e7f9d30624e84,
         type: 3}
       propertyPath: m_Name

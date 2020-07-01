@@ -8,6 +8,7 @@ public class Walkable : MonoBehaviour
     //list of possible blocks this block can go to
     public List<GamePath> possiblePath = new List<GamePath>();
     public Transform previousBlock;
+    public bool isStair;
     public float walkPointOffset = 1f;
     public bool canWalkOnThisBlock = true;
     public float offsetX;

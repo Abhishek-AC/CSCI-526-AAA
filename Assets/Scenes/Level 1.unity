@@ -127,7 +127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19480
+  m_Name: pb_Mesh29022
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -471,6 +471,7 @@ MonoBehaviour:
   - target: {fileID: 1262806670}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -672,6 +673,7 @@ MonoBehaviour:
   - target: {fileID: 1054288218}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -816,6 +818,7 @@ MonoBehaviour:
   - target: {fileID: 2136582188}
     active: 0
   previousBlock: {fileID: 2136582188}
+  isStair: 1
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: -0.5
@@ -3617,6 +3620,7 @@ MonoBehaviour:
   - target: {fileID: 913670184}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -4036,6 +4040,7 @@ MonoBehaviour:
   - target: {fileID: 1695420055}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -4053,7 +4058,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19216
+  m_Name: pb_Mesh28766
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4647,6 +4652,7 @@ MonoBehaviour:
   - target: {fileID: 2038022008}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
   offsetX: 0
@@ -4765,6 +4771,7 @@ MonoBehaviour:
   - target: {fileID: 1695420055}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -5129,6 +5136,7 @@ MonoBehaviour:
   - target: {fileID: 1695420055}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -5245,6 +5253,7 @@ MonoBehaviour:
   - target: {fileID: 887370649}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -5519,6 +5528,7 @@ MonoBehaviour:
   - target: {fileID: 913670184}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -5637,6 +5647,7 @@ MonoBehaviour:
   - target: {fileID: 316387773}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -5722,6 +5733,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1902245195}
     m_Modifications:
+    - target: {fileID: 3909622661400688936, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: walkingSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909622661400688936, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909622661400688936, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 380107650}
+    - target: {fileID: 3909622661400688936, guid: e973324a4aa960241a4e7f9d30624e84,
+        type: 3}
+      propertyPath: clickTimeInterval
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4999039629975553501, guid: e973324a4aa960241a4e7f9d30624e84,
         type: 3}
       propertyPath: m_Name
@@ -5902,6 +5933,7 @@ MonoBehaviour:
   - target: {fileID: 1475551587}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -6020,6 +6052,7 @@ MonoBehaviour:
   - target: {fileID: 1717572780}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -6138,6 +6171,7 @@ MonoBehaviour:
   - target: {fileID: 2111763879}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -6330,6 +6364,7 @@ MonoBehaviour:
   - target: {fileID: 316387773}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -6389,6 +6424,7 @@ MonoBehaviour:
   - target: {fileID: 887370649}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 1
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: -0.5
@@ -9190,6 +9226,7 @@ MonoBehaviour:
   - target: {fileID: 154534676}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -9310,6 +9347,7 @@ MonoBehaviour:
   - target: {fileID: 240145148}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
   offsetX: 0
@@ -9664,6 +9702,7 @@ MonoBehaviour:
   - target: {fileID: 1891739762}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -10396,6 +10435,7 @@ MonoBehaviour:
   - target: {fileID: 1717572780}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -10455,6 +10495,7 @@ MonoBehaviour:
   - target: {fileID: 1695420055}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 1
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0.5
@@ -13256,6 +13297,7 @@ MonoBehaviour:
   - target: {fileID: 2136582188}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -13374,6 +13416,7 @@ MonoBehaviour:
   - target: {fileID: 2038022008}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -13801,6 +13844,7 @@ MonoBehaviour:
   - target: {fileID: 887370649}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -13919,6 +13963,7 @@ MonoBehaviour:
   - target: {fileID: 1215721941}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -14035,6 +14080,7 @@ MonoBehaviour:
   - target: {fileID: 1269946322}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
   offsetX: 0
@@ -14153,6 +14199,7 @@ MonoBehaviour:
   - target: {fileID: 1891739762}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
   offsetX: 0
@@ -14413,7 +14460,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19612
+  m_Name: pb_Mesh29154
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14683,6 +14730,7 @@ MonoBehaviour:
   - target: {fileID: 1262806670}
     active: 0
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 0
   offsetX: 0
@@ -14803,6 +14851,7 @@ MonoBehaviour:
   - target: {fileID: 1745151363}
     active: 1
   previousBlock: {fileID: 0}
+  isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
   offsetX: 0
