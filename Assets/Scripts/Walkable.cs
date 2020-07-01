@@ -10,6 +10,9 @@ public class Walkable : MonoBehaviour
     public Transform previousBlock;
     public float walkPointOffset = 1f;
     public bool canWalkOnThisBlock = true;
+    public float offsetX;
+    public float offsetY;
+    public float offsetZ;
     //get walkPoint of current cube
     public Vector3 GetWalkPoint()
     {
@@ -47,7 +50,7 @@ public class Walkable : MonoBehaviour
             }
         }
 
-        return transform.position + transform.up * (1 - walkPointOffset);
+        return transform.position + transform.up * (1 - walkPointOffset) + new Vector3(offsetX, offsetY, offsetZ);
     }
     //draw gismos sphere to show the walk path
     private void OnDrawGizmos()
