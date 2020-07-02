@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject Pause_Menu, PauseButton, Level1;
+    public GameObject Pause_Menu, PauseButton, Level, InfoButton;
 
     public void Pause() {
-        Level1.SetActive(false);
+        Level.SetActive(false);
+        InfoButton.SetActive(false);
         Pause_Menu.SetActive(true);
         PauseButton.SetActive(false);
         
     }
 
     public void Resume() {
-        Level1.SetActive(true);
+        Level.SetActive(true);
+        InfoButton.SetActive(true);
         Pause_Menu.SetActive(false);
         PauseButton.SetActive(true);
         
@@ -31,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Info() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex- 1);
         
     }
 
