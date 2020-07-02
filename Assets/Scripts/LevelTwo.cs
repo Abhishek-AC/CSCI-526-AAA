@@ -2,7 +2,7 @@
 using UnityEngine;
 
 // preserve and restore the game state of level 2
-public class LevelTwo : MonoBehaviour
+public class LevelTwo : LevelManager
 {
     // a data structure for serializing the game state
     [Serializable]
@@ -64,13 +64,7 @@ public class LevelTwo : MonoBehaviour
         if (data != null)
             SetLevelState(data);
         else
-        {
-            IsCollectedCrystal = true;
-            RotateGameObjectRotationZValue = 0f;
-            FerryGameObjectPositionXValue = -5f;
-            MakePathCubePositionYValue = 9f;
-            CapsulePlayer.transform.position = new Vector3(0f, 1f, 2f);
-        }
+            InitialLevelState();
     }
 
     // update the current game state
@@ -183,16 +177,33 @@ public class LevelTwo : MonoBehaviour
         SetPlayerPosition(state.PlayerPosition);
     }
 
-    // unused: save the current game state to file
-    public void SaveLevel()
+    private void InitialLevelState()
+    {
+        IsCollectedCrystal = true;
+        RotateGameObjectRotationZValue = 0f;
+        FerryGameObjectPositionXValue = -5f;
+        MakePathCubePositionYValue = 9f;
+        PlayerPosition = new float[] { 0f, 1f, 2f };
+        CapsulePlayer.transform.position = new Vector3(PlayerPosition[0], PlayerPosition[1], PlayerPosition[2]);
+    }
+
+    // save the current game state to file
+    public override void SaveLevel()
     {
         SaveSystem.SaveLevelTwo(this);
     }
 
     // unused: load the game state from save file
-    public void LoadLevel()
+    public override void LoadLevel()
     {
         LevelTwoState data = SaveSystem.LoadLevelTwo();
         if (data != null) SetLevelState(data);
+    }
+
+    // reset the game state
+    public override void ResetLevel()
+    {
+        InitialLevelState();
+        SaveLevel();
     }
 }

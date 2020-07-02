@@ -1,37 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 public class EndGame : MonoBehaviour
 {
+    // the path to the save files to be deleted
+    private static readonly string[] SAVE_FILES = new string[]
+    {
+        "level1Data",
+        "level2Data"
+    };
+
+    // clean any progress and quit the game
     public void Quit()
     {
         Debug.Log("End Game in Build Mode");
-        DeleteFile();
+        DeleteSaveFiles();
         Application.Quit();
     }
-    public void Relay()
+
+    // clean any progress and restart the game
+    public void Replay()
     {
         Debug.Log("Replay");
-        DeleteFile();
+        DeleteSaveFiles();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
-    void DeleteFile()
+
+    // delete the save files
+    void DeleteSaveFiles()
     {
-        string path = Application.persistentDataPath + "/level2Data";
-        // check if file exists
-        if (!File.Exists(path))
-        {
-            Debug.Log("Save File Not Found in " + path);
-        }
-        else
-        {
-            Debug.Log("Deleting the state");
-            File.Delete(path);
-            RefreshEditorProjectWindow();
-        }
+        foreach (var f in SAVE_FILES)
+            try
+            {
+                File.Delete(Path.Combine(Application.persistentDataPath, f));
+                Debug.Log($"Successfully deleted save file {f}");
+            }
+            // in case deletion failed
+            catch (IOException ex)
+            {
+                Debug.Log($"Delete save file failed: {ex.Message}");
+            }
     }
+
     void RefreshEditorProjectWindow()
     {
 #if UNITY_EDITOR

@@ -29,12 +29,13 @@ public class RotateLevelOne : MonoBehaviour
     // rotate on demand in a single update cycle
     void Update()
     {
-        // check if the collectable object has disappeared
-        // and if so, trigger a rotation
         if (Initial)
         {
-            var collectable = GameObject.FindWithTag("crystal");
-            if (collectable == null) Rotate();
+            var collectable = GameObject.Find("Collectable");
+            var player = GameObject.Find("Player");
+            // if collectable is null, it could also be that the game is paused
+            // but if player is not null, then it means the collectable is gone
+            if (collectable == null && player != null) Rotate();
         }
 
         // rotate the level 1 object
@@ -59,22 +60,6 @@ public class RotateLevelOne : MonoBehaviour
         ActivateBlocks(Initial);
     }
 
-    // set up a rotation
-    private void Rotate()
-    {
-        // initialized the rotated angle variable with current y rotation
-        rotatedAngle = level1.eulerAngles.y;
-
-        // set the target angle to zero
-        targetAngle = 0f;
-
-        // flip the position state
-        Initial = false;
-
-        // start a rotation
-        Rotating = true;
-    }
-
     // selectively activate the blocks depending on whether we are in the initial position or not
     private void ActivateBlocks(bool isInitial)
     {
@@ -97,5 +82,21 @@ public class RotateLevelOne : MonoBehaviour
         obj.transform.GetComponent<Walkable>().canWalkOnThisBlock = true;
         foreach (var i in obj.transform.GetComponent<Walkable>().possiblePath)
             i.active = true;
+    }
+
+    // set up a rotation
+    private void Rotate()
+    {
+        // initialized the rotated angle variable with current y rotation
+        rotatedAngle = level1.eulerAngles.y;
+
+        // set the target angle to zero
+        targetAngle = 0f;
+
+        // flip the position state
+        Initial = false;
+
+        // start a rotation
+        Rotating = true;
     }
 }

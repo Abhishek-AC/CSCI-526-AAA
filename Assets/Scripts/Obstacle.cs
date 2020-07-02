@@ -12,10 +12,15 @@ public class Obstacle : MonoBehaviour
         var walkable = transform.GetComponent<Walkable>();
 
         // find the collectable object
-        var collectable = GameObject.FindWithTag("crystal");
+        var collectable = GameObject.Find("Collectable");
+
+        // the player object
+        var player = GameObject.Find("Player");
 
         // move the obstacle object to the target position once the collectable is destroyed
-        if (collectable == null && transform.position != TARGET)
+        // if collectable is null, it could also be that the game is paused
+        // but if player is not null, then it means the collectable is gone
+        if (collectable == null && player != null && transform.position != TARGET)
             transform.position = Vector3.MoveTowards(transform.position, TARGET, Time.deltaTime);
 
         // activate the obstacle block only if it is at the right position
