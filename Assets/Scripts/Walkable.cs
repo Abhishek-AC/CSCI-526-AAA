@@ -8,8 +8,12 @@ public class Walkable : MonoBehaviour
     //list of possible blocks this block can go to
     public List<GamePath> possiblePath = new List<GamePath>();
     public Transform previousBlock;
+    public bool isStair;
     public float walkPointOffset = 1f;
     public bool canWalkOnThisBlock = true;
+    public float offsetX;
+    public float offsetY;
+    public float offsetZ;
     //get walkPoint of current cube
     public Vector3 GetWalkPoint()
     {
@@ -17,28 +21,37 @@ public class Walkable : MonoBehaviour
         {
             return new Vector3(0, -0.5f, 0);
         }
+
+        // this part of the code only applies to level 2
+        // before we find a better way to differentiate it
+        // let's test the presence of an object specific to level 2
         GameObject rotateObject = GameObject.Find("Rotate");
-        foreach (Transform t in rotateObject.transform)
+        if (rotateObject != null)
         {
-            t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
-        }
-        if (transform.tag == "rotatableCube")
-        {
-            /* 
-            for rotatable cubes handling two primary cases,
-            1. If there is cube object above the clickedCube then 
-               the capsule is not allowed to go there.
-            2. The Walkable points are drawn as per capsule's alignment
-            */
-            GameObject capsuleObject = GameObject.Find("Player");
-            if (Physics.Raycast(transform.position, capsuleObject.transform.up, 10f))
+            foreach (Transform t in rotateObject.transform)
             {
-                this.canWalkOnThisBlock = false;
-                return new Vector3(0, -0.5f, 0);
+                t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
             }
-            return transform.position + capsuleObject.transform.up * (1 - walkPointOffset);
+
+            if (transform.tag == "rotatableCube")
+            {
+                /* 
+                for rotatable cubes handling two primary cases,
+                1. If there is cube object above the clickedCube then 
+                   the capsule is not allowed to go there.
+                2. The Walkable points are drawn as per capsule's alignment
+                */
+                GameObject capsuleObject = GameObject.Find("Player");
+                if (Physics.Raycast(transform.position, capsuleObject.transform.up, 10f))
+                {
+                    canWalkOnThisBlock = false;
+                    return new Vector3(0, -0.5f, 0);
+                }
+                return transform.position + capsuleObject.transform.up * (1 - walkPointOffset);
+            }
         }
-        return transform.position + transform.up * (1 - walkPointOffset);
+
+        return transform.position + transform.up * (1 - walkPointOffset) + new Vector3(offsetX, offsetY, offsetZ);
     }
     //draw gismos sphere to show the walk path
     private void OnDrawGizmos()
