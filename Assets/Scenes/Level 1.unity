@@ -127,7 +127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29022
+  m_Name: pb_Mesh15452
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4058,7 +4058,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28766
+  m_Name: pb_Mesh15196
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9367,7 +9367,7 @@ GameObject:
   - component: {fileID: 1300151138}
   - component: {fileID: 1300151137}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: LevelOneRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10109,7 +10109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pause_Menu: {fileID: 1978095948}
   PauseButton: {fileID: 1418706471}
-  Level1: {fileID: 1902245194}
+  Level: {fileID: 0}
+  InfoButton: {fileID: 0}
 --- !u!114 &1581563215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14460,7 +14461,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29154
+  m_Name: pb_Mesh15584
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
