@@ -1,8 +1,6 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,7 +35,7 @@ public class PlayerController : MonoBehaviour
         //camera raycast to find the clicked block ref:https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
         if (Input.GetMouseButtonDown(0))
         {
-            if(clickSecondsCount < clickTimeInterval)
+            if (clickSecondsCount < clickTimeInterval)
                 return;
             clickSecondsCount = 0;
             Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -192,11 +190,11 @@ public class PlayerController : MonoBehaviour
                 //relativeDirection = ((finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset) - transform.position).normalized;
             }
             Debug.Log("Relative direction is" + relativeDirection);
-            Vector3 newForward = relativeDirection.magnitude<0.1f? transform.forward: CalculatePlayerDirection(relativeDirection);
+            Vector3 newForward = relativeDirection.magnitude < 0.1f ? transform.forward : CalculatePlayerDirection(relativeDirection);
             //Debug.Log("calculated direction is" + newForward);
             //if the player is walking on a stair, his direction should not change
             Tween t;
-            if ((finalPath[i].GetComponent<Walkable>().isStair) || (i < finalPath.Count-1 && finalPath[i+1].GetComponent<Walkable>().isStair))
+            if ((finalPath[i].GetComponent<Walkable>().isStair) || (i < finalPath.Count - 1 && finalPath[i + 1].GetComponent<Walkable>().isStair))
             {
                 t = transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset, timePerUnitMove).SetEase(Ease.Linear);
             }
@@ -237,27 +235,27 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Collision");
             other.gameObject.SetActive(false);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
     public Vector3 CalculatePlayerDirection(Vector3 input)
     {
         Vector3[] directions = { new Vector3(1, 0, 0), new Vector3(-1, 0, 0), new Vector3(0, 0, 1), new Vector3(0, 0, -1) };
         //determine where the player is facing by determine the quadrants the direction is
-       
-        if(input.x < 0 && input.z > 0)
+
+        if (input.x < 0 && input.z > 0)
         {
             return directions[2];
         }
-        else if(input.x < 0 && input.z < 0)
+        else if (input.x < 0 && input.z < 0)
         {
             return directions[1];
         }
-        else if( input.x > 0 && input.z < 0)
+        else if (input.x > 0 && input.z < 0)
         {
             return directions[3];
         }
-        else if(input.x >0 && input.z > 0)
+        else if (input.x > 0 && input.z > 0)
         {
             return directions[0];
         }
