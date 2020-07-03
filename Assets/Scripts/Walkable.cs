@@ -17,7 +17,7 @@ public class Walkable : MonoBehaviour
     //get walkPoint of current cube
     public Vector3 GetWalkPoint()
     {
-        if (this.canWalkOnThisBlock == false)
+        if (canWalkOnThisBlock == false)
         {
             return new Vector3(0, -0.5f, 0);
         }
@@ -33,7 +33,7 @@ public class Walkable : MonoBehaviour
                 t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
             }
 
-            if (transform.tag == "rotatableCube")
+            if (transform.CompareTag("rotatableCube"))
             {
                 /* 
                 for rotatable cubes handling two primary cases,
