@@ -29,9 +29,9 @@ public class Walkable : MonoBehaviour
         if (rotateObject != null)
         {
             foreach (Transform t in rotateObject.transform)
-            {
-                t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
-            }
+                t.gameObject
+                    .GetComponent<Walkable>()
+                    .canWalkOnThisBlock = true;
 
             if (transform.CompareTag("rotatableCube"))
             {
@@ -51,7 +51,9 @@ public class Walkable : MonoBehaviour
             }
         }
 
-        return transform.position + transform.up * (1 - walkPointOffset) + new Vector3(offsetX, offsetY, offsetZ);
+        return transform.position
+            + transform.up * (1 - walkPointOffset)
+            + new Vector3(offsetX, offsetY, offsetZ);
     }
     //draw gismos sphere to show the walk path
     private void OnDrawGizmos()
