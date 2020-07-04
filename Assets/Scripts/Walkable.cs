@@ -18,9 +18,7 @@ public class Walkable : MonoBehaviour
     public Vector3 GetWalkPoint()
     {
         if (canWalkOnThisBlock == false)
-        {
             return new Vector3(0, -0.5f, 0);
-        }
 
         // this part of the code only applies to level 2
         // before we find a better way to differentiate it
@@ -35,12 +33,10 @@ public class Walkable : MonoBehaviour
 
             if (transform.CompareTag("rotatableCube"))
             {
-                /* 
-                for rotatable cubes handling two primary cases,
-                1. If there is cube object above the clickedCube then 
-                   the capsule is not allowed to go there.
-                2. The Walkable points are drawn as per capsule's alignment
-                */
+                // for rotatable cubes handling two primary cases,
+                // 1. If there is cube object above the clickedCube then 
+                //    the capsule is not allowed to go there.
+                // 2. The Walkable points are drawn as per capsule's alignment
                 GameObject capsuleObject = GameObject.Find("Player");
                 if (Physics.Raycast(transform.position, capsuleObject.transform.up, 10f))
                 {

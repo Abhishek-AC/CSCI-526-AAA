@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 
-// makes a block as destructable
-// self-destructs after the player passes
-public class Destructable : MonoBehaviour
+// makes a block self-destruct after the player passes
+public class SelfDestructable : MonoBehaviour
 {
     // hard-coded self-destruct delay time
-    public static readonly float SELF_DESTRUCT_DELAY = 1f;
+    public static readonly float SELF_DESTRUCT_DELAY = 0.75f;
 
-    // is the player currently on this blocks
+    // whether the player currently is on this blocks or not
     // dynamic property: calculated at runtime
     public bool IsPlayerOnThisBlock
     {
@@ -16,10 +15,10 @@ public class Destructable : MonoBehaviour
                 GameObject.Find("Player").transform.up, 10f);
     }
 
-    // whether the player has entered the block
+    // whether the player has entered the block or not
     public bool PlayerHasEntered { get; private set; }
 
-    // whether the player has left the block
+    // whether the player has left the block or not
     public bool PlayerHasLeft { get; private set; }
 
     // the self-destruct delay countdown timer
@@ -55,7 +54,7 @@ public class Destructable : MonoBehaviour
             PlayerHasLeft = true;
     }
 
-    // self-destruction logic
+    // self-destruct logic
     private void SelfDestruct()
     {
         // update the possible paths of neighboring blocks
@@ -68,6 +67,7 @@ public class Destructable : MonoBehaviour
     }
 
     // determine whether to self-destruct based on player status and countdown
+    // also counts down automatically once the trigger conditions are met
     private void SelfDestructCountdown()
     {
         // once the player has left, trigger the countdown
@@ -84,8 +84,9 @@ public class Destructable : MonoBehaviour
         }
     }
 
-    // common path disabling logic
-    private void NeighborPathDisable(GameObject neighbor, int index) => neighbor
+    // common neighbor path disabling logic
+    private void NeighborPathDisable(string neighbor, int index) => GameObject
+        .Find(neighbor)
         .GetComponent<Walkable>()
         .possiblePath[index]
         .active = false;
@@ -95,6 +96,29 @@ public class Destructable : MonoBehaviour
     // actual disable logic is done in NeighborPathDisable() function
     private void NeighborPathDisableDriver()
     {
-
+        switch (transform.gameObject.name)
+        {
+            case "Cube (10)":
+                if (GameObject.Find("Cube (40)") != null) NeighborPathDisable("Cube (40)", 0);
+                if (GameObject.Find("Cube (9)") != null) NeighborPathDisable("Cube (9)", 1);
+                if (GameObject.Find("Cube (11)") != null) NeighborPathDisable("Cube (11)", 0);
+                break;
+            case "Cube (11)":
+                if (GameObject.Find("Cube (10)") != null) NeighborPathDisable("Cube (10)", 0);
+                if (GameObject.Find("Cube (12)") != null) NeighborPathDisable("Cube (12)", 0);
+                break;
+            case "Cube (12)":
+                if (GameObject.Find("Cube (11)") != null) NeighborPathDisable("Cube (11)", 1);
+                if (GameObject.Find("Cube (13)") != null) NeighborPathDisable("Cube (13)", 1);
+                break;
+            case "Cube (13)":
+                if (GameObject.Find("Cube (12)") != null) NeighborPathDisable("Cube (12)", 1);
+                if (GameObject.Find("Cube (14)") != null) NeighborPathDisable("Cube (14)", 0);
+                break;
+            case "Cube (14)":
+                if (GameObject.Find("Cube (13)") != null) NeighborPathDisable("Cube (13)", 0);
+                if (GameObject.Find("Cube (15)") != null) NeighborPathDisable("Cube (15)", 0);
+                break;
+        }
     }
 }
