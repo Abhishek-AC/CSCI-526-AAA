@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -104,10 +105,37 @@ public class PlayerController : MonoBehaviour
             ExploreCube(nextCubes, visitedCubes);
         }
     }
+    private void BFSFindPath()
+    {
+        bool findTarget = false;
+        HashSet<Transform> cubeCovered = new HashSet<Transform>();
+        Queue < Transform > queue = new Queue<Transform>();
+        queue.Enqueue(currentCube);
+        while (queue.Count > 0)
+        {
+            Transform element = queue.Dequeue();
+            if (cubeCovered.Contains(element))
+                continue;
+            else
+                cubeCovered.Add(element);
+            foreach (GamePath path in element.GetComponent<Walkable>().possiblePath)
+            {
+                if (!cubeCovered.Contains(path.target) && path.active)
+                {
+                    queue.Enqueue(path.target);
+                    path.target.GetComponent<Walkable>().previousBlock = element;
+                }
+                if (path.target == clickedCube)
+                    findTarget = true;
+            }
+            if (findTarget)
+                break;
+        }
+    }
     //method to generate path from current cube to clicked cube, storing it to finalPath
     private void BuildPath()
     {
-        FindPath();
+        BFSFindPath();
         Transform cube = clickedCube;
         while (cube != currentCube)
         {
