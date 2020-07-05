@@ -17,10 +17,8 @@ public class Walkable : MonoBehaviour
     //get walkPoint of current cube
     public Vector3 GetWalkPoint()
     {
-        if (this.canWalkOnThisBlock == false)
-        {
+        if (canWalkOnThisBlock == false)
             return new Vector3(0, -0.5f, 0);
-        }
 
         // this part of the code only applies to level 2
         // before we find a better way to differentiate it
@@ -29,18 +27,16 @@ public class Walkable : MonoBehaviour
         if (rotateObject != null)
         {
             foreach (Transform t in rotateObject.transform)
-            {
-                t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
-            }
+                t.gameObject
+                    .GetComponent<Walkable>()
+                    .canWalkOnThisBlock = true;
 
-            if (transform.tag == "rotatableCube")
+            if (transform.CompareTag("rotatableCube"))
             {
-                /* 
-                for rotatable cubes handling two primary cases,
-                1. If there is cube object above the clickedCube then 
-                   the capsule is not allowed to go there.
-                2. The Walkable points are drawn as per capsule's alignment
-                */
+                // for rotatable cubes handling two primary cases,
+                // 1. If there is cube object above the clickedCube then 
+                //    the capsule is not allowed to go there.
+                // 2. The Walkable points are drawn as per capsule's alignment
                 GameObject capsuleObject = GameObject.Find("Player");
                 if (Physics.Raycast(transform.position, capsuleObject.transform.up, 10f))
                 {
@@ -51,7 +47,9 @@ public class Walkable : MonoBehaviour
             }
         }
 
-        return transform.position + transform.up * (1 - walkPointOffset) + new Vector3(offsetX, offsetY, offsetZ);
+        return transform.position
+            + transform.up * (1 - walkPointOffset)
+            + new Vector3(offsetX, offsetY, offsetZ);
     }
     //draw gismos sphere to show the walk path
     private void OnDrawGizmos()
