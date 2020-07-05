@@ -249,8 +249,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 54711744}
+  - component: {fileID: 54711745}
   m_Layer: 0
-  m_Name: rotate2
+  m_Name: Rotate_Destination
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,6 +275,18 @@ Transform:
   m_Father: {fileID: 778794308}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &54711745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54711743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de222b27aee34c3ca3ce97e12162ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &104911076
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +763,12 @@ MonoBehaviour:
   offsetX: 0
   offsetY: 0
   offsetZ: 0
+--- !u!4 &211645045 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 806344266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &219065029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,7 +1379,7 @@ GameObject:
   - component: {fileID: 352507072}
   m_Layer: 0
   m_Name: Cube (67)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1373,11 +1392,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352507067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 0, z: -3.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1146770343}
-  m_RootOrder: 9
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &352507069
 BoxCollider:
@@ -1453,14 +1472,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
-  - target: {fileID: 0}
-    active: 0
-  - target: {fileID: 0}
-    active: 0
+  - target: {fileID: 1218427342}
+    active: 1
+  - target: {fileID: 993963454}
+    active: 1
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
   offsetX: 0
   offsetY: 0
   offsetZ: 0
@@ -1479,7 +1498,7 @@ GameObject:
   - component: {fileID: 357279932}
   m_Layer: 0
   m_Name: Cube (52)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1573,9 +1592,9 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1408549362}
-    active: 0
+    active: 1
   - target: {fileID: 1630896558}
-    active: 0
+    active: 1
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
@@ -1708,7 +1727,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh168114
+  m_Name: pb_Mesh163724
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1880,7 +1899,7 @@ GameObject:
   - component: {fileID: 383808156}
   m_Layer: 0
   m_Name: Cube (60)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1897,7 +1916,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1146770343}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &383808153
 BoxCollider:
@@ -1974,13 +1993,15 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 532025974}
-    active: 0
+    active: 1
   - target: {fileID: 888840229}
-    active: 0
+    active: 1
+  - target: {fileID: 1218427342}
+    active: 1
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
   offsetX: 0
   offsetY: 0
   offsetZ: 0
@@ -2475,7 +2496,7 @@ GameObject:
   - component: {fileID: 532025978}
   m_Layer: 0
   m_Name: Cube (59)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2487,12 +2508,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532025973}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 10, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1146770343}
-  m_RootOrder: 1
+  m_Father: {fileID: 1397508913}
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &532025975
 BoxCollider:
@@ -2569,11 +2590,11 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1993414044}
-    active: 0
+    active: 1
   - target: {fileID: 383808152}
-    active: 0
+    active: 1
   previousBlock: {fileID: 0}
-  isStair: 0
+  isStair: 1
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
   offsetX: 0
@@ -2943,10 +2964,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 778794308}
     m_Modifications:
+    - target: {fileID: 3767977008067215344, guid: 31567863045b16b4c8d65296ea07f34c,
+        type: 3}
+      propertyPath: m_Name
+      value: RotationGear_Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767977008366547013, guid: 31567863045b16b4c8d65296ea07f34c,
+        type: 3}
+      propertyPath: m_Name
+      value: RotationGear_Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767977009819677449, guid: 31567863045b16b4c8d65296ea07f34c,
+        type: 3}
+      propertyPath: m_Name
+      value: RotationGear_Key
+      objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632452, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
       propertyPath: m_Name
-      value: RotationGear1
+      value: RotationGear_Key
       objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
@@ -2986,7 +3022,7 @@ PrefabInstance:
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
@@ -3002,6 +3038,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572620496877320477, guid: 31567863045b16b4c8d65296ea07f34c,
+        type: 3}
+      propertyPath: m_Name
+      value: RotationGear_Key
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31567863045b16b4c8d65296ea07f34c, type: 3}
@@ -3730,7 +3771,7 @@ GameObject:
   - component: {fileID: 771237909}
   m_Layer: 0
   m_Name: Cube (61)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3824,9 +3865,9 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 1630896558}
-    active: 0
+    active: 1
   - target: {fileID: 1107045127}
-    active: 0
+    active: 1
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
@@ -3864,11 +3905,12 @@ Transform:
   - {fileID: 1397508913}
   - {fileID: 54711744}
   - {fileID: 1146770343}
+  - {fileID: 1719911410}
   - {fileID: 643402115}
+  - {fileID: 2137982970}
   - {fileID: 1728955052}
   - {fileID: 1910086996}
-  - {fileID: 1719911410}
-  - {fileID: 848586961}
+  - {fileID: 211645045}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3877,7 +3919,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1146770343}
+    m_TransformParent: {fileID: 778794308}
     m_Modifications:
     - target: {fileID: 100000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
       propertyPath: m_Name
@@ -3885,35 +3927,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: 9.973822
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 1.4997716
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: -0.008726597
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: -0.999962
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3927,14 +3969,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e8bfe280591a9c4f9cd043d605057f1, type: 3}
---- !u!4 &806344267 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 3e8bfe280591a9c4f9cd043d605057f1,
-    type: 3}
-  m_PrefabInstance: {fileID: 806344266}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &828179099
 GameObject:
   m_ObjectHideFlags: 0
@@ -4214,12 +4258,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848586960}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5, y: 3.5, z: -5.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.5, y: 3.5, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 778794308}
-  m_RootOrder: 7
+  m_Father: {fileID: 1397508913}
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &848586962
 MonoBehaviour:
@@ -6944,7 +6988,7 @@ GameObject:
   - component: {fileID: 888840233}
   m_Layer: 0
   m_Name: Cube (61)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6956,12 +7000,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888840228}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 10, y: 0, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1146770343}
-  m_RootOrder: 3
+  m_Father: {fileID: 1397508913}
+  m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &888840230
 BoxCollider:
@@ -7045,8 +7089,8 @@ MonoBehaviour:
   isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
-  offsetX: -0.5
-  offsetY: 0.5
+  offsetX: 0
+  offsetY: 0
   offsetZ: 0
 --- !u!1 &900002127
 GameObject:
@@ -7622,7 +7666,7 @@ GameObject:
   - component: {fileID: 993963458}
   m_Layer: 0
   m_Name: Cube (66)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7635,11 +7679,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993963453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0, z: -3.5}
+  m_LocalPosition: {x: -2.5, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1146770343}
-  m_RootOrder: 8
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &993963455
 BoxCollider:
@@ -7715,14 +7759,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
-  - target: {fileID: 0}
-    active: 0
-  - target: {fileID: 0}
-    active: 0
+  - target: {fileID: 1809572366}
+    active: 1
+  - target: {fileID: 352507068}
+    active: 1
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
   offsetX: 0
   offsetY: 0
   offsetZ: 0
@@ -8211,8 +8255,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1146770343}
+  - component: {fileID: 1146770344}
   m_Layer: 0
-  m_Name: rotate
+  m_Name: Rotate_Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8225,25 +8270,31 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146770342}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 10, y: 0, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1993414044}
-  - {fileID: 532025974}
   - {fileID: 383808152}
-  - {fileID: 888840229}
-  - {fileID: 2058297914}
-  - {fileID: 1553452809}
   - {fileID: 1809572366}
   - {fileID: 2057349792}
   - {fileID: 993963454}
   - {fileID: 352507068}
   - {fileID: 1218427342}
-  - {fileID: 806344267}
   m_Father: {fileID: 778794308}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+--- !u!114 &1146770344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146770342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d3605ccd6fe4e408758767456def98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1177743774
 GameObject:
   m_ObjectHideFlags: 0
@@ -8378,7 +8429,7 @@ GameObject:
   - component: {fileID: 1218427346}
   m_Layer: 0
   m_Name: Cube (68)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8391,11 +8442,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218427341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28999996, y: 0, z: -3.5}
+  m_LocalPosition: {x: -0.28999996, y: 0, z: -4}
   m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1146770343}
-  m_RootOrder: 10
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1218427343
 BoxCollider:
@@ -8471,14 +8522,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
-  - target: {fileID: 0}
-    active: 0
-  - target: {fileID: 0}
-    active: 0
+  - target: {fileID: 383808152}
+    active: 1
+  - target: {fileID: 352507068}
+    active: 1
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
   offsetX: 0
   offsetY: 0
   offsetZ: 0
@@ -8929,7 +8980,12 @@ Transform:
   - {fileID: 659975428}
   - {fileID: 140570737}
   - {fileID: 120809083}
-  - {fileID: 2137982970}
+  - {fileID: 848586961}
+  - {fileID: 1993414044}
+  - {fileID: 532025974}
+  - {fileID: 888840229}
+  - {fileID: 2058297914}
+  - {fileID: 1553452809}
   m_Father: {fileID: 778794308}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8948,7 +9004,7 @@ GameObject:
   - component: {fileID: 1408549366}
   m_Layer: 0
   m_Name: Cube (54)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9042,7 +9098,7 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 357279928}
-    active: 0
+    active: 1
   - target: {fileID: 848586961}
     active: 0
   previousBlock: {fileID: 0}
@@ -9171,6 +9227,26 @@ MonoBehaviour:
   offsetX: 0
   offsetY: 0
   offsetZ: 0
+--- !u!1 &1472493417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7572620496208632452, guid: 31567863045b16b4c8d65296ea07f34c,
+    type: 3}
+  m_PrefabInstance: {fileID: 643402114}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1472493418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472493417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f30096168bb564555a0d3ba340008317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rotationCubeGroup: {fileID: 1146770342}
+  m_angleSpeed: 100
 --- !u!1 &1553452808
 GameObject:
   m_ObjectHideFlags: 0
@@ -9186,7 +9262,7 @@ GameObject:
   - component: {fileID: 1553452813}
   m_Layer: 0
   m_Name: Cube (63)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9198,12 +9274,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553452808}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 10, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1146770343}
-  m_RootOrder: 5
+  m_Father: {fileID: 1397508913}
+  m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1553452810
 BoxCollider:
@@ -9287,8 +9363,8 @@ MonoBehaviour:
   isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
-  offsetX: -0.5
-  offsetY: 0.5
+  offsetX: 0
+  offsetY: 0
   offsetZ: 0
 --- !u!1 &1607148052
 GameObject:
@@ -9424,7 +9500,7 @@ GameObject:
   - component: {fileID: 1630896562}
   m_Layer: 0
   m_Name: Cube (60)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9518,9 +9594,9 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 771237905}
-    active: 0
+    active: 1
   - target: {fileID: 357279928}
-    active: 0
+    active: 1
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
@@ -9907,10 +9983,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 778794308}
     m_Modifications:
+    - target: {fileID: 3767977008067215344, guid: 31567863045b16b4c8d65296ea07f34c,
+        type: 3}
+      propertyPath: m_Name
+      value: RotationGear_Destination
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767977008366547013, guid: 31567863045b16b4c8d65296ea07f34c,
+        type: 3}
+      propertyPath: m_Name
+      value: RotationGear_Destination
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767977009819677449, guid: 31567863045b16b4c8d65296ea07f34c,
+        type: 3}
+      propertyPath: m_Name
+      value: RotationGear_Destination
+      objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632452, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
       propertyPath: m_Name
-      value: RotationGear2
+      value: RotationGear_Destination
       objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
@@ -9950,7 +10041,7 @@ PrefabInstance:
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
@@ -9967,6 +10058,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7572620496877320477, guid: 31567863045b16b4c8d65296ea07f34c,
+        type: 3}
+      propertyPath: m_Name
+      value: RotationGear_Destination
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31567863045b16b4c8d65296ea07f34c, type: 3}
 --- !u!4 &1719911410 stripped
@@ -9975,6 +10071,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1719911409}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1719911411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7572620496208632452, guid: 31567863045b16b4c8d65296ea07f34c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1719911409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1719911412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719911411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922f32b03a36a495a8595c3e87fc696c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rotationCubeGroup: {fileID: 54711743}
+  m_angleSpeed: 100
 --- !u!1001 &1728955051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10020,7 +10136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 30420e90e0d68254dbe6be9a2fccd155, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 30420e90e0d68254dbe6be9a2fccd155, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10094,7 +10210,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1397508913}
+    m_TransformParent: {fileID: 778794308}
     m_Modifications:
     - target: {fileID: 104095602954275584, guid: e973324a4aa960241a4e7f9d30624e84,
         type: 3}
@@ -10444,7 +10560,7 @@ PrefabInstance:
     - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
         type: 3}
@@ -10469,7 +10585,7 @@ PrefabInstance:
     - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
         type: 3}
       propertyPath: m_RootOrder
-      value: 64
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
         type: 3}
@@ -10885,7 +11001,7 @@ GameObject:
   - component: {fileID: 1809572370}
   m_Layer: 0
   m_Name: Cube (65)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10898,11 +11014,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809572365}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 0, z: -3.5}
+  m_LocalPosition: {x: -3.5, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1146770343}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1809572367
 BoxCollider:
@@ -10978,14 +11094,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
-  - target: {fileID: 0}
-    active: 0
-  - target: {fileID: 0}
-    active: 0
+  - target: {fileID: 993963454}
+    active: 1
+  - target: {fileID: 2057349792}
+    active: 1
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
   offsetX: 0
   offsetY: 0
   offsetZ: 0
@@ -11385,7 +11501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 76409dfe2e8e6364faaa4b139d30cf31, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 76409dfe2e8e6364faaa4b139d30cf31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11910,7 +12026,7 @@ GameObject:
   - component: {fileID: 1993414048}
   m_Layer: 0
   m_Name: Cube (54)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11922,12 +12038,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993414043}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 10, y: 0, z: -3.0100002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1146770343}
-  m_RootOrder: 0
+  m_Father: {fileID: 1397508913}
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1993414045
 BoxCollider:
@@ -12006,13 +12122,13 @@ MonoBehaviour:
   - target: {fileID: 1923715893}
     active: 1
   - target: {fileID: 2145332707}
-    active: 0
+    active: 1
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
-  offsetX: -0.5
-  offsetY: 0.5
+  offsetX: 0
+  offsetY: 0
   offsetZ: 0
 --- !u!1 &2015589705
 GameObject:
@@ -12516,7 +12632,7 @@ GameObject:
   - component: {fileID: 2057349796}
   m_Layer: 0
   m_Name: Cube (64)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12529,11 +12645,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057349791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 0, z: -3.5}
+  m_LocalPosition: {x: -4.5, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1146770343}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2057349793
 BoxCollider:
@@ -12609,10 +12725,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
-  - target: {fileID: 0}
-    active: 0
-  - target: {fileID: 0}
-    active: 0
+  - target: {fileID: 1809572366}
+    active: 1
+  - target: {fileID: 965096598}
+    active: 1
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
@@ -12635,7 +12751,7 @@ GameObject:
   - component: {fileID: 2058297918}
   m_Layer: 0
   m_Name: Cube (62)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12647,12 +12763,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058297913}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 10, y: 0, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1146770343}
-  m_RootOrder: 4
+  m_Father: {fileID: 1397508913}
+  m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2058297915
 BoxCollider:
@@ -12736,8 +12852,8 @@ MonoBehaviour:
   isStair: 0
   walkPointOffset: 0.5
   canWalkOnThisBlock: 1
-  offsetX: -0.5
-  offsetY: 0.5
+  offsetX: 0
+  offsetY: 0
   offsetZ: 0
 --- !u!1 &2077058631
 GameObject:
