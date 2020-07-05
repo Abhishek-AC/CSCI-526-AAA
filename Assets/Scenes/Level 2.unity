@@ -6254,6 +6254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rotationCubeGroup: {fileID: 376657755}
+  rotationGear: {fileID: 1179028338}
   m_angleSpeed: 100
 --- !u!65 &1179028341
 BoxCollider:
@@ -8658,12 +8659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce569de99f8c432cbcaf424ca67b70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCollectedCrystal: 0
-  rotateGameObjectRotationZValue: 0
-  ferryGameObjectPositionXValue: 0
-  makePathCubePositionYValue: 0
-  capsulePosition: []
-  collectable: {fileID: 683607045}
 --- !u!1 &1920065341
 GameObject:
   m_ObjectHideFlags: 0

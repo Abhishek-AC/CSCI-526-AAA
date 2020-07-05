@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float clickTimeInterval = 0.5f;
     private float clickSecondsCount;
     private Sequence s;
+    // public GameObject rotationGear;
 
 
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
         RayCastDown();
         timePerUnitMove = 1f / walkingSpeed;
         clickSecondsCount = clickTimeInterval;
+        // rotationGear = GameObject.Find("RotationGear");
     }
     // Update is called once per frame
     void Update()
@@ -258,6 +260,10 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Collision");
             other.gameObject.SetActive(false);
+
+            Debug.Log("rotation gear now visible");
+            // rotationGear.gameObject.SetActive(true);
+            GameObject.Find ("RotationGear").transform.localScale = new Vector3(1, 1, 1);
         }
         if (other.gameObject.CompareTag("star"))
         {

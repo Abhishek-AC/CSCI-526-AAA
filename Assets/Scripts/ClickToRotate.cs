@@ -23,6 +23,9 @@ public class ClickToRotate : MonoBehaviour
     */
     void Start()
     {
+        // rotationGear = GameObject.Find("RotationGear");
+        // rotationGear.SetActive(false);
+        GameObject.Find ("RotationGear").transform.localScale = new Vector3(0, 0, 0);
         isRotatable = true;
         maxAnglesPerClick = 90f;
         currentAngleDegree = 0f;
