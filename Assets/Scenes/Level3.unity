@@ -1479,7 +1479,7 @@ MonoBehaviour:
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
   offsetX: 0
   offsetY: 0
   offsetZ: 0
@@ -2467,7 +2467,7 @@ MonoBehaviour:
   - target: {fileID: 1993414044}
     active: 1
   - target: {fileID: 1218427342}
-    active: 1
+    active: 0
   previousBlock: {fileID: 0}
   isStair: 1
   walkPointOffset: 0.5
@@ -7641,7 +7641,7 @@ MonoBehaviour:
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
   offsetX: 0
   offsetY: 0
   offsetZ: 0
@@ -8303,7 +8303,7 @@ GameObject:
   - component: {fileID: 1218427346}
   m_Layer: 0
   m_Name: Cube (68)
-  m_TagString: Untagged
+  m_TagString: rotatableCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8405,7 +8405,7 @@ MonoBehaviour:
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
   offsetX: 0
   offsetY: 0
   offsetZ: 0
@@ -10978,7 +10978,7 @@ MonoBehaviour:
   previousBlock: {fileID: 0}
   isStair: 0
   walkPointOffset: 0.5
-  canWalkOnThisBlock: 1
+  canWalkOnThisBlock: 0
   offsetX: 0
   offsetY: 0
   offsetZ: 0
