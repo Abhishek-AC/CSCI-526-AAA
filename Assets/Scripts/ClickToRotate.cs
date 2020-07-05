@@ -11,7 +11,7 @@ public class ClickToRotate : MonoBehaviour
     GameObject: https://docs.unity3d.com/ScriptReference/GameObject.html
     Base class for all entities in Unity Scenes 
     */
-    public GameObject m_rotationCubeGroup, rotationGear;
+    public GameObject m_rotationCubeGroup;
     public float m_angleSpeed;
     private bool isRotatable;
     private bool isRotating;
@@ -23,8 +23,9 @@ public class ClickToRotate : MonoBehaviour
     */
     void Start()
     {
-        rotationGear = GameObject.Find("RotationGear");
-        rotationGear.SetActive(false);
+        // rotationGear = GameObject.Find("RotationGear");
+        // rotationGear.SetActive(false);
+        GameObject.Find ("RotationGear").transform.localScale = new Vector3(0, 0, 0);
         isRotatable = true;
         maxAnglesPerClick = 90f;
         currentAngleDegree = 0f;
