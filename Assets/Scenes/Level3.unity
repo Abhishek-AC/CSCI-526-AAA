@@ -2467,7 +2467,7 @@ MonoBehaviour:
   - target: {fileID: 1993414044}
     active: 1
   - target: {fileID: 1218427342}
-    active: 0
+    active: 1
   previousBlock: {fileID: 0}
   isStair: 1
   walkPointOffset: 0.5
@@ -4155,9 +4155,9 @@ MonoBehaviour:
   edgeValue: {x: 0, y: 0, z: 0}
   possiblePath:
   - target: {fileID: 531476485}
-    active: 0
-  - target: {fileID: 1630896558}
     active: 1
+  - target: {fileID: 1630896558}
+    active: 0
   previousBlock: {fileID: 0}
   isStair: 1
   walkPointOffset: 0.5
