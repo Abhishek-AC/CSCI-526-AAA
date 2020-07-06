@@ -260,18 +260,39 @@ public class PlayerController : MonoBehaviour
         Debug.Log("OnTriggerEnter");
         if (other.gameObject.CompareTag("crystal"))
         {
-            Debug.Log("Collision");
+            Debug.Log("Crystal Collision");
             other.gameObject.SetActive(false);
 
             Debug.Log("rotation gear now visible");
             // rotationGear.gameObject.SetActive(true);
-            GameObject.Find ("RotationGear").transform.localScale = new Vector3(1, 1, 1);
+
+            if (GameObject.Find ("RotationGear")){
+                GameObject.Find ("RotationGear").transform.localScale = new Vector3(1, 1, 1);
+            }
+
+            if (GameObject.Find ("RotationGear_Key")){
+                GameObject.Find ("RotationGear_Key").transform.localScale = new Vector3(1, 1, 1);
+            }
+
+            // if (GameObject.Find ("RotationGear_Destination")){
+            //     GameObject.Find ("RotationGear_Destination").transform.localScale = new Vector3(1, 1, 1);
+            // }
+            
         }
         if (other.gameObject.CompareTag("star"))
         {
-            Debug.Log("Collision");
+            Debug.Log("Destination Colectable Collision");
             other.gameObject.SetActive(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (other.gameObject.CompareTag("Key_collectable")){
+            Debug.Log("Key Collision");
+            other.gameObject.SetActive(false);
+            Debug.Log("rotation gear now visible");
+            if (GameObject.Find ("RotationGear_Destination")){
+                GameObject.Find ("RotationGear_Destination").transform.localScale = new Vector3(1, 1, 1);
+            }
         }
     }
     public Vector3 CalculatePlayerDirection(Vector3 input)
