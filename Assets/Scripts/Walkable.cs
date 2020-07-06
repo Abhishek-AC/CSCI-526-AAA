@@ -52,7 +52,8 @@ public class Walkable : MonoBehaviour
         {
             foreach (Transform t in rotateObject1.transform)
             {
-                t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
+                if (t.gameObject.GetComponent<Walkable>())
+                    t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
             }
 
             if (transform.tag == "rotatableCube")
