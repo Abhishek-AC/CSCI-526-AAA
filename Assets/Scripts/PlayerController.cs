@@ -132,6 +132,7 @@ public class PlayerController : MonoBehaviour
             }
             if (findTarget)
                 break;
+            //Debug.Log("in");
         }
     }
     //method to generate path from current cube to clicked cube, storing it to finalPath
@@ -142,6 +143,7 @@ public class PlayerController : MonoBehaviour
         while (cube != currentCube)
         {
             finalPath.Add(cube);
+            Debug.Log(cube.transform.position);
             if (cube.GetComponent<Walkable>().previousBlock != null)
                 cube = cube.GetComponent<Walkable>().previousBlock;
             else
@@ -219,7 +221,7 @@ public class PlayerController : MonoBehaviour
                 relativeDirection = (cubeN - cubeT).normalized;
                 //relativeDirection = ((finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset) - transform.position).normalized;
             }
-            Debug.Log("Relative direction is" + relativeDirection);
+            //Debug.Log("Relative direction is" + relativeDirection);
             Vector3 newForward = relativeDirection.magnitude < 0.1f ? transform.forward : CalculatePlayerDirection(relativeDirection);
             //Debug.Log("calculated direction is" + newForward);
             //if the player is walking on a stair, his direction should not change
