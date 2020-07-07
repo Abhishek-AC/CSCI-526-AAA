@@ -44,7 +44,7 @@ public class LevelOne : LevelManager
     public float[] PlayerRotation { get; set; }
 
     // the current state of the game
-    public LevelOneState CurrentState => new LevelOneState()
+    public new LevelOneState CurrentState => new LevelOneState()
     {
         IsInitialState = IsInitialState,
         PlayerPosition = PlayerPosition,
@@ -76,7 +76,7 @@ public class LevelOne : LevelManager
     }
 
     // restore the game state or set up in its initial state
-    public void RestoreOrSetupGameState()
+    private void RestoreOrSetupGameState()
     {
         var state = reset ? null : SaveSystem.LoadLevelOne();
         // load initial values if there is no state to restore

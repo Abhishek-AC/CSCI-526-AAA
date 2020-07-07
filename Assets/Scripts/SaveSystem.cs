@@ -14,10 +14,12 @@ public static class SaveSystem
     [Serializable]
     public abstract class GameState { }
 
-    // path to the level 1 save file
+    // name of the level 1 save file
     private static readonly string LEVEL_ONE_SAVE_FILE = "level1Data";
-    // path to the level 2 save file
+    // name of the level 2 save file
     private static readonly string LEVEL_TWO_SAVE_FILE = "level2Data";
+    // name of the level 3 save file
+    private static readonly string LEVEL_THREE_SAVE_FILE = "level3Data";
 
     // save level 1 state to file
     public static void SaveLevelOne(LevelOne level) => Save(level.CurrentState,
@@ -27,6 +29,10 @@ public static class SaveSystem
     public static void SaveLevelTwo(LevelTwo level) => Save(level.CurrentState,
         Path.Combine(Application.persistentDataPath, LEVEL_TWO_SAVE_FILE));
 
+    // save level 3 state to file
+    public static void SaveLevelThree(LevelThree level) => Save(level.CurrentState,
+        Path.Combine(Application.persistentDataPath, LEVEL_THREE_SAVE_FILE));
+
     // read level 1 state from save file
     public static LevelOne.LevelOneState LoadLevelOne() => Load<LevelOne.LevelOneState>(
         Path.Combine(Application.persistentDataPath, LEVEL_ONE_SAVE_FILE));
@@ -34,6 +40,10 @@ public static class SaveSystem
     // read level 2 state from save file
     public static LevelTwo.LevelTwoState LoadLevelTwo() => Load<LevelTwo.LevelTwoState>(
         Path.Combine(Application.persistentDataPath, LEVEL_TWO_SAVE_FILE));
+
+    // read level 3 state from save file
+    public static LevelThree.LevelThreeState LoadLevelThree() => Load<LevelThree.LevelThreeState>(
+        Path.Combine(Application.persistentDataPath, LEVEL_THREE_SAVE_FILE));
 
     // generic logic for saving game state to file
     private static void Save<T>(T data, string path) where T : GameState

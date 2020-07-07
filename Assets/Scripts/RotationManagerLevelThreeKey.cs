@@ -1,6 +1,6 @@
-﻿    using UnityEngine;
+﻿using UnityEngine;
 
-public class RotationManager_Level3_Key : MonoBehaviour
+public class RotationManagerLevelThreeKey : MonoBehaviour
 {
     // Update is called once per frame
     void Update()

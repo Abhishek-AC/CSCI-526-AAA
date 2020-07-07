@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class RotationManager_Level3_Dest : MonoBehaviour
+public class RotationManagerLevelThreeDest : MonoBehaviour
 {
     // Update is called once per frame
     void Update()
@@ -14,7 +14,7 @@ public class RotationManager_Level3_Dest : MonoBehaviour
             Debug.Log("Cube not reachable");
             return;
         }
-        //check if the rotation angle is 270 degree, which connects two blocks
+        //check if the rotation angle is 90 degree, which connects two blocks
         if (Mathf.Abs(transform.rotation.eulerAngles.x - 90f) < 0.1f)
         {
             cubeToConnect1.GetComponent<Walkable>().possiblePath[1].active = true;
