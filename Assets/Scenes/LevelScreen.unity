@@ -238,7 +238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.553881}
-  m_AnchoredPosition: {x: -35, y: 238.81247}
+  m_AnchoredPosition: {x: -50, y: 238.81247}
   m_SizeDelta: {x: 220, y: 42.37506}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &328268612
@@ -1344,6 +1344,7 @@ GameObject:
   - component: {fileID: 1357739095}
   - component: {fileID: 1357739098}
   - component: {fileID: 1357739097}
+  - component: {fileID: 1357739096}
   m_Layer: 5
   m_Name: Level 2
   m_TagString: Untagged
@@ -1372,6 +1373,18 @@ RectTransform:
   m_AnchoredPosition: {x: 209, y: -624}
   m_SizeDelta: {x: 52.092163, y: 74.22583}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1357739096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357739094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd87d319581404c898fca45ec4dd793b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1357739097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1415,7 +1428,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 650436759}
+      - m_Target: {fileID: 1357739096}
         m_MethodName: levelToLoad
         m_Mode: 3
         m_Arguments:
@@ -1546,6 +1559,7 @@ GameObject:
   - component: {fileID: 1726203801}
   - component: {fileID: 1726203804}
   - component: {fileID: 1726203802}
+  - component: {fileID: 1726203803}
   m_Layer: 5
   m_Name: Level 1
   m_TagString: Untagged
@@ -1617,7 +1631,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 650436759}
+      - m_Target: {fileID: 1726203803}
         m_MethodName: levelToLoad
         m_Mode: 3
         m_Arguments:
@@ -1628,6 +1642,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1726203803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726203800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd87d319581404c898fca45ec4dd793b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &1726203804
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1647,6 +1673,7 @@ GameObject:
   - component: {fileID: 1794745668}
   - component: {fileID: 1794745671}
   - component: {fileID: 1794745670}
+  - component: {fileID: 1794745669}
   m_Layer: 5
   m_Name: Level 3
   m_TagString: Untagged
@@ -1675,6 +1702,18 @@ RectTransform:
   m_AnchoredPosition: {x: 491, y: -622}
   m_SizeDelta: {x: 52.092163, y: 74.22583}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1794745669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794745667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd87d319581404c898fca45ec4dd793b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1794745670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1718,7 +1757,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 650436759}
+      - m_Target: {fileID: 1794745669}
         m_MethodName: levelToLoad
         m_Mode: 3
         m_Arguments:
