@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ClickToRotateLevel : MonoBehaviour
+public class ClickToRotateLevelOne : MonoBehaviour
 {
     private bool toRotate;
     private float rotationAngle = 140f;
@@ -33,7 +31,7 @@ public class ClickToRotateLevel : MonoBehaviour
 
         if (toRotate)
         {
-            GameObject level = GameObject.Find("Level1");
+            var level = GameObject.Find("Level1");
             rotationAngle = level.transform.rotation.eulerAngles.y;
             //stop the rotation when y rotation equals 0
             if (rotationAngle < 0.1f)
@@ -41,7 +39,7 @@ public class ClickToRotateLevel : MonoBehaviour
             else
             {
                 //kill any player movement
-                GameObject player = GameObject.Find("Player");
+                var player = GameObject.Find("Player");
                 player.transform.GetComponent<PlayerController>().KillMovement();
             }
             level.transform.Rotate(0, rotationSpeed, 0);

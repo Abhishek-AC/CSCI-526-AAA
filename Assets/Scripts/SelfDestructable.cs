@@ -15,6 +15,13 @@ public class SelfDestructable : MonoBehaviour
                 GameObject.Find("Player").transform.up, 10f);
     }
 
+    // whether self-destruction countdown is triggered
+    // dynamic property: calculated at runtime
+    public bool IsSelfDestructionTriggered
+    {
+        get => PlayerHasEntered && PlayerHasLeft;
+    }
+
     // whether the player has entered the block or not
     public bool PlayerHasEntered { get; private set; }
 
@@ -22,14 +29,14 @@ public class SelfDestructable : MonoBehaviour
     public bool PlayerHasLeft { get; private set; }
 
     // the self-destruct delay countdown timer
-    private float timer;
+    private float triggerTimer;
 
     // initialize the known good state
     void Start()
     {
         PlayerHasEntered = false;
         PlayerHasLeft = false;
-        timer = SELF_DESTRUCT_DELAY;
+        triggerTimer = SELF_DESTRUCT_DELAY;
     }
 
     // update the player status flags and optionally trigger self-destruct
@@ -38,6 +45,15 @@ public class SelfDestructable : MonoBehaviour
         SetPlayerStateFlags();
         SelfDestructCountdown();
     }
+
+    // deactivates the block once it becomes invisible
+    void OnBecameInvisible()
+    {
+        gameObject.SetActive(false);
+    }
+
+    // used by the level 3 manager to quickly disable neighbor paths
+    public void DisableNeighborPaths() => NeighborPathDisableDriver();
 
     // update the player status flags
     private void SetPlayerStateFlags()
@@ -62,6 +78,7 @@ public class SelfDestructable : MonoBehaviour
 
         // add a Rigidbody component (uses gravity by default)
         // this will cause the block to fall due to gravity
+        // and trigger deactivation after falling for a period of time
         if (transform.GetComponent<Rigidbody>() == null)
             transform.gameObject.AddComponent<Rigidbody>();
     }
@@ -76,11 +93,11 @@ public class SelfDestructable : MonoBehaviour
         {
             // if the delay timer reaches zero
             // trigger self-destruction
-            if (timer <= 0f) SelfDestruct();
+            if (triggerTimer <= 0f) SelfDestruct();
             // or continue to countdown
             else
-                timer = timer - Time.deltaTime <= 0f ?
-                    0f : timer - Time.deltaTime;
+                triggerTimer = triggerTimer - Time.deltaTime <= 0f ?
+                    0f : triggerTimer - Time.deltaTime;
         }
     }
 
