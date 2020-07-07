@@ -26,6 +26,8 @@ public class ClickToRotate_Level3 : MonoBehaviour
         isRotatable = true;
         maxAnglesPerClick = 90f;
         currentAngleDegree = 0f;
+        GameObject.Find ("RotationGear_Key").transform.localScale = new Vector3(0, 0, 0);
+        GameObject.Find ("RotationGear_Destination").transform.localScale = new Vector3(0, 0, 0);
     }
     /*
     MonoBehaviour.Update() : https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html
