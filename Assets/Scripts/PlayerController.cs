@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private float clickSecondsCount;
     private Sequence s;
     // public GameObject rotationGear;
-
+    private int levelPassed, sceneIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
         timePerUnitMove = 1f / walkingSpeed;
         clickSecondsCount = clickTimeInterval;
         // rotationGear = GameObject.Find("RotationGear");
+        levelPassed = PlayerPrefs.GetInt("LevelPassed");
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
     // Update is called once per frame
     void Update()
@@ -283,6 +285,10 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Destination Colectable Collision");
             other.gameObject.SetActive(false);
+            // storing player state
+            sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            if(levelPassed < sceneIndex)
+                PlayerPrefs.SetInt("LevelPassed", levelPassed);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
