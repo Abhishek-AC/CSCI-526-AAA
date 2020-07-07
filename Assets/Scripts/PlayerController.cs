@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
     {
         bool findTarget = false;
         HashSet<Transform> cubeCovered = new HashSet<Transform>();
-        Queue < Transform > queue = new Queue<Transform>();
+        Queue<Transform> queue = new Queue<Transform>();
         queue.Enqueue(currentCube);
         while (queue.Count > 0)
         {
@@ -268,18 +268,20 @@ public class PlayerController : MonoBehaviour
             Debug.Log("rotation gear now visible");
             // rotationGear.gameObject.SetActive(true);
 
-            if (GameObject.Find ("RotationGear")){
-                GameObject.Find ("RotationGear").transform.localScale = new Vector3(1, 1, 1);
+            if (GameObject.Find("RotationGear"))
+            {
+                GameObject.Find("RotationGear").transform.localScale = new Vector3(1, 1, 1);
             }
 
-            if (GameObject.Find ("RotationGear_Key")){
-                GameObject.Find ("RotationGear_Key").transform.localScale = new Vector3(1, 1, 1);
+            if (GameObject.Find("RotationGear_Key"))
+            {
+                GameObject.Find("RotationGear_Key").transform.localScale = new Vector3(1, 1, 1);
             }
 
             // if (GameObject.Find ("RotationGear_Destination")){
             //     GameObject.Find ("RotationGear_Destination").transform.localScale = new Vector3(1, 1, 1);
             // }
-            
+
         }
         if (other.gameObject.CompareTag("star"))
         {
@@ -287,17 +289,21 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             // storing player state
             sceneIndex = SceneManager.GetActiveScene().buildIndex;
-            if(levelPassed < sceneIndex)
-                PlayerPrefs.SetInt("LevelPassed", levelPassed);
+            if (levelPassed < sceneIndex)
+            {
+                PlayerPrefs.SetInt("LevelPassed", sceneIndex);
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        if (other.gameObject.CompareTag("Key_collectable")){
+        if (other.gameObject.CompareTag("Key_collectable"))
+        {
             Debug.Log("Key Collision");
             other.gameObject.SetActive(false);
             Debug.Log("rotation gear now visible");
-            if (GameObject.Find ("RotationGear_Destination")){
-                GameObject.Find ("RotationGear_Destination").transform.localScale = new Vector3(1, 1, 1);
+            if (GameObject.Find("RotationGear_Destination"))
+            {
+                GameObject.Find("RotationGear_Destination").transform.localScale = new Vector3(1, 1, 1);
             }
         }
     }
