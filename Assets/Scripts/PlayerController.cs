@@ -163,6 +163,7 @@ public class PlayerController : MonoBehaviour
         {
             w.previousBlock = null;
         }
+        s.Kill();
         finalPath.Clear();
         anim.SetBool("isWalking", false);
     }

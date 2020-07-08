@@ -8747,7 +8747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  edgeValue: {x: 0, y: 0, z: 0}
+  edgeValue: {x: 5, y: 4.5, z: 0}
   possiblePath:
   - target: {fileID: 219065030}
     active: 1
@@ -15135,7 +15135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98125ee14cbf0c343ad8bdf07d870793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  edgeValue: {x: 0, y: 0, z: 0}
+  edgeValue: {x: 5, y: 0.5, z: 0}
   possiblePath:
   - target: {fileID: 1809572366}
     active: 1
