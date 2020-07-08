@@ -10,7 +10,7 @@ public class RotationManager_Level3_Dest : MonoBehaviour
         Transform cubeToConnect2 = GameObject.Find("Cube (50)").transform;
         Transform cubeToConnect3 = GameObject.Find("Cube (48)").transform;
         //return if Transform not found
-        if (cubeToConnect1 == null )//|| cubeToConnect2 == null)
+        if (cubeToConnect1 == null || cubeToConnect2 == null)
         {
             Debug.Log("Cube not reachable");
             return;
@@ -21,14 +21,14 @@ public class RotationManager_Level3_Dest : MonoBehaviour
             cubeToConnect1.GetComponent<Walkable>().possiblePath[1].active = true;
             cubeToConnect2.GetComponent<Walkable>().possiblePath[1].active = true;
             cubeToConnect3.GetComponent<Walkable>().possiblePath[2].active = false;
-            //cubeToConnect2.GetComponent<Walkable>().canWalkOnThisBlock = true;
+            cubeToConnect1.GetComponent<Walkable>().possiblePath[2].active = false;
+            cubeToConnect1.GetComponent<Walkable>().canWalkOnThisBlock = true;
         }
         else
         {
             cubeToConnect1.GetComponent<Walkable>().possiblePath[1].active = false;
             cubeToConnect2.GetComponent<Walkable>().possiblePath[1].active = false;
-            cubeToConnect3.GetComponent<Walkable>().possiblePath[2].active = true;
-            //cubeToConnect2.GetComponent<Walkable>().canWalkOnThisBlock = false;
+            cubeToConnect1.GetComponent<Walkable>().canWalkOnThisBlock = false;
         }
     }
 }
