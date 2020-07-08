@@ -5,7 +5,7 @@ Mono Behaviour: https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
 Base class from which every Unity Script derives
 */
 
-public class ClickToRotate_Level3 : MonoBehaviour
+public class ClickToRotateLevelThreeKey : MonoBehaviour
 {
     /*
     GameObject: https://docs.unity3d.com/ScriptReference/GameObject.html
@@ -17,6 +17,24 @@ public class ClickToRotate_Level3 : MonoBehaviour
     private bool isRotating;
     private float maxAnglesPerClick;
     private float currentAngleDegree;
+
+    private bool IsPlayerOnRotate
+    {
+        get
+        {
+            var result = false;
+            var rotate = GameObject.Find("Rotate_Key");
+            var player = GameObject.Find("Player");
+
+            RaycastHit playerHit;
+            if (Physics.Raycast(player.transform.position, -player.transform.up, out playerHit))
+                if (playerHit.transform.IsChildOf(rotate.transform))
+                    result = true;
+
+            return result;
+        }
+    }
+
     /* 
     MonoBehaviour.Start() : https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html
     Start is called to initialize data
@@ -26,8 +44,6 @@ public class ClickToRotate_Level3 : MonoBehaviour
         isRotatable = true;
         maxAnglesPerClick = 90f;
         currentAngleDegree = 0f;
-        GameObject.Find ("RotationGear_Key").transform.localScale = new Vector3(0, 0, 0);
-        GameObject.Find ("RotationGear_Destination").transform.localScale = new Vector3(0, 0, 0);
     }
     /*
     MonoBehaviour.Update() : https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html
@@ -39,7 +55,7 @@ public class ClickToRotate_Level3 : MonoBehaviour
         Input.GetMouseButtonDown() : https://docs.unity3d.com/ScriptReference/Input.GetMouseButtonDown.html
         check if the rotation gear is clicked
         */
-        if (Input.GetMouseButtonDown(0) && isRotatable && !IsPlayerOnRotate())
+        if (Input.GetMouseButtonDown(0) && isRotatable && !IsPlayerOnRotate)
         {
             /*
             RaycastHit : https://docs.unity3d.com/ScriptReference/RaycastHit.html
@@ -59,7 +75,7 @@ public class ClickToRotate_Level3 : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 //Debug.Log(hit.transform.name);            
-                if (hit.transform.name == "RotationGear_Destination")
+                if (hit.transform.name == "RotationGear_Key")
                 {
                     isRotating = true;
                     isRotatable = false;
@@ -73,7 +89,7 @@ public class ClickToRotate_Level3 : MonoBehaviour
             Vector3 : https://docs.unity3d.com/ScriptReference/Vector3.html
             Vector3 Constructor: https://docs.unity3d.com/ScriptReference/Vector3.html
             */
-            Vector3 angleSpeed = new Vector3(m_angleSpeed, 0, 0);
+            Vector3 angleSpeed = new Vector3(0, 0, m_angleSpeed);
             float frameAngleSpeed = m_angleSpeed * Time.deltaTime;
             float remainingDegree = maxAnglesPerClick - currentAngleDegree;
 
@@ -87,7 +103,7 @@ public class ClickToRotate_Level3 : MonoBehaviour
                 Transform.rotate : https://docs.unity3d.com/ScriptReference/Transform.Rotate.html
                 Space.World : https://docs.unity3d.com/ScriptReference/Space.World.html
                 */
-                m_rotationCubeGroup.transform.Rotate(new Vector3(remainingDegree, 0, 0), Space.World);
+                m_rotationCubeGroup.transform.Rotate(new Vector3(0, 0, remainingDegree), Space.World);
                 isRotatable = true;
                 isRotating = false;
                 currentAngleDegree = 0f;
@@ -102,19 +118,5 @@ public class ClickToRotate_Level3 : MonoBehaviour
             player.transform.GetComponent<PlayerController>().KillMovement();
         }
 
-    }
-    private bool IsPlayerOnRotate()
-    {
-        var result = false;
-        var rotate = GameObject.Find("Rotate_Destination");
-        var player = GameObject.Find("Player");
-        var playerRay = new Ray(player.transform.position, -player.transform.up);
-
-        RaycastHit playerHit;
-        if (Physics.Raycast(playerRay, out playerHit))
-            if (playerHit.transform.IsChildOf(rotate.transform))
-                result = true;
-
-        return result;
     }
 }
