@@ -17,6 +17,7 @@ public class ClickToRotate : MonoBehaviour
     private bool isRotating;
     private float maxAnglesPerClick;
     private float currentAngleDegree;
+    public RotationManager manager;
     /* 
     MonoBehaviour.Start() : https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html
     Start is called to initialize data
@@ -61,6 +62,7 @@ public class ClickToRotate : MonoBehaviour
             {
                 if (hit.transform.name == "RotationGear")
                 {
+                    manager.StopAnimation();
                     isRotating = true;
                     isRotatable = false;
                 }
