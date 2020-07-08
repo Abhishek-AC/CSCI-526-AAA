@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     public float clickTimeInterval = 0.5f;
     private float clickSecondsCount;
     private Sequence s;
-
+    // public GameObject rotationGear;
+    private int levelPassed, sceneIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
         RayCastDown();
         timePerUnitMove = 1f / walkingSpeed;
         clickSecondsCount = clickTimeInterval;
+        // rotationGear = GameObject.Find("RotationGear");
+        levelPassed = PlayerPrefs.GetInt("LevelPassed");
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
     // Update is called once per frame
     void Update()
@@ -104,14 +108,43 @@ public class PlayerController : MonoBehaviour
             ExploreCube(nextCubes, visitedCubes);
         }
     }
+    private void BFSFindPath()
+    {
+        bool findTarget = false;
+        HashSet<Transform> cubeCovered = new HashSet<Transform>();
+        Queue<Transform> queue = new Queue<Transform>();
+        queue.Enqueue(currentCube);
+        while (queue.Count > 0)
+        {
+            Transform element = queue.Dequeue();
+            if (cubeCovered.Contains(element))
+                continue;
+            else
+                cubeCovered.Add(element);
+            foreach (GamePath path in element.GetComponent<Walkable>().possiblePath)
+            {
+                if (!cubeCovered.Contains(path.target) && path.active)
+                {
+                    queue.Enqueue(path.target);
+                    path.target.GetComponent<Walkable>().previousBlock = element;
+                }
+                if (path.target == clickedCube)
+                    findTarget = true;
+            }
+            if (findTarget)
+                break;
+            //Debug.Log("in");
+        }
+    }
     //method to generate path from current cube to clicked cube, storing it to finalPath
     private void BuildPath()
     {
-        FindPath();
+        BFSFindPath();
         Transform cube = clickedCube;
         while (cube != currentCube)
         {
             finalPath.Add(cube);
+            Debug.Log(cube.transform.position);
             if (cube.GetComponent<Walkable>().previousBlock != null)
                 cube = cube.GetComponent<Walkable>().previousBlock;
             else
@@ -129,6 +162,7 @@ public class PlayerController : MonoBehaviour
         {
             w.previousBlock = null;
         }
+        s.Kill();
         finalPath.Clear();
         anim.SetBool("isWalking", false);
     }
@@ -189,7 +223,7 @@ public class PlayerController : MonoBehaviour
                 relativeDirection = (cubeN - cubeT).normalized;
                 //relativeDirection = ((finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset) - transform.position).normalized;
             }
-            Debug.Log("Relative direction is" + relativeDirection);
+            //Debug.Log("Relative direction is" + relativeDirection);
             Vector3 newForward = relativeDirection.magnitude < 0.1f ? transform.forward : CalculatePlayerDirection(relativeDirection);
             //Debug.Log("calculated direction is" + newForward);
             //if the player is walking on a stair, his direction should not change
@@ -228,14 +262,49 @@ public class PlayerController : MonoBehaviour
         Debug.Log("OnTriggerEnter");
         if (other.gameObject.CompareTag("crystal"))
         {
-            Debug.Log("Collision");
+            Debug.Log("Crystal Collision");
             other.gameObject.SetActive(false);
+
+            Debug.Log("rotation gear now visible");
+            // rotationGear.gameObject.SetActive(true);
+
+            if (GameObject.Find("RotationGear"))
+            {
+                GameObject.Find("RotationGear").transform.localScale = new Vector3(1, 1, 1);
+            }
+
+            if (GameObject.Find("RotationGear_Key"))
+            {
+                GameObject.Find("RotationGear_Key").transform.localScale = new Vector3(1, 1, 1);
+            }
+
+            // if (GameObject.Find ("RotationGear_Destination")){
+            //     GameObject.Find ("RotationGear_Destination").transform.localScale = new Vector3(1, 1, 1);
+            // }
+
         }
         if (other.gameObject.CompareTag("star"))
         {
-            Debug.Log("Collision");
+            Debug.Log("Destination Colectable Collision");
             other.gameObject.SetActive(false);
+            // storing player state
+            sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            if (levelPassed < sceneIndex)
+            {
+                PlayerPrefs.SetInt("LevelPassed", sceneIndex);
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (other.gameObject.CompareTag("Key_collectable"))
+        {
+            Debug.Log("Key Collision");
+            other.gameObject.SetActive(false);
+            Debug.Log("rotation gear now visible");
+            if (GameObject.Find("RotationGear_Destination"))
+            {
+                GameObject.Find("RotationGear_Destination").transform.localScale = new Vector3(1, 1, 1);
+            }
         }
     }
     public Vector3 CalculatePlayerDirection(Vector3 input)

@@ -15,6 +15,8 @@ TagManager:
   - l1g2
   - l1g3
   - l1g4
+  - Destroyable
+  - Key_collectable
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,7 @@ Mono Behaviour: https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
 Base class from which every Unity Script derives
 */
 
-public class ClickToRotate : MonoBehaviour
+public class ClickToRotateLevelThreeKey : MonoBehaviour
 {
     /*
     GameObject: https://docs.unity3d.com/ScriptReference/GameObject.html
@@ -17,13 +17,13 @@ public class ClickToRotate : MonoBehaviour
     private bool isRotating;
     private float maxAnglesPerClick;
     private float currentAngleDegree;
-    // is player on the rotatable object
-    private bool IsPlayerOnRotatable
+
+    private bool IsPlayerOnRotate
     {
         get
         {
             var result = false;
-            var rotate = GameObject.Find("Rotate");
+            var rotate = GameObject.Find("Rotate_Key");
             var player = GameObject.Find("Player");
 
             RaycastHit playerHit;
@@ -55,7 +55,7 @@ public class ClickToRotate : MonoBehaviour
         Input.GetMouseButtonDown() : https://docs.unity3d.com/ScriptReference/Input.GetMouseButtonDown.html
         check if the rotation gear is clicked
         */
-        if (Input.GetMouseButtonDown(0) && isRotatable && !IsPlayerOnRotatable)
+        if (Input.GetMouseButtonDown(0) && isRotatable && !IsPlayerOnRotate)
         {
             /*
             RaycastHit : https://docs.unity3d.com/ScriptReference/RaycastHit.html
@@ -74,7 +74,8 @@ public class ClickToRotate : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.name == "RotationGear")
+                //Debug.Log(hit.transform.name);            
+                if (hit.transform.name == "RotationGear_Key")
                 {
                     isRotating = true;
                     isRotatable = false;
