@@ -23,9 +23,8 @@ public class Walkable : MonoBehaviour
         // this part of the code only applies to level 2 and 3
         // before we find a better way to differentiate it
         // let's test the presence of an object specific to level 2 and 3
-        GameObject rotateObject = GameObject.Find("Rotate");
-        rotateObject = GameObject.Find("Rotate_Destination");       
-        GameObject rotateObject1 = GameObject.Find("Rotate_Key");
+        var rotateObject = GameObject.Find("Rotate_Destination");
+        var rotateObject1 = GameObject.Find("Rotate_Key");
         if (rotateObject != null)
         {
             foreach (Transform t in rotateObject.transform)
@@ -48,22 +47,19 @@ public class Walkable : MonoBehaviour
                 return transform.position + capsuleObject.transform.up * (1 - walkPointOffset);
             }
         }
+
         if (rotateObject1 != null)
         {
             foreach (Transform t in rotateObject1.transform)
-            {
-                if (t.gameObject.GetComponent<Walkable>())
+                if (t.gameObject.GetComponent<Walkable>() != null)
                     t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
-            }
 
-            if (transform.tag == "rotatableCube")
+            if (transform.CompareTag("rotatableCube"))
             {
-                /* 
-                for rotatable cubes handling two primary cases,
-                1. If there is cube object above the clickedCube then 
-                   the capsule is not allowed to go there.
-                2. The Walkable points are drawn as per capsule's alignment
-                */
+                // for rotatable cubes handling two primary cases,
+                // 1. If there is cube object above the clickedCube then 
+                //   the capsule is not allowed to go there.
+                // 2. The Walkable points are drawn as per capsule's alignment
                 GameObject capsuleObject = GameObject.Find("Player");
                 if (Physics.Raycast(transform.position, capsuleObject.transform.up, 10f))
                 {

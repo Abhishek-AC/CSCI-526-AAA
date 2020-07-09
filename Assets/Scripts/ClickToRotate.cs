@@ -17,15 +17,30 @@ public class ClickToRotate : MonoBehaviour
     private bool isRotating;
     private float maxAnglesPerClick;
     private float currentAngleDegree;
+    public RotationManager manager;
+    // is player on the rotatable object
+    private bool IsPlayerOnRotatable
+    {
+        get
+        {
+            var result = false;
+            var rotate = GameObject.Find("Rotate");
+            var player = GameObject.Find("Player");
+
+            RaycastHit playerHit;
+            if (Physics.Raycast(player.transform.position, -player.transform.up, out playerHit))
+                if (playerHit.transform.IsChildOf(rotate.transform))
+                    result = true;
+
+            return result;
+        }
+    }
     /* 
     MonoBehaviour.Start() : https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html
     Start is called to initialize data
     */
     void Start()
     {
-        // rotationGear = GameObject.Find("RotationGear");
-        // rotationGear.SetActive(false);
-        GameObject.Find ("RotationGear").transform.localScale = new Vector3(0, 0, 0);
         isRotatable = true;
         maxAnglesPerClick = 90f;
         currentAngleDegree = 0f;
@@ -40,7 +55,7 @@ public class ClickToRotate : MonoBehaviour
         Input.GetMouseButtonDown() : https://docs.unity3d.com/ScriptReference/Input.GetMouseButtonDown.html
         check if the rotation gear is clicked
         */
-        if (Input.GetMouseButtonDown(0) && isRotatable && !IsPlayerOnRotate())
+        if (Input.GetMouseButtonDown(0) && isRotatable && !IsPlayerOnRotatable)
         {
             /*
             RaycastHit : https://docs.unity3d.com/ScriptReference/RaycastHit.html
@@ -61,6 +76,7 @@ public class ClickToRotate : MonoBehaviour
             {
                 if (hit.transform.name == "RotationGear")
                 {
+                    manager.StopAnimation();
                     isRotating = true;
                     isRotatable = false;
                 }
@@ -102,19 +118,5 @@ public class ClickToRotate : MonoBehaviour
             player.transform.GetComponent<PlayerController>().KillMovement();
         }
 
-    }
-    private bool IsPlayerOnRotate()
-    {
-        var result = false;
-        var rotate = GameObject.Find("Rotate");
-        var player = GameObject.Find("Player");
-        var playerRay = new Ray(player.transform.position, -player.transform.up);
-
-        RaycastHit playerHit;
-        if (Physics.Raycast(playerRay, out playerHit))
-            if (playerHit.transform.IsChildOf(rotate.transform))
-                result = true;
-
-        return result;
     }
 }

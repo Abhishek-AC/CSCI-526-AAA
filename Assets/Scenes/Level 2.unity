@@ -796,6 +796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 188944939}
   - component: {fileID: 188944940}
+  - component: {fileID: 188944941}
   m_Layer: 8
   m_Name: move
   m_TagString: moveCube
@@ -819,7 +820,7 @@ Transform:
   - {fileID: 812159589}
   - {fileID: 2102929559}
   m_Father: {fileID: 1902245195}
-  m_RootOrder: 34
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &188944940
 MonoBehaviour:
@@ -837,6 +838,26 @@ MonoBehaviour:
   MoveGroup1_2: {fileID: 1400878559}
   MoveGroup2_1: {fileID: 1407689031}
   MoveGroup2_2: {fileID: 1163165615}
+  anim: {fileID: 188944941}
+--- !u!95 &188944941
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188944938}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f790f1ce211fb7b47a6c91849032e822, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &208483687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,7 +1510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 30420e90e0d68254dbe6be9a2fccd155, type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 30420e90e0d68254dbe6be9a2fccd155, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1652,6 +1673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 376657756}
   - component: {fileID: 376657757}
+  - component: {fileID: 376657758}
   m_Layer: 0
   m_Name: Rotate
   m_TagString: Untagged
@@ -1666,7 +1688,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376657755}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1692,6 +1714,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2df6ab23299b144caaba279b33c0565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 376657758}
+--- !u!95 &376657758
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376657755}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7894a6579dedbb84f835ede5837938d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &380107647
 GameObject:
   m_ObjectHideFlags: 0
@@ -4044,7 +4086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 45d3525df09c634488adb50e7399aafd, type: 3}
       propertyPath: m_RootOrder
-      value: 36
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 45d3525df09c634488adb50e7399aafd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6255,6 +6297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rotationCubeGroup: {fileID: 376657755}
   m_angleSpeed: 100
+  manager: {fileID: 376657757}
 --- !u!65 &1179028341
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8341,6 +8384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2f205cee16ea14784e4423e2f5a9f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateBlock: {fileID: 376657755}
 --- !u!1 &1824556714
 GameObject:
   m_ObjectHideFlags: 0
@@ -8638,8 +8682,8 @@ Transform:
   - {fileID: 1163165616}
   - {fileID: 1723006022}
   - {fileID: 376657756}
-  - {fileID: 3909622661011638329}
   - {fileID: 188944939}
+  - {fileID: 3909622661011638329}
   - {fileID: 1179028339}
   - {fileID: 683607048}
   - {fileID: 360765462}
@@ -9353,6 +9397,7 @@ MonoBehaviour:
   moveRangeMax: -3
   moveRangeMin: -5
   player: {fileID: 8296172668036681189}
+  manager: {fileID: 188944940}
 --- !u!1001 &1669403639469187818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9482,7 +9527,7 @@ PrefabInstance:
     - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
         type: 3}
       propertyPath: m_RootOrder
-      value: 33
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
         type: 3}
@@ -9557,7 +9602,7 @@ PrefabInstance:
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 35
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
