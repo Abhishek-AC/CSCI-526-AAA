@@ -10,6 +10,7 @@ public class DragToMove : MonoBehaviour
     private float playerOffset;
     private bool isPlayerOn = false;
     public GameObject player;
+    public MoveManager manager;
     private void OnMouseDown()
     {
         //set offset for mousepoint on the world space
@@ -42,6 +43,7 @@ public class DragToMove : MonoBehaviour
     //functions when mouse the draging the moving cube
     private void OnMouseDrag()
     {
+        manager.StopAnimation();
         //if the player is on and the player is moving, dont move moving block
         if (isPlayerOn)
         {
