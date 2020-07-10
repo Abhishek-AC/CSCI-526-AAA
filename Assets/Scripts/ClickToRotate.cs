@@ -76,6 +76,7 @@ public class ClickToRotate : MonoBehaviour
             {
                 if (hit.transform.name == "RotationGear")
                 {
+                    GameObject.Find("RotationGear").GetComponent<AudioSource>().Play();  //SFX
                     manager.StopAnimation();
                     isRotating = true;
                     isRotatable = false;

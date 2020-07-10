@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections; //SFX
 
 public class LevelSelection : MonoBehaviour
 {
@@ -27,8 +28,18 @@ public class LevelSelection : MonoBehaviour
     }
     public void resetPlayerPrefs()
     {
+        AudioSource audio = gameObject.GetComponent<AudioSource>();
+        audio.Play();
+        StartCoroutine(LoadNewScene());
         levelTwoButton.interactable = false;
         levelThreeButton.interactable = false;
         PlayerPrefs.DeleteAll();
     }
+
+    //SFX++
+    IEnumerator LoadNewScene()
+    {
+        yield return new WaitForSeconds(0.2f);
+    }
+    //SFX--
 }
