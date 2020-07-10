@@ -9,8 +9,17 @@ public class MoveManager : MonoBehaviour
     public GameObject MoveGroup1_2;
     public GameObject MoveGroup2_1;
     public GameObject MoveGroup2_2;
+    public Animator anim;
+    private float timeCount = 0;
+    private float AnimStopTime = 2;
     void Update()
     {
+        //stop animation after some time
+        timeCount += Time.deltaTime;
+        if(timeCount >= AnimStopTime)
+        {
+            StopAnimation();
+        }
         //check whether the moving block gourp reaches either end, if so change the possible path of related blocks to make movement possible
         if (transform.position.x == maxRange)
         {
@@ -33,5 +42,9 @@ public class MoveManager : MonoBehaviour
             MoveGroup2_1.transform.GetComponent<Walkable>().possiblePath[0].active = false;
             MoveGroup2_2.transform.GetComponent<Walkable>().possiblePath[0].active = false;
         }
+    }
+    public void StopAnimation()
+    {
+        Destroy(anim);
     }
 }

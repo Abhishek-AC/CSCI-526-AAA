@@ -4,7 +4,8 @@ public class Obstacle : MonoBehaviour
 {
     // the target position of the obstacle object once the collectable is destroyed
     private static readonly Vector3 TARGET = new Vector3(-1f, 7f, 6f);
-
+    public GameObject rotateBlock;
+    private bool onAnimationActivate = true;
     // Update is called once per frame
     void Update()
     {
@@ -21,7 +22,14 @@ public class Obstacle : MonoBehaviour
         // if collectable is null, it could also be that the game is paused
         // but if player is not null, then it means the collectable is gone
         if (collectable == null && player != null && transform.position != TARGET)
+        {
             transform.position = Vector3.MoveTowards(transform.position, TARGET, Time.deltaTime);
+            if (onAnimationActivate)
+            {
+                rotateBlock.GetComponent<RotationManager>().ActivateAnimation();
+                onAnimationActivate = false;
+            }
+        }
 
         // activate the obstacle block only if it is at the right position
         if (transform.position == TARGET)

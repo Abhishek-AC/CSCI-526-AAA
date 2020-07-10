@@ -276,6 +276,8 @@ public class PlayerController : MonoBehaviour
             if (GameObject.Find("RotationGear_Key"))
             {
                 GameObject.Find("RotationGear_Key").transform.localScale = new Vector3(1, 1, 1);
+                GameObject.Find("Rotate_Key").GetComponent<RotationManagerLevelThreeKey>().ActivateAnimation();
+
             }
 
             // if (GameObject.Find ("RotationGear_Destination")){
@@ -305,6 +307,7 @@ public class PlayerController : MonoBehaviour
             {
                 GameObject.Find("RotationGear_Destination").transform.localScale = new Vector3(1, 1, 1);
             }
+            GameObject.Find("Rotate_Destination").GetComponent<RotationManagerLevelThreeDest>().ActivateAnimation();
         }
     }
     public Vector3 CalculatePlayerDirection(Vector3 input)

@@ -2,9 +2,21 @@
 
 public class RotationManagerLevelThreeKey : MonoBehaviour
 {
+    public Animator anim;
+    private float count = 0;
+    private float max_count = 2;
+    private bool active = false;
     // Update is called once per frame
     void Update()
     {
+        if (active)
+        {
+            count += Time.deltaTime;
+            if(count >= max_count)
+            {
+                StopAnimation();
+            }
+        }
         //the following code connects cubes after rotation has been made
         Transform cubeToConnect1 = transform.Find("Cube (68)");
         Transform cubeToConnect2 = GameObject.Find("Cube (80)").transform;
@@ -29,5 +41,14 @@ public class RotationManagerLevelThreeKey : MonoBehaviour
             cubeToConnect4.GetComponent<Walkable>().possiblePath[1].active = false;
             cubeToConnect4.GetComponent<Walkable>().canWalkOnThisBlock = false;
         }
+    }
+    public void StopAnimation()
+    {
+        Destroy(anim);
+    }
+    public void ActivateAnimation()
+    {
+        active = true;
+        anim.SetBool("active", true);
     }
 }
