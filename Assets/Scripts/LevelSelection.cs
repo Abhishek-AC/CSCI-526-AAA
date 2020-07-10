@@ -30,16 +30,19 @@ public class LevelSelection : MonoBehaviour
     {
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         audio.Play();
-        StartCoroutine(LoadNewScene());
-        levelTwoButton.interactable = false;
+        StartCoroutine(Wait());
+        /*levelTwoButton.interactable = false;
         levelThreeButton.interactable = false;
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();*/
     }
 
     //SFX++
-    IEnumerator LoadNewScene()
+    IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.2f);
+        levelTwoButton.interactable = false;
+        levelThreeButton.interactable = false;
+        PlayerPrefs.DeleteAll();
     }
     //SFX--
 }

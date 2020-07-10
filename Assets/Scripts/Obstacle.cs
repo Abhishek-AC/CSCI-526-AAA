@@ -27,7 +27,6 @@ public class Obstacle : MonoBehaviour
             GameObject.Find("MakePath").GetComponent<AudioSource>().Play();    //SFX 
             if (onAnimationActivate)
             {
-                                     //SFX
                 rotateBlock.GetComponent<RotationManager>().ActivateAnimation();
                 onAnimationActivate = false;
             }
