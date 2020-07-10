@@ -13,10 +13,10 @@ public class LevelSelection : MonoBehaviour
 
         switch (levelPassed)
         {
-            case 2:
+            case 3:
                 levelTwoButton.interactable = true;
                 break;
-            case 4:
+            case 5:
                 levelTwoButton.interactable = true;
                 levelThreeButton.interactable = true;
                 break;
