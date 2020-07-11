@@ -43,6 +43,7 @@ public class DragToMove : MonoBehaviour
     //functions when mouse the draging the moving cube
     private void OnMouseDrag()
     {
+        GameObject.Find("move").GetComponent<AudioSource>().Play();   //SFX
         manager.StopAnimation();
         //if the player is on and the player is moving, dont move moving block
         if (isPlayerOn)
@@ -66,6 +67,7 @@ public class DragToMove : MonoBehaviour
             newPos.x = moveRangeMax;
         }
         //move the handle and the moving cube group
+        
         moveGroup.transform.position = new Vector3(newPos.x, moveGroup.transform.position.y, moveGroup.transform.position.z);
         transform.position = new Vector3(newPos.x, transform.position.y, transform.position.z);
         //if the player is on the moving cube group, move the player also

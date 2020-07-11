@@ -24,6 +24,7 @@ public class Obstacle : MonoBehaviour
         if (collectable == null && player != null && transform.position != TARGET)
         {
             transform.position = Vector3.MoveTowards(transform.position, TARGET, Time.deltaTime);
+            GameObject.Find("MakePath").GetComponent<AudioSource>().Play();    //SFX 
             if (onAnimationActivate)
             {
                 rotateBlock.GetComponent<RotationManager>().ActivateAnimation();
