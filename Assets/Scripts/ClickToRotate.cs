@@ -17,6 +17,7 @@ public class ClickToRotate : MonoBehaviour
     private bool isRotating;
     private float maxAnglesPerClick;
     private float currentAngleDegree;
+    public RotationManager manager;
     // is player on the rotatable object
     private bool IsPlayerOnRotatable
     {
@@ -34,7 +35,6 @@ public class ClickToRotate : MonoBehaviour
             return result;
         }
     }
-
     /* 
     MonoBehaviour.Start() : https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html
     Start is called to initialize data
@@ -76,6 +76,8 @@ public class ClickToRotate : MonoBehaviour
             {
                 if (hit.transform.name == "RotationGear")
                 {
+                    GameObject.Find("RotationGear").GetComponent<AudioSource>().Play();  //SFX
+                    manager.StopAnimation();
                     isRotating = true;
                     isRotatable = false;
                 }

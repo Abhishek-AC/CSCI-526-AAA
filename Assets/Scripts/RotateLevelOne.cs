@@ -54,7 +54,10 @@ public class RotateLevelOne : MonoBehaviour
 
         // flip the rotation-in-progress indicator once rotation is finished
         if (Math.Abs(targetAngle - rotatedAngle) < 0.1f && Rotating)
+        {
             Rotating = false;
+            GameObject.Find("rotate-sfx").GetComponent<AudioSource>().Stop(); //SFX
+        }
 
         // set the active state depending on whether in initial position or not
         ActivateBlocks(Initial);
@@ -98,5 +101,6 @@ public class RotateLevelOne : MonoBehaviour
 
         // start a rotation
         Rotating = true;
+        GameObject.Find("rotate-sfx").GetComponent<AudioSource>().Play(); //SFX
     }
 }

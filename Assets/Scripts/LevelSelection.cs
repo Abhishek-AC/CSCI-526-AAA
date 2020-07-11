@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections; //SFX
 
 public class LevelSelection : MonoBehaviour
 {
@@ -13,10 +14,10 @@ public class LevelSelection : MonoBehaviour
 
         switch (levelPassed)
         {
-            case 2:
+            case 3:
                 levelTwoButton.interactable = true;
                 break;
-            case 4:
+            case 5:
                 levelTwoButton.interactable = true;
                 levelThreeButton.interactable = true;
                 break;
@@ -27,8 +28,21 @@ public class LevelSelection : MonoBehaviour
     }
     public void resetPlayerPrefs()
     {
+        AudioSource audio = gameObject.GetComponent<AudioSource>();
+        audio.Play();
+        StartCoroutine(Wait());
+        /*levelTwoButton.interactable = false;
+        levelThreeButton.interactable = false;
+        PlayerPrefs.DeleteAll();*/
+    }
+
+    //SFX++
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.2f);
         levelTwoButton.interactable = false;
         levelThreeButton.interactable = false;
         PlayerPrefs.DeleteAll();
     }
+    //SFX--
 }

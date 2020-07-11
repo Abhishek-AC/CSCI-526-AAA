@@ -125,6 +125,7 @@ public class LevelThree : LevelManager
     private void RestoreOrSetupGameState()
     {
         var state = reset ? null : SaveSystem.LoadLevelThree();
+
         // load initial values if there is no state to restore
         PlayerPosition = state
             == null ? INITIAL_PLAYER_POSITION : state.PlayerPosition;
@@ -187,8 +188,8 @@ public class LevelThree : LevelManager
     {
         var rotateKey = GameObject.Find("Rotate_Key");
         var rotateDestination = GameObject.Find("Rotate_Destination");
-        rotateKey.transform.eulerAngles = new Vector3(0f, 0f, RotateKeyAngle);
-        rotateDestination.transform.eulerAngles = new Vector3(RotateDestinationAngle, 0f, 0f);
+        if (rotateKey != null) rotateKey.transform.eulerAngles = new Vector3(0f, 0f, RotateKeyAngle);
+        if (rotateDestination != null) rotateDestination.transform.eulerAngles = new Vector3(RotateDestinationAngle, 0f, 0f);
     }
 
     // set the status for the self-destructable blocks
@@ -232,10 +233,11 @@ public class LevelThree : LevelManager
     // update the status of the collectables
     private void UpdateCollectablesStatus()
     {
+        var player = GameObject.Find("Player");
         var crystalTwo = GameObject.Find("cristal_2");
         var rotationKey = GameObject.Find("key");
-        IsCrystalTwoPresent = crystalTwo != null;
-        IsRotationKeyPresent = rotationKey != null;
+        IsCrystalTwoPresent = crystalTwo != null && player != null;
+        IsRotationKeyPresent = rotationKey != null && player != null;
     }
 
     // update the angles of the rotate objects
@@ -252,7 +254,8 @@ public class LevelThree : LevelManager
         SelfDestructableBlocksPresence =
             SelfDestructableBlocksPresence
             .ToDictionary(kv => kv.Key,
-                kv => GameObject.Find(kv.Key) != null
+                kv => GameObject.Find("Player") != null
+                && GameObject.Find(kv.Key) != null
                 && !GameObject.Find(kv.Key)
                 .GetComponent<SelfDestructable>()
                 .IsSelfDestructionTriggered);

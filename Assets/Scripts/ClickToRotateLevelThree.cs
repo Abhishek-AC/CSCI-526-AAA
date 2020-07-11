@@ -77,6 +77,7 @@ public class ClickToRotateLevelThree : MonoBehaviour
                 //Debug.Log(hit.transform.name);            
                 if (hit.transform.name == "RotationGear_Destination")
                 {
+                    GameObject.Find("RotationGear_Destination").GetComponent<AudioSource>().Play();  //SFX
                     isRotating = true;
                     isRotatable = false;
                 }

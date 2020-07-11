@@ -47,7 +47,11 @@ public class SelfDestructable : MonoBehaviour
     }
 
     // deactivates the block once it becomes invisible
-    void OnBecameInvisible() => gameObject.SetActive(false);
+    void OnBecameInvisible()
+    {
+        if (IsSelfDestructionTriggered)
+            gameObject.SetActive(false);
+    }
 
     // used by the level 3 manager to quickly disable neighbor paths
     public void DisableNeighborPaths() => NeighborPathDisableDriver();
@@ -77,7 +81,10 @@ public class SelfDestructable : MonoBehaviour
         // this will cause the block to fall due to gravity
         // and trigger deactivation after falling for a period of time
         if (transform.GetComponent<Rigidbody>() == null)
+        {
+            GameObject.Find("falling_sfx").GetComponent<AudioSource>().Play();  //SFX
             transform.gameObject.AddComponent<Rigidbody>();
+        }
     }
 
     // determine whether to self-destruct based on player status and countdown
