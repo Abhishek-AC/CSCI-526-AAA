@@ -11,6 +11,9 @@ public class LevelTwo : LevelManager
         // the position of the player capsule
         public float[] PlayerPosition { get; set; }
 
+        // whether the crystal collectable is collected or not
+        public bool IsCollectedCrystal { get; set; }
+
         // the rotation angle of the rotatable object
         public float RotateGameObjectRotationZValue { get; set; }
 
@@ -20,21 +23,13 @@ public class LevelTwo : LevelManager
         // the y position of the obstacle/path block
         public float MakePathCubePositionYValue { get; set; }
 
-        // whether the crystal collectable is still present
-        public bool IsCrystalPresent { get; set; }
-
     }
-
-    // invisible gear scale
-    private static readonly Vector3 INVISIBLE_GEAR_SCALE = new Vector3(0f, 0f, 0f);
-    // visible gear scale
-    private static readonly Vector3 VISIBLE_GEAR_SCALE = new Vector3(1f, 1f, 1f);
 
     // the position of the player capsule
     public float[] PlayerPosition { get; set; }
 
     // whether the crystal collectable is collected or not
-    public bool IsCrystalPresent { get; set; }
+    public bool IsCollectedCrystal { get; set; }
 
     // the rotation angle of the rotatable object
     public float RotateGameObjectRotationZValue { get; set; }
@@ -46,22 +41,18 @@ public class LevelTwo : LevelManager
     public float MakePathCubePositionYValue { get; set; }
 
     // the current state of the game
-    public new LevelTwoState CurrentState
+    public LevelTwoState CurrentState => new LevelTwoState()
     {
-        get => new LevelTwoState()
-        {
-            PlayerPosition = PlayerPosition,
-            IsCrystalPresent = IsCrystalPresent,
-            RotateGameObjectRotationZValue = RotateGameObjectRotationZValue,
-            FerryGameObjectPositionXValue = FerryGameObjectPositionXValue,
-            MakePathCubePositionYValue = MakePathCubePositionYValue,
-        };
-    }
+        PlayerPosition = PlayerPosition,
+        IsCollectedCrystal = IsCollectedCrystal,
+        RotateGameObjectRotationZValue = RotateGameObjectRotationZValue,
+        FerryGameObjectPositionXValue = FerryGameObjectPositionXValue,
+        MakePathCubePositionYValue = MakePathCubePositionYValue,
+    };
 
     // frequently used game objects
     private GameObject CapsulePlayer;
     private GameObject Collectable;
-    private GameObject RotationGear;
 
     // game setup and restoration
     void Start()
@@ -69,8 +60,6 @@ public class LevelTwo : LevelManager
         var data = SaveSystem.LoadLevelTwo();
         CapsulePlayer = GameObject.Find("Player");
         Collectable = GameObject.Find("Collectable");
-        RotationGear = GameObject.Find("RotationGear");
-
         // load initial values if there is no state to restore
         if (data != null)
             SetLevelState(data);
@@ -98,17 +87,19 @@ public class LevelTwo : LevelManager
     }
 
     // update the state of the crystal collectable
-    private void GetCollectableBoolValue() => IsCrystalPresent
-        = Collectable != null && Collectable.activeSelf;
-
-    // set the state of the crystal collectable and the interlocked gear
-    private void SetIsCollectedCrsytal(bool isCrystalPresent)
+    private void GetCollectableBoolValue()
     {
-        if (Collectable != null)
-            Collectable.SetActive(isCrystalPresent);
-        // also update the visibility state of the rotation gear 
-        // it is interlocked with the state of the collectable object
-        RotationGear.transform.localScale = isCrystalPresent ? INVISIBLE_GEAR_SCALE : VISIBLE_GEAR_SCALE;
+        IsCollectedCrystal = Collectable != null ? Collectable.activeSelf : false;
+    }
+
+    // set the state of the crystal collectable
+    private void SetIsCollectedCrsytal(bool isCollectedCrystal)
+    {
+        GameObject collectableObject = GameObject.Find("Collectable");
+        if (collectableObject != null)
+        {
+            collectableObject.SetActive(isCollectedCrystal);
+        }
     }
 
     // get the position of the ferry block
@@ -179,7 +170,7 @@ public class LevelTwo : LevelManager
     // set the state of the game
     private void SetLevelState(LevelTwoState state)
     {
-        SetIsCollectedCrsytal(state.IsCrystalPresent);
+        SetIsCollectedCrsytal(state.IsCollectedCrystal);
         SetFerryGameObject(state.FerryGameObjectPositionXValue);
         SetMakePathGameObject(state.MakePathCubePositionYValue);
         SetRotateGameObject(state.RotateGameObjectRotationZValue);
@@ -188,13 +179,12 @@ public class LevelTwo : LevelManager
 
     private void InitialLevelState()
     {
-        IsCrystalPresent = true;
+        IsCollectedCrystal = true;
         RotateGameObjectRotationZValue = 0f;
         FerryGameObjectPositionXValue = -5f;
         MakePathCubePositionYValue = 9f;
         PlayerPosition = new float[] { 0f, 1f, 2f };
         CapsulePlayer.transform.position = new Vector3(PlayerPosition[0], PlayerPosition[1], PlayerPosition[2]);
-        RotationGear.transform.localScale = INVISIBLE_GEAR_SCALE;
     }
 
     // save the current game state to file

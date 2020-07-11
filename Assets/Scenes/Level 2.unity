@@ -1951,7 +1951,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 408589386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd87d319581404c898fca45ec4dd793b, type: 3}
+  m_Script: {fileID: 11500000, guid: 412b711d065244295993c9e5a428011b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &408589389
@@ -8658,6 +8658,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce569de99f8c432cbcaf424ca67b70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCollectedCrystal: 0
+  rotateGameObjectRotationZValue: 0
+  ferryGameObjectPositionXValue: 0
+  makePathCubePositionYValue: 0
+  capsulePosition: []
+  collectable: {fileID: 683607045}
 --- !u!1 &1920065341
 GameObject:
   m_ObjectHideFlags: 0
@@ -9522,7 +9528,7 @@ PrefabInstance:
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.32327422
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
@@ -9532,7 +9538,7 @@ PrefabInstance:
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.04905498
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
@@ -9542,7 +9548,7 @@ PrefabInstance:
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.14749205
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
@@ -9552,7 +9558,7 @@ PrefabInstance:
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98906326
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
@@ -9567,7 +9573,7 @@ PrefabInstance:
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -16.963001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7572620496208632453, guid: 31567863045b16b4c8d65296ea07f34c,
         type: 3}

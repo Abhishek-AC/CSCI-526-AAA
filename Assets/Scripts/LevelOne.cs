@@ -25,9 +25,9 @@ public class LevelOne : LevelManager
     // initial player position - local coordinates relative to level1 object
     private static readonly float[] INITIAL_PLAYER_POSITION = new float[] { 3.904987f, 0.533f, 0.700345f };
     // initial player rotation - local coordinates relative to level1 object
-    private static readonly float[] INITIAL_PLAYER_ROTATION = new float[] { 0f, -105.2f, 0f };
+    private static readonly float[] INITIAL_PLAYER_ROTATION = new float[] { 0f, -104f, 0f };
     // initial level y angle
-    private static readonly float INITIAL_Y_ANGLE = 105.2f;
+    private static readonly float INITIAL_Y_ANGLE = 104f;
     // rotated level y angle
     private static readonly float ROTATED_Y_ANGLE = 0f;
 
@@ -44,15 +44,12 @@ public class LevelOne : LevelManager
     public float[] PlayerRotation { get; set; }
 
     // the current state of the game
-    public new LevelOneState CurrentState
+    public LevelOneState CurrentState => new LevelOneState()
     {
-        get => new LevelOneState()
-        {
-            IsInitialState = IsInitialState,
-            PlayerPosition = PlayerPosition,
-            PlayerRotation = PlayerRotation
-        };
-    }
+        IsInitialState = IsInitialState,
+        PlayerPosition = PlayerPosition,
+        PlayerRotation = PlayerRotation
+    };
 
     // game setup and restoration
     void Start() => RestoreOrSetupGameState();
@@ -79,7 +76,7 @@ public class LevelOne : LevelManager
     }
 
     // restore the game state or set up in its initial state
-    private void RestoreOrSetupGameState()
+    public void RestoreOrSetupGameState()
     {
         var state = reset ? null : SaveSystem.LoadLevelOne();
         // load initial values if there is no state to restore

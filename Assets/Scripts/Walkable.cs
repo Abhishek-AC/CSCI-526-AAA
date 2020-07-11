@@ -17,27 +17,30 @@ public class Walkable : MonoBehaviour
     //get walkPoint of current cube
     public Vector3 GetWalkPoint()
     {
-        if (canWalkOnThisBlock == false)
+        if (this.canWalkOnThisBlock == false)
+        {
             return new Vector3(0, -0.5f, 0);
+        }
 
-        // this part of the code only applies to level 2 and 3
+        // this part of the code only applies to level 2
         // before we find a better way to differentiate it
-        // let's test the presence of an object specific to level 2 and 3
-        var rotateObject = GameObject.Find("Rotate_Destination");
-        var rotateObject1 = GameObject.Find("Rotate_Key");
+        // let's test the presence of an object specific to level 2
+        GameObject rotateObject = GameObject.Find("Rotate");
         if (rotateObject != null)
         {
             foreach (Transform t in rotateObject.transform)
-                t.gameObject
-                    .GetComponent<Walkable>()
-                    .canWalkOnThisBlock = true;
-
-            if (transform.CompareTag("rotatableCube"))
             {
-                // for rotatable cubes handling two primary cases,
-                // 1. If there is cube object above the clickedCube then 
-                //    the capsule is not allowed to go there.
-                // 2. The Walkable points are drawn as per capsule's alignment
+                t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
+            }
+
+            if (transform.tag == "rotatableCube")
+            {
+                /* 
+                for rotatable cubes handling two primary cases,
+                1. If there is cube object above the clickedCube then 
+                   the capsule is not allowed to go there.
+                2. The Walkable points are drawn as per capsule's alignment
+                */
                 GameObject capsuleObject = GameObject.Find("Player");
                 if (Physics.Raycast(transform.position, capsuleObject.transform.up, 10f))
                 {
@@ -48,31 +51,7 @@ public class Walkable : MonoBehaviour
             }
         }
 
-        if (rotateObject1 != null)
-        {
-            foreach (Transform t in rotateObject1.transform)
-                if (t.gameObject.GetComponent<Walkable>() != null)
-                    t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
-
-            if (transform.CompareTag("rotatableCube"))
-            {
-                // for rotatable cubes handling two primary cases,
-                // 1. If there is cube object above the clickedCube then 
-                //   the capsule is not allowed to go there.
-                // 2. The Walkable points are drawn as per capsule's alignment
-                GameObject capsuleObject = GameObject.Find("Player");
-                if (Physics.Raycast(transform.position, capsuleObject.transform.up, 10f))
-                {
-                    canWalkOnThisBlock = false;
-                    return new Vector3(0, -0.5f, 0);
-                }
-                return transform.position + capsuleObject.transform.up * (1 - walkPointOffset);
-            }
-        }
-
-        return transform.position
-            + transform.up * (1 - walkPointOffset)
-            + new Vector3(offsetX, offsetY, offsetZ);
+        return transform.position + transform.up * (1 - walkPointOffset) + new Vector3(offsetX, offsetY, offsetZ);
     }
     //draw gismos sphere to show the walk path
     private void OnDrawGizmos()

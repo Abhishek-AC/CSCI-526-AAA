@@ -7,8 +7,7 @@ public class EndGame : MonoBehaviour
     private static readonly string[] SAVE_FILES = new string[]
     {
         "level1Data",
-        "level2Data",
-        "level3Data"
+        "level2Data"
     };
 
     // clean any progress and quit the game
