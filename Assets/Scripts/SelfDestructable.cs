@@ -47,7 +47,11 @@ public class SelfDestructable : MonoBehaviour
     }
 
     // deactivates the block once it becomes invisible
-    void OnBecameInvisible() => gameObject.SetActive(false);
+    void OnBecameInvisible()
+    {
+        if (IsSelfDestructionTriggered)
+            gameObject.SetActive(false);
+    }
 
     // used by the level 3 manager to quickly disable neighbor paths
     public void DisableNeighborPaths() => NeighborPathDisableDriver();
