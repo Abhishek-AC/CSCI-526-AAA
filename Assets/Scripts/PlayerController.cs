@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections; //SFX
 
 public class PlayerController : MonoBehaviour
 {
@@ -52,7 +51,6 @@ public class PlayerController : MonoBehaviour
                 {
                     Clear();
                     anim.SetBool("isWalking", true);
-                    GetComponent<AudioSource>().Play(); //SFX
                     clickedCube = mouseHit.transform;
                     BuildPath();
                 }
@@ -173,14 +171,12 @@ public class PlayerController : MonoBehaviour
         s.Kill();
         finalPath.Clear();
         anim.SetBool("isWalking", false);
-        GetComponent<AudioSource>().Stop(); //SFX 
     }
     public void KillMovement()
     {
         //kill player movement
         s.Kill();
         anim.SetBool("isWalking", false);
-        GetComponent<AudioSource>().Stop(); //SFX
     }
     public bool onMove()
     {
@@ -273,14 +269,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("crystal"))
         {
             Debug.Log("Crystal Collision");
-            //SFX other.gameObject.SetActive(false);
-
-            //SFX
-            AudioSource audio = other.gameObject.GetComponent<AudioSource>();
-            audio.Play();
-
-            //Destroy Collectible after audio is played
-            Destroy(other.gameObject, 0.3f);
+            other.gameObject.SetActive(false);
 
             Debug.Log("rotation gear now visible");
             // rotationGear.gameObject.SetActive(true);
@@ -305,32 +294,20 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("star"))
         {
             Debug.Log("Destination Colectable Collision");
-            // other.gameObject.SetActive(false);
-
-            //SFX++
-            AudioSource audio = other.gameObject.GetComponent<AudioSource>();
-            audio.Play();
-
-            StartCoroutine(LoadNewScene(other));
-
-            /*// storing player state
+            other.gameObject.SetActive(false);
+            // storing player state
             sceneIndex = SceneManager.GetActiveScene().buildIndex;
             if (levelPassed < sceneIndex)
             {
                 PlayerPrefs.SetInt("LevelPassed", sceneIndex);
             }
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);*/
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         if (other.gameObject.CompareTag("Key_collectable"))
         {
             Debug.Log("Key Collision");
-            //other.gameObject.SetActive(false);
-            AudioSource audio = other.gameObject.GetComponent<AudioSource>();
-            audio.Play();
-
-            Destroy(other.gameObject, 0.4f);
-
+            other.gameObject.SetActive(false);
             Debug.Log("rotation gear now visible");
             if (GameObject.Find("RotationGear_Destination"))
             {
@@ -339,21 +316,6 @@ public class PlayerController : MonoBehaviour
             GameObject.Find("Rotate_Destination").GetComponent<RotationManagerLevelThreeDest>().ActivateAnimation();
         }
     }
-
-    //SFX++
-    IEnumerator LoadNewScene(Collider other)
-    {
-        yield return new WaitForSeconds(0.4f);
-        Destroy(other.gameObject);
-        // storing player state
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (levelPassed < sceneIndex)
-        {
-            PlayerPrefs.SetInt("LevelPassed", sceneIndex);
-        }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-    //SFX--
     public Vector3 CalculatePlayerDirection(Vector3 input)
     {
         Vector3[] directions = { new Vector3(1, 0, 0), new Vector3(-1, 0, 0), new Vector3(0, 0, 1), new Vector3(0, 0, -1) };

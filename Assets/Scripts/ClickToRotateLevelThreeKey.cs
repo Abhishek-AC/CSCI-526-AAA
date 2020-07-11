@@ -77,7 +77,6 @@ public class ClickToRotateLevelThreeKey : MonoBehaviour
                 //Debug.Log(hit.transform.name);            
                 if (hit.transform.name == "RotationGear_Key")
                 {
-                    GameObject.Find("RotationGear_Key").GetComponent<AudioSource>().Play();  //SFX
                     isRotating = true;
                     isRotatable = false;
                 }
