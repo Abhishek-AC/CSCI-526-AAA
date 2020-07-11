@@ -10419,9 +10419,8 @@ Transform:
   - {fileID: 1163165616}
   - {fileID: 1723006022}
   - {fileID: 376657756}
-  - {fileID: 463691055}
   - {fileID: 188944939}
-  - {fileID: 3909622661011638329}
+  - {fileID: 463691055}
   - {fileID: 1179028339}
   - {fileID: 683607048}
   - {fileID: 1705094402}
@@ -11223,7 +11222,6 @@ MonoBehaviour:
   moveRangeMax: -3
   moveRangeMin: -5
   player: {fileID: 463691053}
-  player: {fileID: 8296172668036681189}
   manager: {fileID: 188944940}
 --- !u!1001 &1669403639469187818
 PrefabInstance:
