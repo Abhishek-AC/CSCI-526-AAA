@@ -20,6 +20,15 @@ public static class SaveSystem
     private static readonly string LEVEL_TWO_SAVE_FILE = "level2Data";
     // name of the level 3 save file
     private static readonly string LEVEL_THREE_SAVE_FILE = "level3Data";
+    
+    // reset level 1 state
+    public static void ResetLevelOne() => Reset(Path.Combine(Application.persistentDataPath, LEVEL_ONE_SAVE_FILE));
+    
+    // reset level 2 state
+    public static void ResetLevelTwo() => Reset(Path.Combine(Application.persistentDataPath, LEVEL_TWO_SAVE_FILE));
+    
+    // reset level 3 state
+    public static void ResetLevelThree() => Reset(Path.Combine(Application.persistentDataPath, LEVEL_THREE_SAVE_FILE));
 
     // save level 1 state to file
     public static void SaveLevelOne(LevelOne level) => Save(level.CurrentState,
@@ -45,6 +54,24 @@ public static class SaveSystem
     public static LevelThree.LevelThreeState LoadLevelThree() => Load<LevelThree.LevelThreeState>(
         Path.Combine(Application.persistentDataPath, LEVEL_THREE_SAVE_FILE));
 
+    // reset a level's state
+    private static void Reset(string path)
+    {
+        // make sure that we don't have an empty path
+        if (string.IsNullOrWhiteSpace(path))
+            throw new ArgumentException(
+                "Save file path cannot be empty", nameof(path));
+
+        try
+        {
+            File.Delete(path);
+        }
+        catch (IOException ex)
+        {
+            Debug.Log($"Cannot save level to file: {ex.Message}");
+        }
+    }
+
     // generic logic for saving game state to file
     private static void Save<T>(T data, string path) where T : GameState
     {
@@ -63,7 +90,6 @@ public static class SaveSystem
                 formatter.Serialize(stream, data);
                 Debug.Log($"Level saved to file {path}");
             }
-
         }
         // in case file I/O failed
         catch (IOException ex)
