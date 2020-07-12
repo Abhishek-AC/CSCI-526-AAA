@@ -6,6 +6,10 @@ public class LevelSelection : MonoBehaviour
 {
     public Button levelTwoButton, levelThreeButton;
     private int levelPassed, sceneIndex;
+    /*
+    Feature removed as player can be stuck on a level 
+    and get frustated so all levels should be accessible to the player
+    
     void Start()
     {
         levelPassed = PlayerPrefs.GetInt("LevelPassed");
@@ -31,18 +35,21 @@ public class LevelSelection : MonoBehaviour
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         audio.Play();
         StartCoroutine(Wait());
-        /*levelTwoButton.interactable = false;
+        levelTwoButton.interactable = false;
         levelThreeButton.interactable = false;
-        PlayerPrefs.DeleteAll();*/
+        PlayerPrefs.DeleteAll();
     }
+    */
+    
 
     //SFX++
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.2f);
+        /*
         levelTwoButton.interactable = false;
         levelThreeButton.interactable = false;
         PlayerPrefs.DeleteAll();
+        */
     }
-    //SFX--
 }
