@@ -52,5 +52,4 @@ public class LevelSelection : MonoBehaviour
         PlayerPrefs.DeleteAll();
         */
     }
-    //SFX--
 }
