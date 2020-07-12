@@ -1,0 +1,145 @@
+fileFormatVersion: 2
+guid: 8819f7515fab27447bdcec0e9ed59d75
+timeCreated: 1531110133
+licenseType: Store
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Rubble_01_Large
+    100004: Rubble_02_Large
+    100006: Rubble_03_Large
+    100008: Rubble_04_Large
+    100010: Rubble_05_Large
+    100012: Rubble_06_Large
+    100014: Rubble_07_Large
+    100016: Rubble_08_Large
+    100018: Rubble_09_Large
+    100020: Rubble_10_Large
+    100022: Rubble_11_Large
+    100024: Rubble_12_Large
+    400000: //RootNode
+    400002: Rubble_01_Large
+    400004: Rubble_02_Large
+    400006: Rubble_03_Large
+    400008: Rubble_04_Large
+    400010: Rubble_05_Large
+    400012: Rubble_06_Large
+    400014: Rubble_07_Large
+    400016: Rubble_08_Large
+    400018: Rubble_09_Large
+    400020: Rubble_10_Large
+    400022: Rubble_11_Large
+    400024: Rubble_12_Large
+    2300000: Rubble_01_Large
+    2300002: Rubble_02_Large
+    2300004: Rubble_03_Large
+    2300006: Rubble_04_Large
+    2300008: Rubble_05_Large
+    2300010: Rubble_06_Large
+    2300012: Rubble_07_Large
+    2300014: Rubble_08_Large
+    2300016: Rubble_09_Large
+    2300018: Rubble_10_Large
+    2300020: Rubble_11_Large
+    2300022: Rubble_12_Large
+    3300000: Rubble_01_Large
+    3300002: Rubble_02_Large
+    3300004: Rubble_03_Large
+    3300006: Rubble_04_Large
+    3300008: Rubble_05_Large
+    3300010: Rubble_06_Large
+    3300012: Rubble_07_Large
+    3300014: Rubble_08_Large
+    3300016: Rubble_09_Large
+    3300018: Rubble_10_Large
+    3300020: Rubble_11_Large
+    3300022: Rubble_12_Large
+    4300000: Rubble_01_Large
+    4300002: Rubble_02_Large
+    4300004: Rubble_03_Large
+    4300006: Rubble_04_Large
+    4300008: Rubble_05_Large
+    4300010: Rubble_06_Large
+    4300012: Rubble_07_Large
+    4300014: Rubble_08_Large
+    4300016: Rubble_09_Large
+    4300018: Rubble_10_Large
+    4300020: Rubble_11_Large
+    4300022: Rubble_12_Large
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 50
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

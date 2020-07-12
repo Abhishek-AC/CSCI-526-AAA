@@ -211,9 +211,5 @@ public class LevelTwo : LevelManager
     }
 
     // reset the game state
-    public override void ResetLevel()
-    {
-        InitialLevelState();
-        SaveLevel();
-    }
+    public override void ResetLevel() => SaveSystem.ResetLevelTwo();
 }

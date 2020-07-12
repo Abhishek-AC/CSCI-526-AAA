@@ -31,9 +31,9 @@ public class LevelThree : LevelManager
     }
 
     // initial player position
-    private static readonly float[] INITIAL_PLAYER_POSITION = new float[] { -4f, 4.59f, -3f };
+    private static readonly float[] INITIAL_PLAYER_POSITION = new[] { -4f, 4.59f, -3f };
     // initial player rotation
-    private static readonly float[] INITIAL_PLAYER_ROTATION = new float[] { 0f, 0f, 0f };
+    private static readonly float[] INITIAL_PLAYER_ROTATION = new[] { 0f, 0f, 0f };
     // initial rotation angle of the destination object
     private static readonly float INITIAL_ROTATE_DESTINATION_ANGLE = 0f;
     // initial rotation angle of the key object
@@ -56,9 +56,6 @@ public class LevelThree : LevelManager
     private static readonly Vector3 INVISIBLE_GEAR_SCALE = new Vector3(0f, 0f, 0f);
     // visible gear scale
     private static readonly Vector3 VISIBLE_GEAR_SCALE = new Vector3(1f, 1f, 1f);
-
-    // do we want to reset the game
-    private bool reset = false;
 
     // position of the player
     public float[] PlayerPosition { get; set; }
@@ -115,32 +112,20 @@ public class LevelThree : LevelManager
     public override void SaveLevel() => SaveSystem.SaveLevelThree(this);
 
     // reset the game state
-    public override void ResetLevel()
-    {
-        reset = true;
-        RestoreOrSetupGameState();
-        SaveLevel();
-    }
+    public override void ResetLevel() => SaveSystem.ResetLevelThree();
 
     private void RestoreOrSetupGameState()
     {
-        var state = reset ? null : SaveSystem.LoadLevelThree();
+        var state = SaveSystem.LoadLevelThree();
 
         // load initial values if there is no state to restore
-        PlayerPosition = state
-            == null ? INITIAL_PLAYER_POSITION : state.PlayerPosition;
-        PlayerRotation = state
-            == null ? INITIAL_PLAYER_ROTATION : state.PlayerRotation;
-        RotateDestinationAngle = state
-            == null ? INITIAL_ROTATE_DESTINATION_ANGLE : state.RotateDestinationAngle;
-        RotateKeyAngle = state
-            == null ? INITIAL_ROTATE_KEY_ANGLE : state.RotateKeyAngle;
-        SelfDestructableBlocksPresence = state
-            == null ? INITIAL_SELF_DESTRUCTABLE_BLOCKS_STATUS : state.SelfDestructableBlocksPresence;
-        IsCrystalTwoPresent = state
-            == null ? INITIAL_IS_CRYSTAL_TWO_PRESENT : state.IsCrystalTwoPresent;
-        IsRotationKeyPresent = state
-            == null ? INITIAL_IS_ROTATION_KEY_PRESENT : state.IsRotationKeyPresent;
+        PlayerPosition = state?.PlayerPosition ?? INITIAL_PLAYER_POSITION;
+        PlayerRotation = state?.PlayerRotation ?? INITIAL_PLAYER_ROTATION;
+        RotateDestinationAngle = state?.RotateDestinationAngle ?? INITIAL_ROTATE_DESTINATION_ANGLE;
+        RotateKeyAngle = state?.RotateKeyAngle ?? INITIAL_ROTATE_KEY_ANGLE;
+        SelfDestructableBlocksPresence = state?.SelfDestructableBlocksPresence ?? INITIAL_SELF_DESTRUCTABLE_BLOCKS_STATUS;
+        IsCrystalTwoPresent = state?.IsCrystalTwoPresent ?? INITIAL_IS_CRYSTAL_TWO_PRESENT;
+        IsRotationKeyPresent = state?.IsRotationKeyPresent ?? INITIAL_IS_ROTATION_KEY_PRESENT;
 
         SetPlayerPositionAndRotation();
         SetCollectablesStatus();
@@ -214,14 +199,14 @@ public class LevelThree : LevelManager
         var player = GameObject.Find("Player");
         if (player != null)
         {
-            PlayerPosition = new float[]
+            PlayerPosition = new[]
             {
                 player.transform.localPosition.x,
                 player.transform.localPosition.y,
                 player.transform.localPosition.z
             };
 
-            PlayerRotation = new float[]
+            PlayerRotation = new[]
             {
                 player.transform.localEulerAngles.x,
                 player.transform.localEulerAngles.y,

@@ -4,7 +4,7 @@ using System.Collections; //SFX
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject Pause_Menu, PauseButton, Level, InfoButton;
+    public GameObject Pause_Menu, PauseButton, Level, InfoButton, Shaft_with_spokes;
 
     public void Pause()
     {
@@ -13,6 +13,8 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(Wait());
 
         Level.SetActive(false);
+        if (Shaft_with_spokes)
+            Shaft_with_spokes.SetActive(false);
         InfoButton.SetActive(false);
         Pause_Menu.SetActive(true);
         PauseButton.SetActive(false);
@@ -34,6 +36,8 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(Wait());
 
         Level.SetActive(true);
+        if (Shaft_with_spokes)
+            Shaft_with_spokes.SetActive(true);
         InfoButton.SetActive(true);
         Pause_Menu.SetActive(false);
         PauseButton.SetActive(true);

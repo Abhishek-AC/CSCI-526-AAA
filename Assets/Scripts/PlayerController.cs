@@ -1,9 +1,9 @@
 ﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections; //SFX
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private Sequence s;
     // public GameObject rotationGear;
     private int levelPassed, sceneIndex;
+    
+    // whether the player is allowed to move or not
+    public bool CanMove { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +30,9 @@ public class PlayerController : MonoBehaviour
         RayCastDown();
         timePerUnitMove = 1f / walkingSpeed;
         clickSecondsCount = clickTimeInterval;
-        // rotationGear = GameObject.Find("RotationGear");
-        levelPassed = PlayerPrefs.GetInt("LevelPassed");
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        CanMove = true;
     }
+    
     // Update is called once per frame
     void Update()
     {
@@ -40,7 +42,7 @@ public class PlayerController : MonoBehaviour
         //camera raycast to find the clicked block ref:https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
         if (Input.GetMouseButtonDown(0))
         {
-            if (clickSecondsCount < clickTimeInterval)
+            if (clickSecondsCount < clickTimeInterval || !CanMove)
                 return;
             clickSecondsCount = 0;
             Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    
     private void RayCastDown()
     {
         Ray playerRay = new Ray(transform.position, -transform.up);
@@ -71,22 +74,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    //Use djikstra algorithm to find the path from the current cube to clicked cube
-    private void FindPath()
-    {
-        List<Transform> nextCubes = new List<Transform>();
-        List<Transform> pastCubes = new List<Transform>();
-        foreach (GamePath path in currentCube.GetComponent<Walkable>().possiblePath)
-        {
-            if (path.active)
-            {
-                nextCubes.Add(path.target);
-                path.target.GetComponent<Walkable>().previousBlock = currentCube;
-            }
-        }
-        pastCubes.Add(currentCube);
-        ExploreCube(nextCubes, pastCubes);
-    }
+
     //supporting method to findPath function
     private void ExploreCube(List<Transform> nextCubes, List<Transform> visitedCubes)
     {
@@ -110,7 +98,8 @@ public class PlayerController : MonoBehaviour
             ExploreCube(nextCubes, visitedCubes);
         }
     }
-    private void BFSFindPath()
+    
+    private void BfsFindPath()
     {
         bool findTarget = false;
         HashSet<Transform> cubeCovered = new HashSet<Transform>();
@@ -135,13 +124,13 @@ public class PlayerController : MonoBehaviour
             }
             if (findTarget)
                 break;
-            //Debug.Log("in");
         }
     }
+    
     //method to generate path from current cube to clicked cube, storing it to finalPath
     private void BuildPath()
     {
-        BFSFindPath();
+        BfsFindPath();
         Transform cube = clickedCube;
         while (cube != currentCube)
         {
@@ -156,6 +145,7 @@ public class PlayerController : MonoBehaviour
         }
         FollowPath();
     }
+    
     //remove all path in finalPath
     private void Clear()
     {
@@ -169,6 +159,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isWalking", false);
         GetComponent<AudioSource>().Stop(); //SFX 
     }
+    
     public void KillMovement()
     {
         //kill player movement
@@ -176,15 +167,9 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isWalking", false);
         GetComponent<AudioSource>().Stop(); //SFX
     }
-    public bool onMove()
-    {
-        //check if the player is currently moving
-        if (s.IsActive() && !s.IsComplete())
-        {
-            return true;
-        }
-        return false;
-    }
+    
+    public bool OnMove() => s.IsActive() && !s.IsComplete();
+
     //method to generate player movement, use api called dotween ref: http://dotween.demigiant.com/documentation.php#creatingTweener
     private void FollowPath()
     {
@@ -211,7 +196,6 @@ public class PlayerController : MonoBehaviour
             Vector3 relativeDirection;
             if (i < finalPath.Count - 1)
             {
-                //relativeDirection = ((finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset) - (finalPath[i + 1].GetComponent<Walkable>().GetWalkPoint() + offset)).normalized;
                 Vector3 cubeNext = cam.WorldToScreenPoint(finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset);
                 Vector3 cubeThis = cam.WorldToScreenPoint(finalPath[i + 1].GetComponent<Walkable>().GetWalkPoint() + offset);
                 Vector3 cubeN = new Vector3(cubeNext.x, 0, cubeNext.y);
@@ -225,12 +209,9 @@ public class PlayerController : MonoBehaviour
                 Vector3 cubeN = new Vector3(cubeNext.x, 0, cubeNext.y);
                 Vector3 cubeT = new Vector3(cubeThis.x, 0, cubeThis.y);
                 relativeDirection = (cubeN - cubeT).normalized;
-                //relativeDirection = ((finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset) - transform.position).normalized;
             }
-            //Debug.Log("Relative direction is" + relativeDirection);
             Vector3 newForward = relativeDirection.magnitude < 0.1f ? transform.forward : CalculatePlayerDirection(relativeDirection);
-            //Debug.Log("calculated direction is" + newForward);
-            //if the player is walking on a stair, his direction should not change
+            // if the player is walking on a stair, his direction should not change
             Tween t;
             if ((finalPath[i].GetComponent<Walkable>().isStair) || (i < finalPath.Count - 1 && finalPath[i + 1].GetComponent<Walkable>().isStair))
             {
@@ -241,10 +222,10 @@ public class PlayerController : MonoBehaviour
                 t = transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint() + offset, timePerUnitMove).SetEase(Ease.Linear).OnStart(() => transform.forward = newForward);
             }
             s.Append(t);
-            //this check if there is a gap between two cubes in scene view(not game view) , if so, player need to 
+            // this check if there is a gap between two cubes in scene view(not game view) , if so, player need to 
             // first move to the the edge of current cube
             // second transform its position to the edge position of the cube you are moving to
-            //lastly move to the walkpoint of the you are moving to
+            // lastly move to the walkpoint of the you are moving to
             // the whole process take 1 unit time
             if (finalPath[i].GetComponent<Walkable>().edgeValue != Vector3.zero && i > 0 && finalPath[i - 1].GetComponent<Walkable>().edgeValue != Vector3.zero)
             {
@@ -267,7 +248,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("crystal"))
         {
             Debug.Log("Crystal Collision");
-            //SFX other.gameObject.SetActive(false);
 
             //SFX
             AudioSource audio = other.gameObject.GetComponent<AudioSource>();
@@ -277,7 +257,6 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject, 0.3f);
 
             Debug.Log("rotation gear now visible");
-            // rotationGear.gameObject.SetActive(true);
 
             if (GameObject.Find("RotationGear"))
             {
@@ -290,11 +269,6 @@ public class PlayerController : MonoBehaviour
                 GameObject.Find("Rotate_Key").GetComponent<RotationManagerLevelThreeKey>().ActivateAnimation();
 
             }
-
-            // if (GameObject.Find ("RotationGear_Destination")){
-            //     GameObject.Find ("RotationGear_Destination").transform.localScale = new Vector3(1, 1, 1);
-            // }
-
         }
         if (other.gameObject.CompareTag("star"))
         {
@@ -306,14 +280,6 @@ public class PlayerController : MonoBehaviour
             audio.Play();
 
             StartCoroutine(LoadNewScene(other));
-
-            /*// storing player state
-            sceneIndex = SceneManager.GetActiveScene().buildIndex;
-            if (levelPassed < sceneIndex)
-            {
-                PlayerPrefs.SetInt("LevelPassed", sceneIndex);
-            }
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);*/
         }
 
         if (other.gameObject.CompareTag("Key_collectable"))
@@ -327,9 +293,7 @@ public class PlayerController : MonoBehaviour
 
             Debug.Log("rotation gear now visible");
             if (GameObject.Find("RotationGear_Destination"))
-            {
                 GameObject.Find("RotationGear_Destination").transform.localScale = new Vector3(1, 1, 1);
-            }
             GameObject.Find("Rotate_Destination").GetComponent<RotationManagerLevelThreeDest>().ActivateAnimation();
         }
     }
@@ -337,16 +301,15 @@ public class PlayerController : MonoBehaviour
     //SFX++
     IEnumerator LoadNewScene(Collider other)
     {
+        // initialize the current level
+        var currentLevel = transform.parent;
+        if (currentLevel != null) currentLevel.GetComponent<LevelManager>().ResetLevel(); 
+        
         yield return new WaitForSeconds(0.4f);
         Destroy(other.gameObject);
-        // storing player state
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (levelPassed < sceneIndex)
-        {
-            PlayerPrefs.SetInt("LevelPassed", sceneIndex);
-        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    
     //SFX--
     public Vector3 CalculatePlayerDirection(Vector3 input)
     {
@@ -354,24 +317,14 @@ public class PlayerController : MonoBehaviour
         //determine where the player is facing by determine the quadrants the direction is
 
         if (input.x < 0 && input.z > 0)
-        {
             return directions[2];
-        }
         else if (input.x < 0 && input.z < 0)
-        {
             return directions[1];
-        }
         else if (input.x > 0 && input.z < 0)
-        {
             return directions[3];
-        }
         else if (input.x > 0 && input.z > 0)
-        {
             return directions[0];
-        }
         else
-        {
             return input;
-        }
     }
 }
