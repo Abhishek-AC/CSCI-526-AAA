@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 317694119}
   - component: {fileID: 317694118}
   m_Layer: 5
-  m_Name: Welcome
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -238,7 +238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -44, y: 443}
+  m_AnchoredPosition: {x: -202, y: 625}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &317694118
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome to USC Valley
+  m_text: ELEMENTALISTS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -269,14 +269,14 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289109549
-  m_fontColor: {r: 0.17501779, g: 0.62017864, b: 0.6509434, a: 1}
+    rgba: 4294918400
+  m_fontColor: {r: 0, g: 0.25409842, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 0.15240563, g: 0.072267726, b: 0.5283019, a: 1}
-    topRight: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
-    bottomLeft: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+    topLeft: {r: 1, g: 0.48717904, b: 0, a: 1}
+    topRight: {r: 0.05032932, g: 0.8207547, b: 0.4330814, a: 1}
+    bottomLeft: {r: 0, g: 1, b: 0.8124151, a: 1}
     bottomRight: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
@@ -288,8 +288,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 110
+  m_fontSizeBase: 110
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -326,15 +326,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -230.99768, y: -47.20781, z: -337.26794, w: -348.11395}
+  m_margin: {x: -230.99768, y: -47.20781, z: -636.4131, w: -348.11395}
   m_textInfo:
     textComponent: {fileID: 317694118}
-    characterCount: 21
+    characterCount: 13
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 4
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ce35f122d80e5472d80bf42eb2b73858, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1ecdcd6f7786e4d13b1e24d766def970, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
