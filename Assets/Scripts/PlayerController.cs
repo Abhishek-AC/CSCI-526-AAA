@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float clickTimeInterval = 0.5f;
     private float clickSecondsCount;
     private Sequence s;
+    private bool onEnter = true;
     // public GameObject rotationGear;
     private int levelPassed, sceneIndex;
     
@@ -71,6 +72,11 @@ public class PlayerController : MonoBehaviour
             if (playerHit.transform.GetComponent<Walkable>() != null)
             {
                 currentCube = playerHit.transform;
+                if (onEnter)
+                {
+                    transform.position = playerHit.transform.GetComponent<Walkable>().GetWalkPoint();
+                    onEnter = false;
+                }
             }
         }
     }

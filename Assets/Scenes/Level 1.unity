@@ -283,7 +283,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14550
+  m_Name: pb_Mesh31882
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4795,19 +4795,28 @@ MonoBehaviour:
   offsetX: 0
   offsetY: 0
   offsetZ: 0
---- !u!4 &535948370 stripped
+--- !u!4 &535948370
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 8303355503491020750, guid: e973324a4aa960241a4e7f9d30624e84,
     type: 3}
   m_PrefabInstance: {fileID: 958426456}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068671428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 717024802}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &544440118
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14730
+  m_Name: pb_Mesh32062
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4970,7 +4979,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14186
+  m_Name: pb_Mesh31518
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6009,6 +6018,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: 57, z: 23}
+--- !u!1 &717024801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 958426456}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717024802}
+  m_Layer: 0
+  m_Name: Player (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &717024802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 958426456}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717024801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 958426459}
+  - {fileID: 535948370}
+  m_Father: {fileID: 1902245195}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &760182024
 GameObject:
   m_ObjectHideFlags: 0
@@ -7415,12 +7456,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e973324a4aa960241a4e7f9d30624e84, type: 3}
---- !u!1 &958426457 stripped
+--- !u!1 &958426457
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 4999039629975553501, guid: e973324a4aa960241a4e7f9d30624e84,
     type: 3}
   m_PrefabInstance: {fileID: 958426456}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 958426459}
+  - component: {fileID: 958426458}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!82 &958426458
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7517,6 +7570,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &958426459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 958426456}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958426457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 717024802}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &967090246
 GameObject:
   m_ObjectHideFlags: 0
@@ -7923,6 +7990,22 @@ MonoBehaviour:
   offsetX: 0
   offsetY: 0
   offsetZ: 0
+--- !u!1 &1068671428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 958426456}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 535948370}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1072197211
 GameObject:
   m_ObjectHideFlags: 0
@@ -17472,7 +17555,7 @@ Transform:
   - {fileID: 634064268}
   - {fileID: 436734607}
   - {fileID: 1971240767}
-  - {fileID: 535948370}
+  - {fileID: 717024802}
   - {fileID: 1201539633}
   m_Father: {fileID: 0}
   m_RootOrder: 3
