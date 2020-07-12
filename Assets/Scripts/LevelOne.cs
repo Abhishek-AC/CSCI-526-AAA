@@ -8,8 +8,11 @@ public class LevelOne : LevelManager
     [Serializable]
     public class LevelOneState : SaveSystem.GameState
     {
-        // is the level in rotated state or initial state
-        public bool IsInitialState { get; set; }
+        // is the collectable present or not
+        public bool IsCollectablePresent { get; set; }
+        
+        // the rotation angle of level one
+        public float LevelOneRotation { get; set; }
 
         // the position of the player
         public float[] PlayerPosition { get; set; }
@@ -17,25 +20,24 @@ public class LevelOne : LevelManager
         // the rotation of the player
         public float[] PlayerRotation { get; set; }
     }
-
-    // initial rotation state
-    private static readonly bool ROTATING_STATE = false;
-    // initial level setup state
-    private static readonly bool INITIAL_STATE = true;
+    
+    // initial collectable presence
+    private static readonly bool INITIAL_COLLECTABLE_PRESENCE = true;
     // initial player position - local coordinates relative to level1 object
-    private static readonly float[] INITIAL_PLAYER_POSITION = new float[] { 3.904987f, 0.533f, 0.700345f };
+    private static readonly float[] INITIAL_PLAYER_POSITION = new[] { 3.904987f, 0.533f, 0.700345f };
     // initial player rotation - local coordinates relative to level1 object
-    private static readonly float[] INITIAL_PLAYER_ROTATION = new float[] { 0f, -105.2f, 0f };
+    private static readonly float[] INITIAL_PLAYER_ROTATION = new[] { 0f, -105.2f, 0f };
     // initial level y angle
     private static readonly float INITIAL_Y_ANGLE = 105.2f;
-    // rotated level y angle
-    private static readonly float ROTATED_Y_ANGLE = 0f;
 
     // do we want to reset the game
     private bool reset = false;
 
-    // is the level in rotated state or initial state
-    public bool IsInitialState { get; set; }
+    // is the collectable present or not
+    public bool IsCollectablePresent { get; set; }
+    
+    // the rotation angle of level one
+    public float LevelOneRotation { get; set; }
 
     // the position of the player
     public float[] PlayerPosition { get; set; }
@@ -48,7 +50,8 @@ public class LevelOne : LevelManager
     {
         get => new LevelOneState()
         {
-            IsInitialState = IsInitialState,
+            IsCollectablePresent =  IsCollectablePresent,
+            LevelOneRotation = LevelOneRotation,
             PlayerPosition = PlayerPosition,
             PlayerRotation = PlayerRotation
         };
@@ -60,7 +63,8 @@ public class LevelOne : LevelManager
     // update the current game state
     void Update()
     {
-        UpdateLevelOneState();
+        UpdateCollectablePresence();
+        UpdateLevelOneRotationAngle();
         UpdatePlayerPositionAndRotation();
     }
 
@@ -83,32 +87,29 @@ public class LevelOne : LevelManager
     {
         var state = reset ? null : SaveSystem.LoadLevelOne();
         // load initial values if there is no state to restore
-        IsInitialState = state
-            == null ? INITIAL_STATE : state.IsInitialState;
-        PlayerPosition = state
-            == null ? INITIAL_PLAYER_POSITION : state.PlayerPosition;
-        PlayerRotation = state
-            == null ? INITIAL_PLAYER_ROTATION : state.PlayerRotation;
+        IsCollectablePresent = state?.IsCollectablePresent ?? INITIAL_COLLECTABLE_PRESENCE;
+        LevelOneRotation = state?.LevelOneRotation ?? INITIAL_Y_ANGLE;
+        PlayerPosition = state?.PlayerPosition ?? INITIAL_PLAYER_POSITION;
+        PlayerRotation = state?.PlayerRotation ?? INITIAL_PLAYER_ROTATION;
 
+        SetCollectablePresence();
         SetPlayerPositionAndRotation();
-        SetLevelOneState();
+        SetLevelOneRotationAngle();
+    }
+    
+    // set the collectable status
+    private void SetCollectablePresence()
+    {
+        var collectable = GameObject.Find("Collectable");
+        if (collectable != null) collectable.SetActive(IsCollectablePresent);
     }
 
-    // set the level state
-    private void SetLevelOneState()
+    // set the level one rotation angle
+    private void SetLevelOneRotationAngle()
     {
         var level1 = GameObject.Find("Level1");
-        var rotator = GameObject.Find("LevelOneRotator");
         if (level1 != null)
-            level1.transform.eulerAngles = new Vector3(
-                0f, IsInitialState ? INITIAL_Y_ANGLE : ROTATED_Y_ANGLE, 0f);
-        if (rotator != null)
-            rotator.GetComponent<RotateLevelOne>().Rotating = ROTATING_STATE;
-        if (!IsInitialState)
-        {
-            var collectable = GameObject.FindWithTag("crystal");
-            if (collectable != null) collectable.SetActive(false);
-        }
+            level1.transform.eulerAngles = new Vector3(0f, LevelOneRotation, 0f);
     }
 
     // set the player position and rotation - local coordinates relative to level1 object
@@ -124,14 +125,12 @@ public class LevelOne : LevelManager
                 PlayerRotation[0], PlayerRotation[1], PlayerRotation[2]);
         }
     }
+    
+    // update the collectable presence
+    private void UpdateCollectablePresence() => IsCollectablePresent = GameObject.Find("Collectable") != null;
 
-    // update the level state
-    private void UpdateLevelOneState()
-    {
-        var rotator = GameObject.Find("LevelOneRotator");
-        if (rotator != null)
-            IsInitialState = rotator.GetComponent<RotateLevelOne>().Initial;
-    }
+    // update the level one rotation angle
+    private void UpdateLevelOneRotationAngle() => LevelOneRotation = GameObject.Find("Level1").transform.rotation.eulerAngles.y;
 
     // update the player position and rotation - local coordinates relative to level1 object
     private void UpdatePlayerPositionAndRotation()
@@ -139,14 +138,14 @@ public class LevelOne : LevelManager
         var player = GameObject.Find("Player");
         if (player != null)
         {
-            PlayerPosition = new float[]
+            PlayerPosition = new[]
             {
                 player.transform.localPosition.x,
                 player.transform.localPosition.y,
                 player.transform.localPosition.z
             };
 
-            PlayerRotation = new float[]
+            PlayerRotation = new[]
             {
                 player.transform.localEulerAngles.x,
                 player.transform.localEulerAngles.y,
