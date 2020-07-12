@@ -283,7 +283,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37870
+  m_Name: pb_Mesh73256
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4807,7 +4807,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38058
+  m_Name: pb_Mesh73436
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4970,7 +4970,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37506
+  m_Name: pb_Mesh72892
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12727,7 +12727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defe233e445ee4e59af1302f2c74de37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 20
+  rotationSpeed: 30
   snapBlockAngle: 10
   Level1: {fileID: 1902245194}
 --- !u!1 &1475551583
@@ -13171,7 +13171,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shaft_with_spokes Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1441893788, guid: 6c4d68652e0d3f6419e8e452847d92d0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6c4d68652e0d3f6419e8e452847d92d0, type: 3}
 --- !u!4 &1503593707 stripped
 Transform:

@@ -13,7 +13,8 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(Wait());
 
         Level.SetActive(false);
-        Shaft_with_spokes.SetActive(false);
+        if (Shaft_with_spokes)
+            Shaft_with_spokes.SetActive(false);
         InfoButton.SetActive(false);
         Pause_Menu.SetActive(true);
         PauseButton.SetActive(false);
@@ -35,7 +36,8 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(Wait());
 
         Level.SetActive(true);
-        Shaft_with_spokes.SetActive(true);
+        if (Shaft_with_spokes)
+            Shaft_with_spokes.SetActive(true);
         InfoButton.SetActive(true);
         Pause_Menu.SetActive(false);
         PauseButton.SetActive(true);
