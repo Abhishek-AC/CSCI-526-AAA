@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1960687442418240}
+  m_IsPrefabParent: 1
+--- !u!1 &1366118208473502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1618977527395782, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4638874920360216}
+  - component: {fileID: 33843140790544546}
+  - component: {fileID: 23352932814232708}
+  - component: {fileID: 65049005630587430}
+  m_Layer: 0
+  m_Name: Large_Single_Statue_Wall_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1526034060716364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1729379829936050, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4632031514127858}
+  m_Layer: 0
+  m_Name: Durga_Free_Standing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1960687442418240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1933668986057942, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4568767355506878}
+  m_Layer: 0
+  m_Name: Large_Single_Statue_Wall With Statue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1962182048336198
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 1674450766444868, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4565735341394170}
+  - component: {fileID: 33672512484734878}
+  - component: {fileID: 23770398795267360}
+  m_Layer: 0
+  m_Name: Durga_Free_Standing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4565735341394170
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 4213892634792282, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962182048336198}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4632031514127858}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4568767355506878
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 4120624854613820, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960687442418240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4632031514127858}
+  - {fileID: 4638874920360216}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4632031514127858
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 4860353166426170, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526034060716364}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.68, z: -0.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4565735341394170}
+  m_Father: {fileID: 4568767355506878}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4638874920360216
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 4348381728987794, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366118208473502}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4568767355506878}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23352932814232708
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 23634088882959894, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366118208473502}
+  m_Enabled: 1
+  m_CastShadows: 2
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 2976343e9d2082b4db8174bd0c8e159d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!23 &23770398795267360
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 23177192767843904, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962182048336198}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 1391282366bd14348a04de068223f661, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &33672512484734878
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 33686551340689918, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962182048336198}
+  m_Mesh: {fileID: 4300000, guid: 720dfd4d0fa905f409b97df91b2e6908, type: 3}
+--- !u!33 &33843140790544546
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 33276714692956072, guid: a57e283b594b33444a23ec956f0d5191,
+    type: 2}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366118208473502}
+  m_Mesh: {fileID: 4300000, guid: 668b17568ea56c04197937099e684535, type: 3}
+--- !u!65 &65049005630587430
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366118208473502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 14.5, z: 2}
+  m_Center: {x: 0, y: 0, z: 0.1}
