@@ -28,8 +28,11 @@ public class PlayerController : MonoBehaviour
         timePerUnitMove = 1f / walkingSpeed;
         clickSecondsCount = clickTimeInterval;
         // rotationGear = GameObject.Find("RotationGear");
+        /* 
+        feature removed lock-unlock
         levelPassed = PlayerPrefs.GetInt("LevelPassed");
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        */
     }
     // Update is called once per frame
     void Update()
@@ -307,13 +310,16 @@ public class PlayerController : MonoBehaviour
 
             StartCoroutine(LoadNewScene(other));
 
-            /*// storing player state
+            /*  
+            feature removed lock-unlock
+            storing player state
             sceneIndex = SceneManager.GetActiveScene().buildIndex;
             if (levelPassed < sceneIndex)
             {
                 PlayerPrefs.SetInt("LevelPassed", sceneIndex);
             }
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);*/
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            */
         }
 
         if (other.gameObject.CompareTag("Key_collectable"))
@@ -339,13 +345,17 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
         Destroy(other.gameObject);
+        /*
+        level lock-unlock feature removed
         // storing player state
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (levelPassed < sceneIndex)
         {
             PlayerPrefs.SetInt("LevelPassed", sceneIndex);
         }
+        */
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
     //SFX--
     public Vector3 CalculatePlayerDirection(Vector3 input)
