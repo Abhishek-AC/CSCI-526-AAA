@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 // manages the rotation of the level 1 setup
-public class DragRotate_Level1 : MonoBehaviour
+public class DragToRotate : MonoBehaviour
 {
     public int rotationSpeed;
     public float snapBlockAngle = 5f;
     // the speed of rotation defined as angle per second
-    // private static readonly float ANGULAR_VELOCITY = 45f;
+    //private static readonly float ANGULAR_VELOCITY = 45f;
     // the target angle that we are rotating towards
     private float targetAngle;
     // how much angle have we rotated (during a rotation)
@@ -74,7 +74,7 @@ public class DragRotate_Level1 : MonoBehaviour
         if (Math.Abs(targetAngle - rotatedAngle) < 0.1f && Rotating)
             Rotating = false;
         */
-       if (Math.Abs(Level1.transform.localEulerAngles.y) == 0f)
+        if (Math.Abs(Level1.transform.localEulerAngles.y) == 0f)
         {
             // set the active state depending on whether in initial position or not
             // level1.rotation = Quaternion.Euler(0f, rotatedAngle, 0f);
