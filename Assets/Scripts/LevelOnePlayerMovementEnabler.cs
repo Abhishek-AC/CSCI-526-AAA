@@ -23,6 +23,9 @@ public class LevelOnePlayerMovementEnabler : MonoBehaviour
                 Math.Abs(transform.eulerAngles.y - ROTATED_Y_ANGLE) <= 0.1f)
                 player.GetComponent<PlayerController>().CanMove = true;
             else
+            {
+                player.GetComponent<PlayerController>().KillMovement();
                 player.GetComponent<PlayerController>().CanMove = false;
+            }
     }
 }

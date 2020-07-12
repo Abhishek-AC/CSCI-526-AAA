@@ -301,10 +301,13 @@ public class PlayerController : MonoBehaviour
     //SFX++
     IEnumerator LoadNewScene(Collider other)
     {
+        // initialize the current level
+        var currentLevel = transform.parent;
+        if (currentLevel != null) currentLevel.GetComponent<LevelManager>().ResetLevel(); 
+        
         yield return new WaitForSeconds(0.4f);
         Destroy(other.gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
     }
     
     //SFX--

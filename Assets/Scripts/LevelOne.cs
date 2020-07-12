@@ -30,9 +30,6 @@ public class LevelOne : LevelManager
     // initial level y angle
     private static readonly float INITIAL_Y_ANGLE = 105.2f;
 
-    // do we want to reset the game
-    private bool reset = false;
-
     // is the collectable present or not
     public bool IsCollectablePresent { get; set; }
     
@@ -75,17 +72,12 @@ public class LevelOne : LevelManager
     public override void SaveLevel() => SaveSystem.SaveLevelOne(this);
 
     // reset the game state
-    public override void ResetLevel()
-    {
-        reset = true;
-        RestoreOrSetupGameState();
-        SaveLevel();
-    }
+    public override void ResetLevel() => SaveSystem.ResetLevelOne();
 
     // restore the game state or set up in its initial state
     private void RestoreOrSetupGameState()
     {
-        var state = reset ? null : SaveSystem.LoadLevelOne();
+        var state = SaveSystem.LoadLevelOne();
         // load initial values if there is no state to restore
         IsCollectablePresent = state?.IsCollectablePresent ?? INITIAL_COLLECTABLE_PRESENCE;
         LevelOneRotation = state?.LevelOneRotation ?? INITIAL_Y_ANGLE;

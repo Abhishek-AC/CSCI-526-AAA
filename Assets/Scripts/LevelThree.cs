@@ -57,9 +57,6 @@ public class LevelThree : LevelManager
     // visible gear scale
     private static readonly Vector3 VISIBLE_GEAR_SCALE = new Vector3(1f, 1f, 1f);
 
-    // do we want to reset the game
-    private bool reset = false;
-
     // position of the player
     public float[] PlayerPosition { get; set; }
 
@@ -115,16 +112,11 @@ public class LevelThree : LevelManager
     public override void SaveLevel() => SaveSystem.SaveLevelThree(this);
 
     // reset the game state
-    public override void ResetLevel()
-    {
-        reset = true;
-        RestoreOrSetupGameState();
-        SaveLevel();
-    }
+    public override void ResetLevel() => SaveSystem.ResetLevelThree();
 
     private void RestoreOrSetupGameState()
     {
-        var state = reset ? null : SaveSystem.LoadLevelThree();
+        var state = SaveSystem.LoadLevelThree();
 
         // load initial values if there is no state to restore
         PlayerPosition = state?.PlayerPosition ?? INITIAL_PLAYER_POSITION;
