@@ -77,6 +77,7 @@ public class LevelOne : LevelManager
     // restore the game state or set up in its initial state
     private void RestoreOrSetupGameState()
     {
+        GameObject.Find("Shaft_with_spokes Variant").transform.localScale = new Vector3(0, 0, 0);
         var state = SaveSystem.LoadLevelOne();
         // load initial values if there is no state to restore
         IsCollectablePresent = state?.IsCollectablePresent ?? INITIAL_COLLECTABLE_PRESENCE;
