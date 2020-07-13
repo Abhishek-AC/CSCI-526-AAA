@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /* 
 Mono Behaviour: https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
@@ -26,8 +27,7 @@ public class ClickToRotateLevelThree : MonoBehaviour
             var rotate = GameObject.Find("Rotate_Destination");
             var player = GameObject.Find("Player");
 
-            RaycastHit playerHit;
-            if (Physics.Raycast(player.transform.position, -player.transform.up, out playerHit))
+            if (Physics.Raycast(player.transform.position, -player.transform.up, out var playerHit))
                 if (playerHit.transform.IsChildOf(rotate.transform))
                     result = true;
 
@@ -51,38 +51,6 @@ public class ClickToRotateLevelThree : MonoBehaviour
     */
     void Update()
     {
-        /*
-        Input.GetMouseButtonDown() : https://docs.unity3d.com/ScriptReference/Input.GetMouseButtonDown.html
-        check if the rotation gear is clicked
-        */
-        if (Input.GetMouseButtonDown(0) && isRotatable && !IsPlayerOnRotate)
-        {
-            /*
-            RaycastHit : https://docs.unity3d.com/ScriptReference/RaycastHit.html
-            Property Used - Physics.raycast : https://docs.unity3d.com/ScriptReference/Physics.Raycast.html 
-            */
-            RaycastHit hit;
-            // GameObject rotateObject = GameObject.Find("Rotate");
-            // foreach(Transform t in rotateObject.transform){
-            //     t.gameObject.GetComponent<Walkable>().canWalkOnThisBlock = true;
-            // }
-            /*
-            Ray :https://docs.unity3d.com/ScriptReference/Ray.html
-            Camera.main.ScreenPointToRay() : https://docs.unity3d.com/ScriptReference/Camera.ScreenPointToRay.html
-            Input.mousePosition : https://docs.unity3d.com/ScriptReference/Input-mousePosition.html
-            */
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                //Debug.Log(hit.transform.name);            
-                if (hit.transform.name == "RotationGear_Destination")
-                {
-                    GameObject.Find("RotationGear_Destination").GetComponent<AudioSource>().Play();  //SFX
-                    isRotating = true;
-                    isRotatable = false;
-                }
-            }
-        }
         //if the current status is rotating, rotate the cube group with specified rotating speed
         if (isRotating)
         {
@@ -118,6 +86,15 @@ public class ClickToRotateLevelThree : MonoBehaviour
             GameObject player = GameObject.Find("Player");
             player.transform.GetComponent<PlayerController>().KillMovement();
         }
+    }
 
+    void OnMouseDown()
+    {
+        if (isRotatable && !IsPlayerOnRotate)
+        {
+            transform.GetComponent<AudioSource>().Play();  //SFX
+            isRotating = true;
+            isRotatable = false;
+        }
     }
 }
