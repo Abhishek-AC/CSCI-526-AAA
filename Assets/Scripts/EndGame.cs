@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 using System.IO;
-using System.Collections; //SFX
+
 public class EndGame : MonoBehaviour
 {
     // the path to the save files to be deleted
-    private static readonly string[] SAVE_FILES = new string[]
+    private static readonly string[] SAVE_FILES = new[]
     {
         "level1Data",
         "level2Data",
@@ -18,9 +19,6 @@ public class EndGame : MonoBehaviour
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         audio.Play();
         StartCoroutine(WaitandQuit());
-        /*Debug.Log("End Game in Build Mode");
-        DeleteSaveFiles();
-        Application.Quit();*/
     }
 
     //SFX++
@@ -40,9 +38,6 @@ public class EndGame : MonoBehaviour
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         audio.Play();
         StartCoroutine(WaitandReplay());
-       /* Debug.Log("Replay");
-        DeleteSaveFiles();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);*/
     }
 
     //SFX++
@@ -71,12 +66,5 @@ public class EndGame : MonoBehaviour
             {
                 Debug.Log($"Delete save file failed: {ex.Message}");
             }
-    }
-
-    void RefreshEditorProjectWindow()
-    {
-#if UNITY_EDITOR
-        UnityEditor.AssetDatabase.Refresh();
-#endif
     }
 }
