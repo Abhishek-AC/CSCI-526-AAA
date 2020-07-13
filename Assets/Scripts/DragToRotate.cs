@@ -36,6 +36,7 @@ public class DragToRotate : MonoBehaviour
         // only allow rotation if the collectable is not present
         if (collectable == null && player != null)
         {
+            GameObject.Find("rotate-sfx").GetComponent<AudioSource>().Play();  //SFX
             var yaxisRotation = Input.GetAxis("Mouse Y") * rotationSpeed;
             transform.Rotate(Vector3.down, -yaxisRotation);
             level1.transform.Rotate(Vector3.down, -yaxisRotation);
