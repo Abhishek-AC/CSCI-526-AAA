@@ -256,8 +256,9 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Crystal Collision");
 
             //SFX
-            AudioSource audio = other.gameObject.GetComponent<AudioSource>();
-            audio.Play();
+            //AudioSource audio = other.gameObject.GetComponent<AudioSource>();
+            //audio.Play();
+            GameObject.Find("collectable_sfx").GetComponent<AudioSource>().Play();  //SFX
 
             //Destroy Collectible after audio is played
             Destroy(other.gameObject, 0.3f);
@@ -292,8 +293,9 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Key Collision");
             //other.gameObject.SetActive(false);
-            AudioSource audio = other.gameObject.GetComponent<AudioSource>();
-            audio.Play();
+            //AudioSource audio = other.gameObject.GetComponent<AudioSource>();
+            //audio.Play();
+            GameObject.Find("key_sfx").GetComponent<AudioSource>().Play();  //SFX
 
             Destroy(other.gameObject, 0.4f);
 
