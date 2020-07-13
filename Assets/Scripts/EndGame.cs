@@ -51,7 +51,8 @@ public class EndGame : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         Debug.Log("Replay");
         DeleteSaveFiles();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        // re-directing to level select screen
+        SceneManager.LoadScene(1);
 
     }
     //SFX--
