@@ -106,9 +106,15 @@ public class LevelTwo : LevelManager
     {
         if (Collectable != null)
             Collectable.SetActive(isCrystalPresent);
-        // also update the visibility state of the rotation gear 
-        // it is interlocked with the state of the collectable object
+        // also update the visibility state of the rotation gear
+        // and the presence of the animator component of the rotate block
+        // they are interlocked with the state of the collectable object
         RotationGear.transform.localScale = isCrystalPresent ? INVISIBLE_GEAR_SCALE : VISIBLE_GEAR_SCALE;
+        if (!isCrystalPresent &&
+            GameObject.Find("Rotate") != null &&
+            GameObject.Find("Rotate").GetComponent<Animator>() != null)
+            Destroy(GameObject.Find("Rotate").GetComponent<Animator>());
+            
     }
 
     // get the position of the ferry block
