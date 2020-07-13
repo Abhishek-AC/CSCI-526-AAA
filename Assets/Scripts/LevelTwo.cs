@@ -128,6 +128,8 @@ public class LevelTwo : LevelManager
     private void SetFerryGameObject(float ferryGameObjectPositionXValue)
     {
         GameObject ferryObject = GameObject.Find("move");
+        if (GameObject.Find("move") != null && GameObject.Find("move").GetComponent<Animator>() != null)
+            Destroy(GameObject.Find("move").GetComponent<Animator>());
         Vector3 ferryPosition;
         ferryPosition.x = ferryGameObjectPositionXValue;
         ferryPosition.y = 0f;
