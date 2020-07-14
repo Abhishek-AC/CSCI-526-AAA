@@ -4,7 +4,7 @@ using System.Collections; //SFX
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject Pause_Menu, PauseButton, Level, InfoButton, Shaft_with_spokes, InstructionScreen, LevelBackground;
+    public GameObject Pause_Menu, PauseButton, Level, InfoButton, Shaft_with_spokes, InstructionScreen, LevelBackground, ObjectDescription;
 
     public void Pause()
     {
@@ -18,14 +18,13 @@ public class PauseMenu : MonoBehaviour
         InfoButton.SetActive(false);
         Pause_Menu.SetActive(true);
         PauseButton.SetActive(false);
-
     }
 
     //SFX++
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.2f);
-        
+
     }
     //SFX--
 
@@ -34,7 +33,6 @@ public class PauseMenu : MonoBehaviour
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         audio.Play();
         StartCoroutine(Wait());
-
         Level.SetActive(true);
         if (Shaft_with_spokes)
             Shaft_with_spokes.SetActive(true);
@@ -48,7 +46,6 @@ public class PauseMenu : MonoBehaviour
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         audio.Play();
         StartCoroutine(WaitandQuit());
-
         /*Debug.Log("Game End in Build Mode");
         var levelManager = Level.GetComponent<LevelManager>();
         if (levelManager != null) levelManager.ResetLevel();
@@ -63,7 +60,6 @@ public class PauseMenu : MonoBehaviour
         var levelManager = Level.GetComponent<LevelManager>();
         if (levelManager != null) levelManager.ResetLevel();
         Application.Quit();
-
     }
     //SFX--
 
@@ -72,11 +68,10 @@ public class PauseMenu : MonoBehaviour
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         audio.Play();
         StartCoroutine(WaitandReplay());
-
-       /* Debug.Log("Replay");
-        var levelManager = Level.GetComponent<LevelManager>();
-        if (levelManager != null) levelManager.ResetLevel();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);*/
+        /* Debug.Log("Replay");
+         var levelManager = Level.GetComponent<LevelManager>();
+         if (levelManager != null) levelManager.ResetLevel();
+         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);*/
     }
 
     //SFX++
@@ -87,7 +82,6 @@ public class PauseMenu : MonoBehaviour
         var levelManager = Level.GetComponent<LevelManager>();
         if (levelManager != null) levelManager.ResetLevel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
     }
     //SFX--
 
@@ -104,7 +98,6 @@ public class PauseMenu : MonoBehaviour
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         audio.Play();
         StartCoroutine(Wait());
-
         Level.SetActive(false);
         if (Shaft_with_spokes)
             Shaft_with_spokes.SetActive(false);
@@ -114,6 +107,7 @@ public class PauseMenu : MonoBehaviour
         if (InstructionScreen)
         {
             InstructionScreen.SetActive(true);
+            ObjectDescription.SetActive(true);
             LevelBackground.SetActive(false);
         }
     }
@@ -132,9 +126,9 @@ public class PauseMenu : MonoBehaviour
         if (InstructionScreen)
         {
             InstructionScreen.SetActive(false);
+            ObjectDescription.SetActive(false);
             LevelBackground.SetActive(true);
         }
-
     }
 
     //SFX++
@@ -142,8 +136,6 @@ public class PauseMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-
     }
     //SFX--
-
 }
