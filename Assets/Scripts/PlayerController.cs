@@ -263,6 +263,14 @@ public class PlayerController : MonoBehaviour
             //Destroy Collectible after audio is played
             Destroy(other.gameObject, 0.3f);
 
+            Debug.Log("shaft now visible");
+
+            if (GameObject.Find("Shaft_with_spokes Variant"))
+            {
+                //GameObject.Find("Shaft_with_spokes Variant").transform.localScale = new Vector3(2.866783f, 4.944052f, 2.672022f);
+                GameObject.Find("Shaft_with_spokes Variant").transform.localScale = new Vector3(3.494286f, 4.494286f, 3.494286f);
+            }
+
             Debug.Log("rotation gear now visible");
 
             if (GameObject.Find("RotationGear"))

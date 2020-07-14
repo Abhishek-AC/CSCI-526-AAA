@@ -23,6 +23,10 @@ public class LevelOne : LevelManager
     
     // initial collectable presence
     private static readonly bool INITIAL_COLLECTABLE_PRESENCE = true;
+    // initial shaft scale
+    private static readonly Vector3 INITIAL_SHAFT_SCALE = new Vector3(0f, 0f, 0f);
+    // visible shaft scale
+    private static readonly Vector3 VISIBLE_SHAFT_SCALE = new Vector3(3.494286f, 4.494286f, 3.494286f);
     // initial player position - local coordinates relative to level1 object
     private static readonly float[] INITIAL_PLAYER_POSITION = new[] { 3.904987f, 0.533f, 0.700345f };
     // initial player rotation - local coordinates relative to level1 object
@@ -94,6 +98,10 @@ public class LevelOne : LevelManager
     {
         var collectable = GameObject.Find("Collectable");
         if (collectable != null) collectable.SetActive(IsCollectablePresent);
+        // set the interlocked shaft visibility
+        if (GameObject.Find("Shaft_with_spokes Variant") != null) 
+            GameObject.Find("Shaft_with_spokes Variant").transform.localScale =
+                IsCollectablePresent ? INITIAL_SHAFT_SCALE : VISIBLE_SHAFT_SCALE;
     }
 
     // set the level one rotation angle

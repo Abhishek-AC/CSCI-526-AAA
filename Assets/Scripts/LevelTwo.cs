@@ -10,6 +10,9 @@ public class LevelTwo : LevelManager
     {
         // the position of the player capsule
         public float[] PlayerPosition { get; set; }
+        
+        // the rotation of the player capsule
+        public float[] PlayerRotation { get; set; }
 
         // the rotation angle of the rotatable object
         public float RotateGameObjectRotationZValue { get; set; }
@@ -25,13 +28,24 @@ public class LevelTwo : LevelManager
 
     }
 
+    private static readonly bool INITIAL_CRYSTAL_PRESENCE = true;
     // invisible gear scale
     private static readonly Vector3 INVISIBLE_GEAR_SCALE = new Vector3(0f, 0f, 0f);
     // visible gear scale
     private static readonly Vector3 VISIBLE_GEAR_SCALE = new Vector3(1f, 1f, 1f);
+    // initial player position
+    private static readonly float[] INITIAL_PLAYER_POSITION = new[] { 0f, 1f, 2f };
+    // initial player rotation
+    private static readonly float[] INITIAL_PLAYER_ROTATION = new[] { 0f, 0f, 0f };
+    private static readonly float INITIAL_ROTATE_Z_VALUE = 0f;
+    private static readonly float INITIAL_FERRY_X_VALUE = -5f;
+    private static readonly float INITIAL_MAKEPATH_Y_VALUE = 9f;
 
     // the position of the player capsule
     public float[] PlayerPosition { get; set; }
+    
+    // the rotation of the player capsule
+    public float[] PlayerRotation { get; set; }
 
     // whether the crystal collectable is collected or not
     public bool IsCrystalPresent { get; set; }
@@ -51,6 +65,7 @@ public class LevelTwo : LevelManager
         get => new LevelTwoState()
         {
             PlayerPosition = PlayerPosition,
+            PlayerRotation = PlayerRotation,
             IsCrystalPresent = IsCrystalPresent,
             RotateGameObjectRotationZValue = RotateGameObjectRotationZValue,
             FerryGameObjectPositionXValue = FerryGameObjectPositionXValue,
@@ -81,20 +96,28 @@ public class LevelTwo : LevelManager
     // update the current game state
     void Update()
     {
-        GetPlayerPosition();
+        GetPlayerPositionAndRotation();
         GetCollectableBoolValue();
         GetFerryObject();
         GetMakePathCubeObject();
         GetRotateGameObject();
     }
 
-    // update the current player position
-    private void GetPlayerPosition()
+    // update the current player position and rotation
+    private void GetPlayerPositionAndRotation()
     {
-        PlayerPosition = new float[3];
-        PlayerPosition[0] = CapsulePlayer.transform.position.x;
-        PlayerPosition[1] = CapsulePlayer.transform.position.y;
-        PlayerPosition[2] = CapsulePlayer.transform.position.z;
+        PlayerPosition = new[]
+        {
+            CapsulePlayer.transform.position.x,
+            CapsulePlayer.transform.position.y,
+            CapsulePlayer.transform.position.z
+        };
+        PlayerRotation = new[]
+        {
+            CapsulePlayer.transform.eulerAngles.x,
+            CapsulePlayer.transform.eulerAngles.y,
+            CapsulePlayer.transform.eulerAngles.z
+        };
     }
 
     // update the state of the crystal collectable
@@ -128,11 +151,10 @@ public class LevelTwo : LevelManager
     private void SetFerryGameObject(float ferryGameObjectPositionXValue)
     {
         GameObject ferryObject = GameObject.Find("move");
-        Vector3 ferryPosition;
-        ferryPosition.x = ferryGameObjectPositionXValue;
-        ferryPosition.y = 0f;
-        ferryPosition.z = 1f;
-        ferryObject.transform.position = ferryPosition;
+        // remove the offending animations
+        if (GameObject.Find("move") != null && GameObject.Find("move").GetComponent<Animator>() != null)
+            Destroy(GameObject.Find("move").GetComponent<Animator>());
+        ferryObject.transform.position = new Vector3(ferryGameObjectPositionXValue, 0f, 1f);
     }
 
     // get the position of the obstacle/path block
@@ -146,11 +168,7 @@ public class LevelTwo : LevelManager
     private void SetMakePathGameObject(float makePathCubePositionYValue)
     {
         GameObject makePathObject = GameObject.Find("MakePath");
-        Vector3 makePathCoordinates;
-        makePathCoordinates.y = makePathCubePositionYValue;
-        makePathCoordinates.x = -1f;
-        makePathCoordinates.z = 6f;
-        makePathObject.transform.position = makePathCoordinates;
+        makePathObject.transform.position = new Vector3(-1f, makePathCubePositionYValue, 6f);
     }
 
     // get the rotation angle of the rotatable object
@@ -164,22 +182,15 @@ public class LevelTwo : LevelManager
     private void SetRotateGameObject(float rotateGameObjectRotationZValue)
     {
         GameObject rotateGameObject = GameObject.Find("Rotate");
-        Vector3 rotationAngles;
-        rotationAngles.z = rotateGameObjectRotationZValue;
-        rotationAngles.x = 0f;
-        rotationAngles.y = 0f;
-        rotateGameObject.transform.eulerAngles = rotationAngles;
+        rotateGameObject.transform.eulerAngles = new Vector3(0f, 0f, rotateGameObjectRotationZValue);
     }
 
     // set the position of the player
-    private void SetPlayerPosition(float[] playerPosition)
+    private void SetPlayerPositionAndRotation(float[] playerPosition, float[] playerRotation)
     {
         CapsulePlayer = GameObject.Find("Player");
-        Vector3 setCapsulePosition;
-        setCapsulePosition.x = playerPosition[0];
-        setCapsulePosition.y = playerPosition[1];
-        setCapsulePosition.z = playerPosition[2];
-        CapsulePlayer.transform.position = setCapsulePosition;
+        CapsulePlayer.transform.position = new Vector3(playerPosition[0], playerPosition[1], playerPosition[2]);
+        CapsulePlayer.transform.eulerAngles = new Vector3(playerRotation[0], playerRotation[1], playerRotation[2]);
     }
 
     // set the state of the game
@@ -189,25 +200,24 @@ public class LevelTwo : LevelManager
         SetFerryGameObject(state.FerryGameObjectPositionXValue);
         SetMakePathGameObject(state.MakePathCubePositionYValue);
         SetRotateGameObject(state.RotateGameObjectRotationZValue);
-        SetPlayerPosition(state.PlayerPosition);
+        SetPlayerPositionAndRotation(state.PlayerPosition, state.PlayerRotation);
     }
 
     private void InitialLevelState()
     {
-        IsCrystalPresent = true;
-        RotateGameObjectRotationZValue = 0f;
-        FerryGameObjectPositionXValue = -5f;
-        MakePathCubePositionYValue = 9f;
-        PlayerPosition = new float[] { 0f, 1f, 2f };
-        CapsulePlayer.transform.position = new Vector3(PlayerPosition[0], PlayerPosition[1], PlayerPosition[2]);
+        IsCrystalPresent = INITIAL_CRYSTAL_PRESENCE;
+        RotateGameObjectRotationZValue = INITIAL_ROTATE_Z_VALUE;
+        FerryGameObjectPositionXValue = INITIAL_FERRY_X_VALUE;
+        MakePathCubePositionYValue = INITIAL_MAKEPATH_Y_VALUE;
+        PlayerPosition = INITIAL_PLAYER_POSITION;
+        PlayerRotation = INITIAL_PLAYER_ROTATION;
         RotationGear.transform.localScale = INVISIBLE_GEAR_SCALE;
+        CapsulePlayer.transform.position = new Vector3(PlayerPosition[0], PlayerPosition[1], PlayerPosition[2]);
+        CapsulePlayer.transform.eulerAngles = new Vector3(PlayerRotation[0], PlayerRotation[1], PlayerRotation[2]);
     }
 
     // save the current game state to file
-    public override void SaveLevel()
-    {
-        SaveSystem.SaveLevelTwo(this);
-    }
+    public override void SaveLevel() => SaveSystem.SaveLevelTwo(this);
 
     // unused: load the game state from save file
     public override void LoadLevel()
