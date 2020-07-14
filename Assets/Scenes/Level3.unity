@@ -5437,7 +5437,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -6078,12 +6078,12 @@ Transform:
   - {fileID: 1719911414}
   - {fileID: 643402115}
   - {fileID: 328285390}
-  - {fileID: 1910086996}
   - {fileID: 1728955052}
   - {fileID: 839295233}
   - {fileID: 722635822}
   - {fileID: 608592203}
   - {fileID: 185625346}
+  - {fileID: 1910086996}
   - {fileID: 1984843224}
   - {fileID: 1758298657}
   m_Father: {fileID: 0}
@@ -14136,7 +14136,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 778794308}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1758298658
 AudioSource:
@@ -15821,7 +15821,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 778794308}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1984843225
 AudioSource:
