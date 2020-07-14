@@ -154,18 +154,29 @@ public class LevelThree : LevelManager
         var rotationKey = GameObject.Find("key");
         var rotationGearKey = GameObject.Find("RotationGear_Key");
         var rotationGearDestination = GameObject.Find("RotationGear_Destination");
+        var rotateKey = GameObject.Find("Rotate_Key");
+        var rotateDestination = GameObject.Find("Rotate_Destination");
 
-        // set the status of the crystal and the interlocked rotation gear
+        // set the status of the crystal, the interlocked rotation gear, and the animator on the rotate block
         if (crystalTwo != null) crystalTwo.SetActive(IsCrystalTwoPresent);
         if (rotationGearKey != null) rotationGearKey
                 .transform.localScale = IsCrystalTwoPresent ?
                 INVISIBLE_GEAR_SCALE : VISIBLE_GEAR_SCALE;
+        if (!IsCrystalTwoPresent &&
+            rotateKey != null &&
+            rotateKey.GetComponent<Animator>() != null)
+            Destroy(rotateKey.GetComponent<Animator>());
+        
 
-        // set the status of the rotation key and the interlocked rotation gear
+        // set the status of the rotation key and the interlocked rotation gear, and the animator on the rotate block
         if (rotationKey != null) rotationKey.SetActive(IsRotationKeyPresent);
         if (rotationGearDestination != null) rotationGearDestination
                 .transform.localScale = IsRotationKeyPresent ?
                 INVISIBLE_GEAR_SCALE : VISIBLE_GEAR_SCALE;
+        if (!IsRotationKeyPresent &&
+            rotateDestination != null &&
+            rotateDestination.GetComponent<Animator>() != null)
+            Destroy(rotateDestination.GetComponent<Animator>());
     }
 
     // set the angles of the rotate objects
