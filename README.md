@@ -4,6 +4,8 @@ Repository for CSCI-526 (Advanced Mobile Devices and Game Consoles) Summer Proje
 ### Game Description
 Elementally is a puzzle game inspired by M.C. Escher and the three elements of nature. This game is built on optical illusions and impossible constructions which challenge depth perception. The game contains three levels namely Fire, Water and Earth wherein the player should logically arrange isometric blocks in each level by solving the illusion to reach the destination and collect an element. Collect artificats in each level to reveal different mechanisms like rotation gears and sliding objects and falling blocks. The correct arrangement of blocks will pave a way to the destination to complete one level.
 
+![alt text](https://github.com/simranthomas/Mobile-Game-Elementally/blob/master/Game%20Levels.png)
+
 ### How to Play
 #### Moves
 - **Move Player -** Tap on a block to make the player move to that block.
